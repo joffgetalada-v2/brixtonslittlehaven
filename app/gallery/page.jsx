@@ -24,21 +24,18 @@ export default function GalleryPage() {
               A peek inside our haven
             </h1>
             <p className="mt-3 text-base text-white/70">
-              Real photos coming soon — these placeholder tiles will be replaced with pictures of our actual space and happy children.
+              Events, celebrations, and moments from our community — with more photos coming soon!
             </p>
           </FadeUp>
         </div>
       </section>
 
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <StaggerGrid className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 auto-rows-[180px]">
+        <StaggerGrid className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 auto-rows-[200px]">
           {galleryImages.map((img, i) => (
             <StaggerItem
               key={img.id}
-              className={`${
-                // Make every 5th image span 2 cols for visual variety
-                (i === 2 || i === 7) ? 'col-span-2' : ''
-              }`}
+              className={i === 0 || i === 4 ? 'col-span-2 row-span-2' : ''}
             >
               <PlaceholderImage
                 src={img.src}

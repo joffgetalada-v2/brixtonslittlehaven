@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { business, pillars, programs } from '@/content/site';
+import { business, pillars, programs, events, communityImages } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HeroBlobs, HoverButton } from '@/components/motion';
 import ProgramCard from '@/components/ProgramCard';
-import LogoImage from '@/components/LogoImage';
 
 export const metadata = {
   title: "Safe Indoor Childcare & Learning Center in Lapu-Lapu City",
@@ -86,24 +85,32 @@ export default function HomePage() {
               </FadeUp>
             </div>
 
-            {/* Hero visual */}
-            <FadeUp delay={0.2} className="w-full max-w-sm lg:max-w-md xl:max-w-lg shrink-0">
-              <div className="relative mx-auto aspect-square w-64 sm:w-80 lg:w-full">
-                {/* Decorative rings */}
-                <div className="absolute inset-4 rounded-full border-4 border-dashed border-coral/20 animate-spin" style={{ animationDuration: '30s' }} aria-hidden="true" />
-                <div className="absolute inset-8 rounded-full border-2 border-dashed border-sky-300/30 animate-spin" style={{ animationDuration: '20s', animationDirection: 'reverse' }} aria-hidden="true" />
-                {/* Logo */}
-                <div className="absolute inset-12 flex items-center justify-center">
-                  <LogoImage width={200} height={200} priority className="drop-shadow-xl" />
+            {/* Hero visual — large logo with decorative rings */}
+            <FadeUp delay={0.2} className="w-full max-w-md lg:max-w-lg xl:max-w-xl shrink-0">
+              <div className="relative mx-auto aspect-square w-80 sm:w-96 lg:w-full">
+                {/* Outer ring */}
+                <div className="absolute inset-0 rounded-full border-4 border-dashed border-coral/25 animate-spin" style={{ animationDuration: '30s' }} aria-hidden="true" />
+                {/* Inner ring */}
+                <div className="absolute inset-5 rounded-full border-2 border-dashed border-sky-300/35 animate-spin" style={{ animationDuration: '20s', animationDirection: 'reverse' }} aria-hidden="true" />
+                {/* Logo fills the inner circle */}
+                <div className="absolute inset-10 rounded-full overflow-hidden shadow-2xl">
+                  <Image
+                    src={business.logo}
+                    alt={business.logoAlt}
+                    fill
+                    sizes="(max-width: 640px) 240px, (max-width: 1024px) 312px, 420px"
+                    className="object-cover"
+                    priority
+                  />
                 </div>
                 {/* Accent dots */}
                 {[
-                  { color: 'bg-coral', top: '10%', left: '0%' },
-                  { color: 'bg-amber-400', top: '0%', right: '15%' },
-                  { color: 'bg-green-400', bottom: '10%', right: '0%' },
-                  { color: 'bg-sky-400', bottom: '0%', left: '15%' },
+                  { color: 'bg-coral',      top: '8%',    left: '2%'  },
+                  { color: 'bg-amber-400',  top: '2%',    right: '18%'},
+                  { color: 'bg-green-400',  bottom: '8%', right: '2%' },
+                  { color: 'bg-sky-400',    bottom: '2%', left: '18%' },
                 ].map((dot, i) => (
-                  <span key={i} className={`absolute h-4 w-4 rounded-full ${dot.color} shadow-sm`} style={{ top: dot.top, left: dot.left, right: dot.right, bottom: dot.bottom }} aria-hidden="true" />
+                  <span key={i} className={`absolute h-5 w-5 rounded-full ${dot.color} shadow-md`} style={{ top: dot.top, left: dot.left, right: dot.right, bottom: dot.bottom }} aria-hidden="true" />
                 ))}
               </div>
             </FadeUp>
@@ -229,7 +236,7 @@ export default function HomePage() {
               <div className="relative mx-auto max-w-sm lg:max-w-none">
                 <div className="overflow-hidden rounded-3xl shadow-lg">
                   <Image
-                    src="/flyer.png"
+                    src="/images/flyer.png"
                     alt="Brixton's Little Haven programs and services overview"
                     width={1016}
                     height={387}
@@ -354,6 +361,85 @@ export default function HomePage() {
               </div>
             </FadeUp>
           </div>
+        </div>
+      </section>
+
+      {/* ── What's Happening ─────────────────────────────────── */}
+      <section className="bg-amber-50 py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <FadeUp className="mb-2 text-center">
+            <span className="rounded-full bg-amber-100 px-4 py-1 text-sm font-bold text-amber-700">
+              📣 What's Happening
+            </span>
+          </FadeUp>
+          <FadeUp delay={0.1} className="mb-10 text-center">
+            <h2 className="text-3xl font-bold text-navy sm:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
+              Events & Announcements
+            </h2>
+            <p className="mt-2 text-navy/60">Stay up to date with what's on at Brixton's Little Haven.</p>
+          </FadeUp>
+
+          <StaggerGrid className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {events.map((ev) => (
+              <StaggerItem key={ev.id}>
+                <div className="overflow-hidden rounded-2xl shadow-sm bg-white group">
+                  <div className="relative aspect-square w-full overflow-hidden">
+                    <Image
+                      src={ev.src}
+                      alt={ev.alt}
+                      fill
+                      sizes="(max-width: 640px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <p className="px-3 py-2 text-xs font-semibold text-navy/70 text-center">{ev.label}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerGrid>
+        </div>
+      </section>
+
+      {/* ── Community Love ───────────────────────────────────── */}
+      <section className="bg-cream py-16">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <FadeUp className="mb-2 text-center">
+            <span className="rounded-full bg-rose-100 px-4 py-1 text-sm font-bold text-rose-600">
+              💛 Our Community
+            </span>
+          </FadeUp>
+          <FadeUp delay={0.1} className="mb-10 text-center">
+            <h2 className="text-3xl font-bold text-navy sm:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
+              Families Who Brighten Our Day
+            </h2>
+            <p className="mt-2 text-navy/60">
+              We are so grateful for the kindness and generosity of our Little Haven families. ❤️
+            </p>
+          </FadeUp>
+
+          <StaggerGrid className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            {communityImages.map((img) => (
+              <StaggerItem key={img.id}>
+                <div className="group overflow-hidden rounded-2xl shadow-sm bg-white">
+                  <div className="relative aspect-square w-full overflow-hidden">
+                    <Image
+                      src={img.src}
+                      alt={img.alt}
+                      fill
+                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerGrid>
+
+          <FadeUp delay={0.2} className="mt-8 text-center">
+            <p className="text-sm text-navy/50 italic">
+              Thank you for trusting us with your little ones. 🙏
+            </p>
+          </FadeUp>
         </div>
       </section>
     </>

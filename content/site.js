@@ -230,19 +230,62 @@ export const faqs = [
   },
 ];
 
+// ── Events / Announcements ────────────────────────────────
+// Shown in the "What's Happening" section on the homepage.
+// To add more: drop the image in public/images/events/ and add an entry here.
+export const events = [
+  {
+    id: 'summer-vacation',
+    src: '/images/events/summer-vacation.jpg',
+    alt: 'Summer Vacation Notice — Brixton\'s Little Haven closed until June 6',
+    label: 'Summer Vacation Notice',
+  },
+  {
+    id: 'little-chefs',
+    src: '/images/events/little-chefs.jpg',
+    alt: 'Little Chefs Festival — A Mommy & Me Event on May 9, 2026',
+    label: 'Little Chefs Festival',
+  },
+  {
+    id: 'mothers-day',
+    src: '/images/events/happy-mothers-day.jpg',
+    alt: "Happy Mother's Day from Brixton's Little Haven",
+    label: "Mother's Day",
+  },
+  {
+    id: 'holiday-closure',
+    src: '/images/events/holiday-closure.jpg',
+    alt: 'Holiday Closure Announcement — Labor Day long weekend',
+    label: 'Holiday Closure',
+  },
+];
+
+// ── Community Love ────────────────────────────────────────
+// Shown in the "Families Who Brighten Our Day" section on the homepage.
+// To add more: drop the image in public/images/community/ and add an entry here.
+export const communityImages = [
+  { id: 'ty-pizza',  src: '/images/community/thank-you-pizza.jpg',       alt: "Thank you from Tobi's parents — Greenwich pizza treat" },
+  { id: 'ty-cake',   src: '/images/community/thank-you-cake.jpg',        alt: "Thank you from Zuriell's mom — Goldilocks egg pie" },
+  { id: 'ty-sweets', src: '/images/community/thank-you-sweets.jpg',      alt: "Thank you from Hope's mom — sweet treats" },
+  { id: 'ty-butter', src: '/images/community/thank-you-butter.jpg',      alt: "Thank you from JJ's mom — Goldilocks butter macaroons" },
+  { id: 'ty-choc',   src: '/images/community/thank-you-chocolates.jpg',  alt: 'Thank you gift — chocolates from a Brixton\'s family' },
+  { id: 'ty-pizza2', src: '/images/community/thank-you-pizza1.jpg',      alt: 'Thank you pizza treat from a Brixton\'s Little Haven family' },
+];
+
 // ── Gallery images ────────────────────────────────────────
-// Set src to the file path once real photos are added (e.g. '/gallery/kids-playing.jpg').
-// Leave src as null to show a branded placeholder tile.
+// Mix of real event photos and placeholder tiles.
+// Add more real photos to public/images/events/ or public/images/community/
+// and reference them here. Leave src: null for placeholder gradient tiles.
 export const galleryImages = [
-  { id: 'g1', src: null, alt: "Children doing arts and crafts", label: 'Arts & Crafts' },
-  { id: 'g2', src: null, alt: "Sensory play area", label: 'Sensory Play' },
-  { id: 'g3', src: null, alt: "Music and movement session", label: 'Music & Movement' },
-  { id: 'g4', src: null, alt: "Reading and storytelling circle", label: 'Story Time' },
-  { id: 'g5', src: null, alt: "Outdoor exploration activity", label: 'Outdoor Explore' },
-  { id: 'g6', src: null, alt: "Academic tutorial session", label: 'Tutorials' },
-  { id: 'g7', src: null, alt: "Children playing together", label: 'Free Play' },
-  { id: 'g8', src: null, alt: "Indoor play space overview", label: 'Our Space' },
-  { id: 'g9', src: null, alt: "ESL class in session", label: 'ESL Class' },
+  { id: 'g-chefs',    src: '/images/events/little-chefs.jpg',        alt: 'Little Chefs Festival — Mommy & Me event',         label: 'Little Chefs Festival' },
+  { id: 'g-mday',     src: '/images/events/happy-mothers-day.jpg',   alt: "Happy Mother's Day celebration",                    label: "Mother's Day" },
+  { id: 'g-summer',   src: '/images/events/summer-vacation.jpg',     alt: 'Summer Vacation Notice',                           label: 'Announcements' },
+  { id: 'g-holiday',  src: '/images/events/holiday-closure.jpg',     alt: 'Holiday Closure Announcement',                     label: 'Announcements' },
+  { id: 'g-ty1',      src: '/images/community/thank-you-pizza.jpg',  alt: 'Community appreciation — pizza from Tobi\'s family', label: 'Community Love' },
+  { id: 'g-ty2',      src: '/images/community/thank-you-cake.jpg',   alt: 'Community appreciation — egg pie gift',            label: 'Community Love' },
+  { id: 'g-ty3',      src: '/images/community/thank-you-sweets.jpg', alt: 'Community appreciation — sweet treats',            label: 'Community Love' },
+  { id: 'g-ty4',      src: '/images/community/thank-you-butter.jpg', alt: 'Community appreciation — macaroon gift',           label: 'Community Love' },
+  { id: 'g-more1',    src: null, alt: 'More photos coming soon',                                                              label: 'Coming Soon' },
 ];
 
 // ── Nav links ─────────────────────────────────────────────

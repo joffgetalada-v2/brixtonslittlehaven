@@ -127,7 +127,7 @@ export default function AboutPage() {
           <FadeUp delay={0.2}>
             <div className="overflow-hidden rounded-3xl shadow-md">
               <Image
-                src="/flyer.png"
+                src="/images/flyer.png"
                 alt="Brixton's Little Haven — programs and care overview flyer"
                 width={1016}
                 height={387}
