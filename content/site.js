@@ -273,19 +273,54 @@ export const communityImages = [
 ];
 
 // ── Gallery images ────────────────────────────────────────
-// Mix of real event photos and placeholder tiles.
-// Add more real photos to public/images/events/ or public/images/community/
-// and reference them here. Leave src: null for placeholder gradient tiles.
+// Grouped by category for the Gallery page.
+// To add photos: drop the file in the matching public/images/kids/ subfolder
+// and add one entry here. Leave src: null for placeholder tiles.
 export const galleryImages = [
-  { id: 'g-chefs',    src: '/images/events/little-chefs.jpg',        alt: 'Little Chefs Festival — Mommy & Me event',         label: 'Little Chefs Festival' },
-  { id: 'g-mday',     src: '/images/events/happy-mothers-day.jpg',   alt: "Happy Mother's Day celebration",                    label: "Mother's Day" },
-  { id: 'g-summer',   src: '/images/events/summer-vacation.jpg',     alt: 'Summer Vacation Notice',                           label: 'Announcements' },
-  { id: 'g-holiday',  src: '/images/events/holiday-closure.jpg',     alt: 'Holiday Closure Announcement',                     label: 'Announcements' },
-  { id: 'g-ty1',      src: '/images/community/thank-you-pizza.jpg',  alt: 'Community appreciation — pizza from Tobi\'s family', label: 'Community Love' },
-  { id: 'g-ty2',      src: '/images/community/thank-you-cake.jpg',   alt: 'Community appreciation — egg pie gift',            label: 'Community Love' },
-  { id: 'g-ty3',      src: '/images/community/thank-you-sweets.jpg', alt: 'Community appreciation — sweet treats',            label: 'Community Love' },
-  { id: 'g-ty4',      src: '/images/community/thank-you-butter.jpg', alt: 'Community appreciation — macaroon gift',           label: 'Community Love' },
-  { id: 'g-more1',    src: null, alt: 'More photos coming soon',                                                              label: 'Coming Soon' },
+  // ── Playgroup & Play ───────────────────────────────────
+  { id: 'pg-1', src: '/images/kids/playgroup/baby-girl3.jpg',    alt: 'Girl proudly showing her colourful bead necklace',        label: 'Playgroup' },
+  { id: 'pg-2', src: '/images/kids/playgroup/babies.jpg',         alt: 'Kids doing a group fishing puzzle activity',              label: 'Playgroup' },
+  { id: 'pg-3', src: '/images/kids/playgroup/baby-chefs.jpg',     alt: 'Toddlers in chef hats exploring vegetables',             label: 'Playgroup' },
+  { id: 'pg-4', src: '/images/kids/playgroup/baby-girl4.jpg',     alt: 'Toddler girl doing sensory play with water beads',       label: 'Sensory Play' },
+  { id: 'pg-5', src: '/images/kids/playgroup/baby-girl5.jpg',     alt: 'Two girls playing with colourful balls',                 label: 'Gross Motor' },
+  { id: 'pg-6', src: '/images/kids/playgroup/baby-girl-boy1.jpg', alt: 'Boy and girl in uniform doing a movement floor activity', label: 'Playgroup' },
+
+  // ── Arts & Crafts ─────────────────────────────────────
+  { id: 'art-1', src: '/images/kids/arts/baby-painting1.jpg', alt: 'Boy painting on the play fence inside the classroom',  label: 'Arts & Crafts' },
+  { id: 'art-2', src: '/images/kids/arts/baby-painting2.jpg', alt: 'Child showing purple paint-covered hands proudly',      label: 'Arts & Crafts' },
+  { id: 'art-3', src: '/images/kids/arts/baby-painting3.jpg', alt: 'Girl with green hands after Easter painting session',   label: 'Arts & Crafts' },
+  { id: 'art-4', src: '/images/kids/arts/baby-girl2.jpg',     alt: 'Girl doing crafts; group finger-painting session',      label: 'Arts & Crafts' },
+  { id: 'art-5', src: '/images/kids/arts/baby-boy6.jpg',      alt: 'Kids colouring an Easter egg together with a teacher',  label: 'Arts & Crafts' },
+
+  // ── Learning & Tutorials ───────────────────────────────
+  { id: 'lrn-1', src: '/images/kids/learning/baby-girl1.jpg', alt: 'Girl pointing at the alphabet wall display',                label: 'Learning' },
+  { id: 'lrn-2', src: '/images/kids/learning/baby-boy1.jpg',  alt: 'Boy focused on an alphabet matching worksheet',             label: 'Tutorials' },
+  { id: 'lrn-3', src: '/images/kids/learning/baby-boy2.jpg',  alt: 'Older boy explaining a pictograph lesson at the board',    label: 'Tutorials' },
+  { id: 'lrn-4', src: '/images/kids/learning/baby-boy3.jpg',  alt: 'Boy posing happily beside a science worksheet',            label: 'Tutorials' },
+  { id: 'lrn-5', src: '/images/kids/learning/baby-boy4.jpg',  alt: 'Boy working on a Solid, Liquid & Gas worksheet',           label: 'Tutorials' },
+  { id: 'lrn-6', src: '/images/kids/learning/baby-boy5.jpg',  alt: 'Little boy holding a "Little Helpers: Medicine Delivery" role-play sign', label: 'Role Play' },
+
+  // ── Events ────────────────────────────────────────────
+  { id: 'ev-1', src: '/images/events/little-chefs.jpg',      alt: 'Little Chefs Festival — Mommy & Me event poster', label: 'Events' },
+  { id: 'ev-2', src: '/images/events/happy-mothers-day.jpg', alt: "Happy Mother's Day greeting from Brixton's",       label: 'Events' },
+];
+
+// ── Hero photo strip (homepage) ───────────────────────────
+// 3 joyful kid photos shown between the hero and the pillars.
+// Swap any src here to change which photos appear in that strip.
+export const heroStrip = [
+  { id: 'hs-1', src: '/images/kids/playgroup/baby-girl3.jpg',  alt: 'Child proudly showing her colourful bead necklace' },
+  { id: 'hs-2', src: '/images/kids/arts/baby-painting2.jpg',   alt: 'Child showing paint-covered hands after a fun art session' },
+  { id: 'hs-3', src: '/images/kids/playgroup/baby-chefs.jpg',  alt: 'Toddlers in chef hats exploring food in a cooking activity' },
+];
+
+// ── About-page space photos ───────────────────────────────
+// 4 photos shown in the safety/space grid on the About page.
+export const spacePhotos = [
+  { id: 'sp-1', src: '/images/kids/playgroup/babies.jpg',        alt: 'Kids doing a group activity in the play area' },
+  { id: 'sp-2', src: '/images/kids/arts/baby-painting1.jpg',     alt: 'Child painting on the play fence — arts corner' },
+  { id: 'sp-3', src: '/images/kids/playgroup/baby-girl4.jpg',    alt: 'Toddler enjoying sensory play' },
+  { id: 'sp-4', src: '/images/kids/learning/baby-girl1.jpg',     alt: 'Girl learning the alphabet on the reading wall' },
 ];
 
 // ── Nav links ─────────────────────────────────────────────

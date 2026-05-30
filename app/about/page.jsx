@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { business, pillars } from '@/content/site';
+import { business, pillars, spacePhotos } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/motion';
 
 export const metadata = {
@@ -125,15 +125,18 @@ export default function AboutPage() {
           </FadeUp>
 
           <FadeUp delay={0.2}>
-            <div className="overflow-hidden rounded-3xl shadow-md">
-              <Image
-                src="/images/flyer.png"
-                alt="Brixton's Little Haven — programs and care overview flyer"
-                width={1016}
-                height={387}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 480px"
-                className="w-full object-cover"
-              />
+            <div className="grid grid-cols-2 gap-3">
+              {spacePhotos.map((photo) => (
+                <div key={photo.id} className="group relative aspect-square overflow-hidden rounded-2xl shadow-sm">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 640px) 45vw, 220px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              ))}
             </div>
           </FadeUp>
         </section>

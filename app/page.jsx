@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { business, pillars, programs, events, communityImages } from '@/content/site';
+import { business, pillars, programs, events, communityImages, heroStrip } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HeroBlobs, HoverButton } from '@/components/motion';
 import ProgramCard from '@/components/ProgramCard';
 
@@ -115,6 +115,38 @@ export default function HomePage() {
               </div>
             </FadeUp>
           </div>
+        </div>
+      </section>
+
+      {/* ── Kids in Action strip ─────────────────────────────── */}
+      <section className="bg-gradient-to-b from-orange-50 to-cream py-10">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <FadeUp className="mb-6 text-center">
+            <p className="text-sm font-bold uppercase tracking-widest text-coral/70">Life at Brixton's</p>
+            <h2 className="text-2xl font-bold text-navy sm:text-3xl" style={{ fontFamily: 'var(--font-heading)' }}>
+              Kids learning, playing, and growing every day
+            </h2>
+          </FadeUp>
+          <StaggerGrid className="grid grid-cols-3 gap-3 sm:gap-5">
+            {heroStrip.map((photo) => (
+              <StaggerItem key={photo.id}>
+                <div className="group relative aspect-[3/4] overflow-hidden rounded-3xl shadow-md">
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 640px) 33vw, (max-width: 1024px) 30vw, 320px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerGrid>
+          <FadeUp delay={0.2} className="mt-6 text-center">
+            <Link href="/gallery" className="text-sm font-semibold text-coral hover:underline underline-offset-4 transition">
+              See more in the Gallery →
+            </Link>
+          </FadeUp>
         </div>
       </section>
 
