@@ -6,7 +6,7 @@
 export const business = {
   name: "Brixton's Little Haven",
   tagline: "Learn • Play • Grow • Shine",
-  logo: '/logo.svg',         // Change to '/logo.png' once the real circular logo is placed at public/logo.png
+  logo: '/logo.jpg',         // Circular colorful logo — replace with '/logo.png' if you re-export as PNG
   logoAlt: "Brixton's Little Haven logo",
 
   // ── Contact ─────────────────────────────────────────────

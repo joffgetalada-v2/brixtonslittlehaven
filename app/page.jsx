@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { business, pillars, programs } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HeroBlobs, HoverButton } from '@/components/motion';
 import ProgramCard from '@/components/ProgramCard';
@@ -223,17 +224,18 @@ export default function HomePage() {
               </StaggerGrid>
             </div>
 
-            {/* Visual side */}
+            {/* Visual side — real flyer */}
             <FadeUp delay={0.2}>
               <div className="relative mx-auto max-w-sm lg:max-w-none">
-                <div className="grid grid-cols-2 gap-3">
-                  {['🎨', '📚', '🎵', '🌿'].map((emoji, i) => (
-                    <div key={i} className={`flex h-36 items-center justify-center rounded-3xl text-5xl shadow-sm ${
-                      ['bg-rose-100','bg-sky-100','bg-amber-100','bg-green-100'][i]
-                    }`}>
-                      {emoji}
-                    </div>
-                  ))}
+                <div className="overflow-hidden rounded-3xl shadow-lg">
+                  <Image
+                    src="/flyer.png"
+                    alt="Brixton's Little Haven programs and services overview"
+                    width={1016}
+                    height={387}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 480px"
+                    className="w-full object-cover"
+                  />
                 </div>
                 <div className="absolute -bottom-4 -right-4 rounded-2xl bg-navy px-4 py-3 text-white shadow-lg">
                   <p className="text-xs text-white/70">Ages served</p>

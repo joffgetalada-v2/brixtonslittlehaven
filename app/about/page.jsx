@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { business, pillars } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/motion';
 
@@ -124,14 +125,15 @@ export default function AboutPage() {
           </FadeUp>
 
           <FadeUp delay={0.2}>
-            <div className="grid grid-cols-2 gap-3">
-              {['🔒', '🧹', '👀', '🩺'].map((emoji, i) => (
-                <div key={i} className={`flex h-36 items-center justify-center rounded-3xl text-5xl shadow-sm ${
-                  ['bg-sky-50','bg-green-50','bg-amber-50','bg-rose-50'][i]
-                }`}>
-                  {emoji}
-                </div>
-              ))}
+            <div className="overflow-hidden rounded-3xl shadow-md">
+              <Image
+                src="/flyer.png"
+                alt="Brixton's Little Haven — programs and care overview flyer"
+                width={1016}
+                height={387}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 480px"
+                className="w-full object-cover"
+              />
             </div>
           </FadeUp>
         </section>
