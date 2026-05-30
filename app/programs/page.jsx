@@ -4,18 +4,46 @@ import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/moti
 import ProgramCard from '@/components/ProgramCard';
 
 export const metadata = {
-  title: 'Programs',
+  title: "Programs & Services | Playgroup, Childcare & Tutorials — Brixton's Little Haven",
   description:
-    'Explore all 7 programs at Brixton\'s Little Haven — from playgroup and integrated care to academic tutorials and ESL classes for ages 12 months to adults.',
+    "Explore 7 programs: Playgroup (12 mo–6 yrs), Integrated Care (up to 12 hrs/day), Drop-In Care, Academic Tutorials, Play+Learn School Readiness, Combo Package, and ESL Classes. Lapu-Lapu City.",
   alternates: { canonical: '/programs' },
+  openGraph: {
+    title: "Programs — Brixton's Little Haven",
+    description: "7 programs for every child: playgroup, full-day care, academic tutorials, and ESL classes. Ages 12 months to adults.",
+  },
 };
 
-const carePrograms = programs.filter((p) => p.category === 'Care');
+const carePrograms     = programs.filter((p) => p.category === 'Care');
 const learningPrograms = programs.filter((p) => p.category === 'Learning & Enrichment');
+
+// Schema: ItemList of services
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: "Programs at Brixton's Little Haven",
+  description: 'Childcare, playgroup, and learning programs in Lapu-Lapu City, Philippines.',
+  numberOfItems: programs.length,
+  itemListElement: programs.map((p, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Service',
+      name: p.title,
+      description: p.summary,
+      provider: { '@type': 'LocalBusiness', name: business.name },
+    },
+  })),
+};
 
 export default function ProgramsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+      />
+
       {/* Page hero */}
       <section className="bg-gradient-to-b from-navy to-navy/90 py-16 text-center text-white">
         <div className="mx-auto max-w-3xl px-4">

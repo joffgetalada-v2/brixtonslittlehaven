@@ -329,6 +329,7 @@ export const navLinks = [
   { label: 'Programs', href: '/programs' },
   { label: 'Our Space', href: '/about' },
   { label: 'Gallery', href: '/gallery' },
+  { label: 'Blog', href: '/blog' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ];

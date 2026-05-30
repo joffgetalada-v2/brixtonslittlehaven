@@ -5,10 +5,14 @@ import { FadeUp, StaggerGrid, StaggerItem, HeroBlobs, HoverButton } from '@/comp
 import ProgramCard from '@/components/ProgramCard';
 
 export const metadata = {
-  title: "Safe Indoor Childcare & Learning Center in Lapu-Lapu City",
+  title: "Brixton's Little Haven | Indoor Playgroup & Childcare in Lapu-Lapu City",
   description:
-    "Brixton's Little Haven — safe indoor playgroup, flexible childcare, and academic tutorials for children ages 12 months to 15 years in Basak, Lapu-Lapu City.",
+    "Safe indoor playgroup, flexible childcare, and academic tutorials for kids aged 12 months to 15 years — beside Gaisano Grand Mall, Basak, Lapu-Lapu City. Book a FREE trial today!",
   alternates: { canonical: '/' },
+  openGraph: {
+    title: "Brixton's Little Haven | Learn • Play • Grow • Shine",
+    description: "Safe indoor playgroup & childcare beside Gaisano Grand Mall, Basak, Lapu-Lapu City. Free trial available!",
+  },
 };
 
 const featured = programs.filter((p) => p.featured).slice(0, 4);

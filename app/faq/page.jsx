@@ -4,15 +4,41 @@ import { FadeUp, HoverButton } from '@/components/motion';
 import FaqAccordion from '@/components/FaqAccordion';
 
 export const metadata = {
-  title: 'FAQ',
+  title: "FAQ | Childcare & Enrollment Questions — Brixton's Little Haven Lapu-Lapu City",
   description:
-    "Common questions about Brixton's Little Haven — ages, hours, enrollment, flexible care, and more.",
+    "Answers to common parent questions about Brixton's Little Haven: what ages we accept, our hours, where we're located, how to enrol, drop-in care, and more. Basak, Lapu-Lapu City.",
   alternates: { canonical: '/faq' },
+  openGraph: {
+    title: "FAQ — Brixton's Little Haven",
+    description: "Everything parents ask before enrolling: ages, hours, location, enrollment, drop-in care, and more.",
+  },
 };
 
+// FAQPage schema — enables Google rich results (expandable Q&A in search)
+function buildFaqSchema(faqList) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqList
+      .filter((f) => !f.answer.startsWith('[PLACEHOLDER'))
+      .map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+  };
+}
+
 export default function FaqPage() {
+  const jsonLd = buildFaqSchema(faqs);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
+      />
+
       {/* Hero */}
       <section className="bg-gradient-to-b from-navy to-navy/90 py-16 text-center text-white">
         <div className="mx-auto max-w-3xl px-4">
@@ -37,7 +63,6 @@ export default function FaqPage() {
           </div>
         </FadeUp>
 
-        {/* Didn't find answer */}
         <FadeUp delay={0.2}>
           <div className="mt-10 rounded-3xl bg-coral/5 border-2 border-coral/20 p-8 text-center">
             <p className="text-2xl">💬</p>

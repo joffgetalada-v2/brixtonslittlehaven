@@ -3,10 +3,14 @@ import { FadeUp } from '@/components/motion';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = {
-  title: 'Contact & Book a Free Trial',
+  title: "Contact & Book a Free Trial | Brixton's Little Haven — Basak, Lapu-Lapu City",
   description:
-    "Get in touch with Brixton's Little Haven. Call, email, message on Facebook, or use our contact form to schedule an assessment and free trial session.",
+    "Book a free assessment and trial session at Brixton's Little Haven. Call 0999 807 4755, message us on Facebook, or fill out our form. Open Mon–Sat, 8:00 AM–7:00 PM. Beside Gaisano Grand Mall.",
   alternates: { canonical: '/contact' },
+  openGraph: {
+    title: "Contact Us — Brixton's Little Haven",
+    description: "Call, email, or message us on Facebook to schedule your child's FREE assessment. Basak, Lapu-Lapu City.",
+  },
 };
 
 const contactInfo = [

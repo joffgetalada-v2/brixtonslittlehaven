@@ -96,10 +96,13 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 border-t border-white/10 pt-6 flex flex-col items-center gap-2 text-center sm:flex-row sm:justify-between">
+        <div className="mt-10 border-t border-white/10 pt-6 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-between">
           <p className="text-xs text-white/40">
             © {year} Brixton's Little Haven. All rights reserved.
           </p>
+          <Link href="/privacy-policy" className="text-xs text-white/40 hover:text-white/70 transition">
+            Privacy Policy
+          </Link>
           <p className="text-xs text-white/40">
             Basak, Lapu-Lapu City, Philippines
           </p>

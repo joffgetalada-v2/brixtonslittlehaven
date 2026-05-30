@@ -4,10 +4,14 @@ import { business, pillars, spacePhotos } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/motion';
 
 export const metadata = {
-  title: 'Our Space',
+  title: "Our Space & Story | Safe Indoor Learning Center — Brixton's Little Haven",
   description:
-    "Discover Brixton's Little Haven — a safe, structured indoor space in Lapu-Lapu City built around three pillars: safety, routine, and child development.",
+    "Step inside Brixton's Little Haven in Basak, Lapu-Lapu City — a clean, secure indoor space with a dedicated play area, arts corner, learning room, and rest area. Built on Safety, Structure, and Growth.",
   alternates: { canonical: '/about' },
+  openGraph: {
+    title: "Our Space — Brixton's Little Haven",
+    description: "A safe, structured indoor environment for children in Lapu-Lapu City, Philippines.",
+  },
 };
 
 const spaceFeatures = [

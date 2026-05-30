@@ -4,10 +4,14 @@ import { galleryImages } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/motion';
 
 export const metadata = {
-  title: 'Gallery',
+  title: "Photo Gallery | Kids Learning & Playing — Brixton's Little Haven Lapu-Lapu City",
   description:
-    "See real moments from Brixton's Little Haven — kids learning, playing, painting, and growing together in Lapu-Lapu City.",
+    "Browse real moments from Brixton's Little Haven: playgroup sessions, arts & crafts, academic tutorials, sensory play, and community events in Basak, Lapu-Lapu City.",
   alternates: { canonical: '/gallery' },
+  openGraph: {
+    title: "Gallery — Brixton's Little Haven",
+    description: "Real moments: kids learning, painting, playing, and growing at our indoor center in Lapu-Lapu City.",
+  },
 };
 
 // Group images by label for the categorised display
