@@ -56,3 +56,16 @@ Branch: `feature/scroll-world-redesign`. Git is the canonical revert layer; this
 - **Seam QA (headless Chrome, range-less server):** all 11 clips blob-loaded; at every one of the 10 seams the outgoing clip sits at its final frames and the incoming starts at ~0 — currentTime tracks scroll exactly; zero console errors. Reduced-motion falls back to stills (0 videos, 11 stills). Mobile emulation serves the `-m.mp4` variants. Seam screenshots SSIM 0.62–0.95; the low scores are copy-overlay fades + connector convergence inside the crossfade band, no structural pops (eyeballed s4 and s10).
 - Preview: `scratchpad/scrollworld/preview/` (index.html + serve.js). Assets move to `/public` in Phase 4 after Checkpoint C.
 → **Checkpoint C: awaiting user review of the raw flight before wiring into the site.**
+
+---
+
+## Phase 4 — Hero wired into the homepage (2026-07-12) — Checkpoint C approved
+
+- Assets: 22 clips + 6 WebP posters (122-158 KB each) → `public/scrollworld/` (~103 MB, commit `3d1aec3`). Engine vendored to `components/scrollworld/scrub-engine.js`.
+- **Two local engine patches** (documented inline): (1) *track-offset anchoring* — engine assumed the world starts at scrollY 0, but the sticky site header puts it at ~68px, so all segment math now anchors to the track's document offset; (2) *exit-fade* — engine UI is position:fixed and (standalone) never yields; now the whole overlay dissolves over 0.7vh as the visitor scrolls past the last segment, handing the page below over cleanly.
+- `ScrollWorldHero.jsx` ('use client'): approved engine config; SSR fallback = priority poster + first-scene copy inside an exactly-reserved 13.9×100vh container (zero CLS — measured hero height 11,120px == reserved); engine replaces fallback on mount; React 19 dev double-effect guard. Engine topbar suppressed (site Header stays); route rail, per-scene copy, finale CTA remain.
+- `layout.jsx`: next/font migration (Fredoka + Nunito self-hosted, variables wired to @theme); Google Fonts <link>/preconnects removed. Verified: zero fonts.g* requests.
+- `globals.css`: Checkpoint A token palette + radius/shadow system + `.sw-root` hero theme.
+- `page.jsx`: old hero (logo-in-rings) replaced by `<ScrollWorldHero />` + "No Yaya? We've got you." intro band (original copy preserved verbatim, single h1, CTAs unified to "Book a Free Trial" / "See All Programs" on coral-deep AA fill); meta description em-dash/caps polished. Rest of the homepage untouched.
+- **Verification (production build, headless Chrome):** build clean (16 routes); scrub frame-accurate across seam 1 with header offset (dive1 t=8.03 → conn1 t=0.55); single h1; reduced-motion = stills only; mobile serves `-m.mp4`; exit fade measured 1 → 0.5 → 0/hidden; only console error is Vercel Analytics' expected localhost 404.
+→ **Checkpoint D: user reviews the homepage with the live hero.**
