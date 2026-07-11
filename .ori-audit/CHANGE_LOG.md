@@ -37,3 +37,22 @@ Branch: `feature/scroll-world-redesign`. Git is the canonical revert layer; this
 - Synthesized brand kit + full token palette with **mathematically validated WCAG AA pairs** (contrast computed in node, all pass): coral-deep #C6402E button fill (5.0:1), navy-soft #44506A muted ink (7.7:1), sun/sky/leaf/berry tint+ink accent system derived from the logo rainbow.
 - Wrote `PHASE1_DESIGN_PROPOSAL.md` (design read, dials 6/5/3, tokens, component direction, preservation list, 6 owner decisions on content).
 → **Checkpoint A: awaiting user approval of design direction + brand kit before any page is restyled.**
+
+---
+
+## Phase 2 — Scroll-world intake & pre-flight (2026-07-12) — Checkpoint A approved (all 4 recommendations)
+
+- Checkpoint A decisions: design direction approved; FAQ placeholders to be hidden until real answers; events get date-based auto-expiry; full copy-polish pass approved (em-dashes, CTA unification to "Book a Free Trial", caps/spelling).
+- Invoked `/scroll-world`; wrote `PHASE2_SCROLLWORLD_PLAN.md`: 6 scenes, architecture B, seedance_2_0 chain, byte-identical style preamble with Checkpoint A palette, all still/dive/connector prompts finalized, engine copy per section (em-dash-free), execution order with measured-first batching.
+- Checkpoint B decisions: generation approved (pause ceiling ~1,400 cr); **desktop + mobile beta**; 6 scenes confirmed; **HTML-overlay** for logo/tagline (no baked text in scenes).
+
+## Phase 3 — Asset generation (2026-07-12) — Checkpoint B approved
+
+- **Spend: 699 credits** (6 stills @7 = 42; 6 dives @72 = 432; 5 connectors @45 = 225). Failed NSFW jobs cost 0. Balance: 1,810 → **1,094** (716 total incl. Phase 0 dry run).
+- All 6 stills passed cohesion review on the first roll (one clay world, same angle/palette/light, blank sign + chalkboard, stylised figures only).
+- Dives: measured-first (dive 1 = 72 cr) then batched. Dives 3 & 5 hit Seedance's NSFW false-positive on innocuous interiors; 5 passed on plain re-roll, 3 passed with reworded safety-affirming prompt ("wholesome, tasteful, family-friendly children's classroom"). Playbook worked as planned.
+- Connectors: all 5 frame-locked (start = dive N's actual last frame, end = dive N+1's actual first frame). Pipelined 1/4/5 during dive 3's re-roll.
+- Encodes: 22 files — 11 desktop masters (1080p, `-g 8 -crf 20 -an` unsharp faststart, 4.5–10.5 MB each) + 11 mobile-beta siblings (720p, `-g 4 -crf 23`, ~half size). Total asset weight ≈ **101 MB** (61 MB desktop / 40 MB mobile) + 6 poster stills.
+- **Seam QA (headless Chrome, range-less server):** all 11 clips blob-loaded; at every one of the 10 seams the outgoing clip sits at its final frames and the incoming starts at ~0 — currentTime tracks scroll exactly; zero console errors. Reduced-motion falls back to stills (0 videos, 11 stills). Mobile emulation serves the `-m.mp4` variants. Seam screenshots SSIM 0.62–0.95; the low scores are copy-overlay fades + connector convergence inside the crossfade band, no structural pops (eyeballed s4 and s10).
+- Preview: `scratchpad/scrollworld/preview/` (index.html + serve.js). Assets move to `/public` in Phase 4 after Checkpoint C.
+→ **Checkpoint C: awaiting user review of the raw flight before wiring into the site.**
