@@ -26,3 +26,14 @@ Branch: `feature/scroll-world-redesign`. Git is the canonical revert layer; this
 **Measured estimate for the full 6-scene flight** (6 stills + 6 dives + 5 connectors): stills ≈ 24–36 cr; one clean video pass ≈ 280–365 cr (1080p estimated from the 480p measurement + Max plan's ~22 cr/video anchor); with the 3× iteration buffer ≈ **~950–1,200 credits** — fits the 1,793 remaining. A 5× buffer could exceed the balance; mitigation: previz on `seedance_2_0_mini`, or measure the first production still+dive before batching.
 
 → **Checkpoint 0: awaiting user approval before any multi-scene generation.**
+
+---
+
+## Phase 1 — Audit & design system (2026-07-12) — Checkpoint 0 approved by user
+
+- Loaded skills: `redesign-existing-projects`, `design-taste-frontend`, `brandkit` (strategy framework only — no image generation, zero credits spent this phase).
+- Ran a 6-agent parallel audit workflow over the whole site (homepage, inner pages ×2 slices, components+css, content voice, a11y/motion lens): **140 findings**, distilled into 11 systemic themes in `PHASE1_DESIGN_PROPOSAL.md`.
+- Key systemic findings: white-on-coral CTAs fail AA (3.19:1); ~17 accent hue families vs 3 tokens; cold navy hero slab on all inner pages; Tailwind v4 removed `bg-opacity-*` → all primary buttons lost hover states; ~18 emoji as the icon system; banned scroll listener in Header; FAQ accordion clips long answers; fonts not on next/font; 3 live `[PLACEHOLDER]` FAQ answers; stale events section showing a closure notice.
+- Synthesized brand kit + full token palette with **mathematically validated WCAG AA pairs** (contrast computed in node, all pass): coral-deep #C6402E button fill (5.0:1), navy-soft #44506A muted ink (7.7:1), sun/sky/leaf/berry tint+ink accent system derived from the logo rainbow.
+- Wrote `PHASE1_DESIGN_PROPOSAL.md` (design read, dials 6/5/3, tokens, component direction, preservation list, 6 owner decisions on content).
+→ **Checkpoint A: awaiting user approval of design direction + brand kit before any page is restyled.**
