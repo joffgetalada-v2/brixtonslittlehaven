@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { business, pillars, programs, events, communityImages, heroStrip } from '@/content/site';
-import { FadeUp, StaggerGrid, StaggerItem, HeroBlobs, HoverButton } from '@/components/motion';
+import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/motion';
 import ProgramCard from '@/components/ProgramCard';
+import ScrollWorldHero from '@/components/ScrollWorldHero';
 
 export const metadata = {
   title: "Brixton's Little Haven | Indoor Playgroup & Childcare in Lapu-Lapu City",
   description:
-    "Safe indoor playgroup, flexible childcare, and academic tutorials for kids aged 12 months to 15 years — beside Gaisano Grand Mall, Basak, Lapu-Lapu City. Book a FREE trial today!",
+    "Safe indoor playgroup, flexible childcare, and academic tutorials for kids aged 12 months to 15 years, beside Gaisano Grand Mall, Basak, Lapu-Lapu City. Book a free trial today.",
   alternates: { canonical: '/' },
   openGraph: {
     title: "Brixton's Little Haven | Learn • Play • Grow • Shine",
@@ -20,105 +21,65 @@ const featured = programs.filter((p) => p.featured).slice(0, 4);
 export default function HomePage() {
   return (
     <>
-      {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-cream via-cream to-orange-50 pb-16 pt-12 sm:pt-16 lg:pt-20">
-        <HeroBlobs />
+      {/* ── Scroll-world hero: fly through the haven ─────────── */}
+      <ScrollWorldHero />
 
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:gap-16">
-            {/* Text */}
-            <div className="flex-1 text-center lg:text-left">
-              <FadeUp delay={0}>
-                <span className="mb-4 inline-block rounded-full bg-coral/10 px-4 py-1.5 text-sm font-bold text-coral">
-                  Now Open in Lapu-Lapu City 🎉
-                </span>
-              </FadeUp>
+      {/* ── No Yaya intro (the original hero message) ─────────── */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-cream to-orange-50 py-16 sm:py-20">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
+          <FadeUp delay={0}>
+            <h1
+              className="text-4xl font-bold leading-tight text-navy sm:text-5xl"
+              style={{ fontFamily: 'var(--font-heading)' }}
+            >
+              No Yaya?{' '}
+              <span className="relative">
+                <span className="relative z-10 text-coral-ink">We've got you.</span>
+                <span className="absolute -bottom-1 left-0 z-0 h-3 w-full rounded-full bg-amber-200/60" aria-hidden="true" />
+              </span>
+            </h1>
+          </FadeUp>
 
-              <FadeUp delay={0.1}>
-                <h1
-                  className="text-4xl font-bold leading-tight text-navy sm:text-5xl lg:text-6xl"
-                  style={{ fontFamily: 'var(--font-heading)' }}
+          <FadeUp delay={0.1}>
+            <p className="mx-auto mt-5 max-w-lg text-lg leading-relaxed text-navy-soft">
+              Give your child a <strong>safe, structured indoor space</strong> to learn and grow, right beside Gaisano Grand Mall, Basak.
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={0.2}>
+            <p className="mt-2 text-base font-semibold tracking-wide text-coral-ink">
+              {business.tagline}
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={0.3}>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+              <HoverButton>
+                <Link
+                  href="/contact"
+                  className="inline-block rounded-full bg-coral-deep px-7 py-3.5 text-base font-bold text-white shadow-md transition"
                 >
-                  No Yaya?{' '}
-                  <span className="relative">
-                    <span className="relative z-10 text-coral">We've got you.</span>
-                    <span className="absolute -bottom-1 left-0 z-0 h-3 w-full rounded-full bg-amber-200/60" aria-hidden="true" />
-                  </span>
-                </h1>
-              </FadeUp>
-
-              <FadeUp delay={0.2}>
-                <p className="mt-5 max-w-lg text-lg leading-relaxed text-navy/70 mx-auto lg:mx-0">
-                  Give your child a <strong>safe, structured indoor space</strong> to learn and grow — right beside Gaisano Grand Mall, Basak.
-                </p>
-              </FadeUp>
-
-              <FadeUp delay={0.3}>
-                <p className="mt-2 text-base font-semibold text-coral/80 tracking-wide">
-                  {business.tagline}
-                </p>
-              </FadeUp>
-
-              <FadeUp delay={0.4}>
-                <div className="mt-8 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
-                  <HoverButton>
-                    <Link
-                      href="/contact"
-                      className="inline-block rounded-full bg-coral px-7 py-3.5 text-base font-bold text-white shadow-md transition"
-                    >
-                      Schedule FREE Assessment ✨
-                    </Link>
-                  </HoverButton>
-                  <HoverButton>
-                    <Link
-                      href="/programs"
-                      className="inline-block rounded-full border-2 border-navy px-7 py-3.5 text-base font-bold text-navy transition hover:bg-navy hover:text-white"
-                    >
-                      View Programs →
-                    </Link>
-                  </HoverButton>
-                </div>
-              </FadeUp>
-
-              <FadeUp delay={0.5}>
-                <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-navy/60 lg:justify-start">
-                  <span className="flex items-center gap-1">📍 Beside Gaisano Grand, Basak</span>
-                  <span className="flex items-center gap-1">🕐 Mon–Sat, 8 AM–7 PM</span>
-                  <span className="flex items-center gap-1">📞 {business.phone}</span>
-                </div>
-              </FadeUp>
+                  Book a Free Trial
+                </Link>
+              </HoverButton>
+              <HoverButton>
+                <Link
+                  href="/programs"
+                  className="inline-block rounded-full border-2 border-navy px-7 py-3.5 text-base font-bold text-navy transition hover:bg-navy hover:text-white"
+                >
+                  See All Programs
+                </Link>
+              </HoverButton>
             </div>
+          </FadeUp>
 
-            {/* Hero visual — large logo with decorative rings */}
-            <FadeUp delay={0.2} className="w-full max-w-md lg:max-w-lg xl:max-w-xl shrink-0">
-              <div className="relative mx-auto aspect-square w-80 sm:w-96 lg:w-full">
-                {/* Outer ring */}
-                <div className="absolute inset-0 rounded-full border-4 border-dashed border-coral/25 animate-spin" style={{ animationDuration: '30s' }} aria-hidden="true" />
-                {/* Inner ring */}
-                <div className="absolute inset-5 rounded-full border-2 border-dashed border-sky-300/35 animate-spin" style={{ animationDuration: '20s', animationDirection: 'reverse' }} aria-hidden="true" />
-                {/* Logo fills the inner circle */}
-                <div className="absolute inset-10 rounded-full overflow-hidden shadow-2xl">
-                  <Image
-                    src={business.logo}
-                    alt={business.logoAlt}
-                    fill
-                    sizes="(max-width: 640px) 240px, (max-width: 1024px) 312px, 420px"
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-                {/* Accent dots */}
-                {[
-                  { color: 'bg-coral',      top: '8%',    left: '2%'  },
-                  { color: 'bg-amber-400',  top: '2%',    right: '18%'},
-                  { color: 'bg-green-400',  bottom: '8%', right: '2%' },
-                  { color: 'bg-sky-400',    bottom: '2%', left: '18%' },
-                ].map((dot, i) => (
-                  <span key={i} className={`absolute h-5 w-5 rounded-full ${dot.color} shadow-md`} style={{ top: dot.top, left: dot.left, right: dot.right, bottom: dot.bottom }} aria-hidden="true" />
-                ))}
-              </div>
-            </FadeUp>
-          </div>
+          <FadeUp delay={0.4}>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-navy-soft">
+              <span className="flex items-center gap-1"><span aria-hidden="true">📍</span> Beside Gaisano Grand, Basak</span>
+              <span className="flex items-center gap-1"><span aria-hidden="true">🕐</span> Mon-Sat, 8 AM-7 PM</span>
+              <span className="flex items-center gap-1"><span aria-hidden="true">📞</span> {business.phone}</span>
+            </div>
+          </FadeUp>
         </div>
       </section>
 

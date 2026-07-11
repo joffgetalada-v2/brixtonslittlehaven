@@ -1,15 +1,61 @@
 @import "tailwindcss";
 
-/* ── Brand Design Tokens ─────────────────────────────────── */
+/* ── Brand Design Tokens ─────────────────────────────────────
+   Palette approved at Checkpoint A. Every ink/surface pair below
+   is WCAG-AA verified (see .ori-audit/PHASE1_DESIGN_PROPOSAL.md). */
 @theme {
-  /* Colors */
+  /* Base */
   --color-cream: #fef9f0;
   --color-navy: #1a2744;
-  --color-coral: #ef6351;
+  --color-navy-soft: #44506a;      /* muted ink on cream/white */
 
-  /* Typography */
-  --font-heading: 'Fredoka', 'Baloo 2', sans-serif;
-  --font-sans: 'Nunito', 'Quicksand', sans-serif;
+  /* Brand accent — coral. Bare coral is display/graphics only;
+     use -deep for fills with white text, -ink for small text. */
+  --color-coral: #ef6351;
+  --color-coral-deep: #c6402e;
+  --color-coral-ink: #b93a28;
+  --color-coral-tint: #fdeae6;
+
+  /* Program/category accents (logo rainbow): tint = surface, ink = AA text */
+  --color-sun: #f7c948;
+  --color-sun-tint: #fcf3d9;
+  --color-sun-ink: #8a6116;
+  --color-sky: #4a90d9;
+  --color-sky-tint: #e3f0fa;
+  --color-sky-ink: #2b6cb0;
+  --color-leaf: #7bb661;
+  --color-leaf-tint: #e9f4e2;
+  --color-leaf-ink: #3e7a2e;
+  --color-berry: #c86fa6;
+  --color-berry-tint: #f7e9f2;
+  --color-berry-ink: #9c4a7f;
+
+  /* On-navy (footer / dark bands) */
+  --color-warm-white: #f5efe4;
+  --color-navy-muted: #b9c0d4;
+
+  /* Typography (self-hosted via next/font in app/layout.jsx) */
+  --font-heading: var(--font-fredoka), 'Comic Sans MS', cursive;
+  --font-sans: var(--font-nunito), 'Segoe UI', sans-serif;
+
+  /* Radius system: buttons pill · cards 24px · fields 12px · media 16px */
+  --radius-card: 1.5rem;
+  --radius-field: 0.75rem;
+  --radius-media: 1rem;
+
+  /* Warm-tinted shadows */
+  --shadow-soft: 0 2px 8px rgb(26 39 68 / 0.06), 0 8px 24px rgb(199 108 74 / 0.07);
+  --shadow-lift: 0 4px 12px rgb(26 39 68 / 0.08), 0 16px 40px rgb(199 108 74 / 0.10);
+}
+
+/* ── Scroll-world hero theme (engine reads --sw-* from .sw-root) ── */
+.sw-root {
+  --sw-bg: #fef9f0;
+  --sw-ink: #1a2744;
+  --sw-ink-soft: #44506a;
+  --sw-accent: #c6402e;
+  --sw-font-display: var(--font-heading);
+  --sw-font-body: var(--font-sans);
 }
 
 /* ── Base styles ──────────────────────────────────────────── */
