@@ -1,5 +1,4 @@
-'use client';
-// Sticky Messenger / call button visible on mobile
+// Sticky Messenger / call button visible on mobile (static markup, server component)
 import { business } from '@/content/site';
 
 export default function MessengerButton() {

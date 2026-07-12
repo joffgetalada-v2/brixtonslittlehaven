@@ -2,14 +2,15 @@ import Link from 'next/link';
 import { programs, business } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/motion';
 import ProgramCard from '@/components/ProgramCard';
+import PageHero from '@/components/PageHero';
 
 export const metadata = {
-  title: "Programs & Services | Playgroup, Childcare & Tutorials — Brixton's Little Haven",
+  title: "Programs & Services | Playgroup, Childcare & Tutorials | Brixton's Little Haven",
   description:
-    "Explore 7 programs: Playgroup (12 mo–6 yrs), Integrated Care (up to 12 hrs/day), Drop-In Care, Academic Tutorials, Play+Learn School Readiness, Combo Package, and ESL Classes. Lapu-Lapu City.",
+    "Explore 7 programs: Playgroup (12 mo-6 yrs), Integrated Care (up to 12 hrs/day), Drop-In Care, Academic Tutorials, Play+Learn School Readiness, Combo Package, and ESL Classes. Lapu-Lapu City.",
   alternates: { canonical: '/programs' },
   openGraph: {
-    title: "Programs — Brixton's Little Haven",
+    title: "Programs | Brixton's Little Haven",
     description: "7 programs for every child: playgroup, full-day care, academic tutorials, and ESL classes. Ages 12 months to adults.",
   },
 };
@@ -45,43 +46,30 @@ export default function ProgramsPage() {
       />
 
       {/* Page hero */}
-      <section className="bg-gradient-to-b from-navy to-navy/90 py-16 text-center text-white">
-        <div className="mx-auto max-w-3xl px-4">
-          <FadeUp>
-            <span className="rounded-full bg-white/10 px-4 py-1 text-sm font-bold">Our Programs</span>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <h1 className="mt-4 text-4xl font-bold sm:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
-              Programs for every stage
-            </h1>
-            <p className="mt-3 text-base text-white/70 max-w-xl mx-auto">
-              From 12 months to adulthood — we have structured, nurturing programs to match every child's needs and your family's schedule.
-            </p>
-          </FadeUp>
-          <FadeUp delay={0.2}>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-              <HoverButton>
-                <Link href="/contact" className="inline-block rounded-full bg-coral px-7 py-3 font-bold text-white shadow">
-                  Schedule a FREE Assessment ✨
-                </Link>
-              </HoverButton>
-            </div>
-          </FadeUp>
+      <PageHero
+        accent="sun"
+        icon="star"
+        title="Programs for every stage"
+        intro="From 12 months to adulthood, we have structured, nurturing programs to match every child's needs and your family's schedule."
+      >
+        <div className="mt-8">
+          <HoverButton>
+            <Link
+              href="/contact"
+              className="inline-block rounded-full bg-coral-deep px-7 py-3.5 font-bold text-white shadow-md transition hover:bg-coral-ink active:scale-[0.98]"
+            >
+              Book a Free Trial
+            </Link>
+          </HoverButton>
         </div>
-      </section>
+      </PageHero>
 
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-20">
+      <div className="mx-auto max-w-6xl space-y-14 px-4 py-14 sm:space-y-16 sm:px-6 sm:py-16 lg:px-8">
         {/* Care category */}
         <section>
-          <FadeUp>
-            <div className="mb-2 flex items-center gap-3">
-              <span className="h-px flex-1 bg-navy/10" />
-              <span className="rounded-full bg-coral/10 px-4 py-1 text-sm font-bold text-coral uppercase tracking-wider">
-                Care
-              </span>
-              <span className="h-px flex-1 bg-navy/10" />
-            </div>
-            <p className="mt-2 text-center text-sm text-navy/50 mb-8">
+          <FadeUp className="mb-8">
+            <h2 className="font-heading text-2xl font-bold text-navy [text-wrap:balance]">Care</h2>
+            <p className="mt-2 max-w-2xl text-sm text-navy-soft [text-wrap:pretty]">
               Flexible, supervised care options for all ages and schedules.
             </p>
           </FadeUp>
@@ -97,15 +85,11 @@ export default function ProgramsPage() {
 
         {/* Learning & Enrichment category */}
         <section>
-          <FadeUp>
-            <div className="mb-2 flex items-center gap-3">
-              <span className="h-px flex-1 bg-navy/10" />
-              <span className="rounded-full bg-sky-100 px-4 py-1 text-sm font-bold text-sky-600 uppercase tracking-wider">
-                Learning & Enrichment
-              </span>
-              <span className="h-px flex-1 bg-navy/10" />
-            </div>
-            <p className="mt-2 text-center text-sm text-navy/50 mb-8">
+          <FadeUp className="mb-8">
+            <h2 className="font-heading text-2xl font-bold text-navy [text-wrap:balance]">
+              Learning &amp; enrichment
+            </h2>
+            <p className="mt-2 max-w-2xl text-sm text-navy-soft [text-wrap:pretty]">
               Guided academic support and enrichment programs for school readiness and beyond.
             </p>
           </FadeUp>
@@ -121,20 +105,26 @@ export default function ProgramsPage() {
 
         {/* CTA */}
         <FadeUp>
-          <div className="rounded-3xl bg-navy px-8 py-12 text-center text-white">
-            <h2 className="text-2xl font-bold sm:text-3xl" style={{ fontFamily: 'var(--font-heading)' }}>
+          <div className="rounded-3xl bg-coral-deep px-8 py-12 text-center text-white">
+            <h2 className="font-heading text-2xl font-bold [text-wrap:balance] sm:text-3xl">
               Not sure which program fits?
             </h2>
-            <p className="mt-3 text-white/70">
-              Book a FREE assessment — we'll recommend the best match for your child's age and needs.
+            <p className="mx-auto mt-3 max-w-2xl text-white/95 [text-wrap:pretty]">
+              Book a free assessment and we'll recommend the best match for your child's age and needs.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <HoverButton>
-                <Link href="/contact" className="inline-block rounded-full bg-coral px-7 py-3 font-bold text-white shadow">
-                  Get a Free Assessment →
+                <Link
+                  href="/contact"
+                  className="inline-block rounded-full bg-white px-7 py-3.5 font-bold text-coral-ink shadow-md transition hover:bg-cream active:scale-[0.98]"
+                >
+                  Book a Free Trial
                 </Link>
               </HoverButton>
-              <a href={business.phoneTel} className="inline-block rounded-full border-2 border-white/30 px-7 py-3 font-bold text-white hover:border-white transition">
+              <a
+                href={business.phoneTel}
+                className="inline-block rounded-full border-2 border-white px-7 py-3.5 font-bold text-white transition hover:bg-white/10"
+              >
                 Call {business.phone}
               </a>
             </div>

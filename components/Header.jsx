@@ -1,40 +1,50 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { business, navLinks } from '@/content/site';
+import { usePathname } from 'next/navigation';
+import { useState, useEffect, useRef } from 'react';
+import { navLinks } from '@/content/site';
 import LogoImage from '@/components/LogoImage';
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [stuck, setStuck] = useState(false);
+  const ref = useRef(null);
+  const pathname = usePathname();
 
+  // Sticky at -1px: the header clips by one pixel once it pins, so an
+  // IntersectionObserver at threshold 1 detects "stuck" without any scroll listener.
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => setStuck(entry.intersectionRatio < 1),
+      { threshold: [1] },
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
-  // Close menu on route change
-  const close = () => setOpen(false);
+  // Close the mobile menu whenever the route changes.
+  useEffect(() => { setOpen(false); }, [pathname]);
+
+  const isActive = (href) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-cream/95 backdrop-blur-md shadow-sm' : 'bg-cream'
+      ref={ref}
+      className={`sticky -top-px z-50 transition-shadow duration-300 ${
+        stuck ? 'bg-cream/95 shadow-sm backdrop-blur-md' : 'bg-cream'
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5" onClick={close} aria-label="Brixton's Little Haven home">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="Brixton's Little Haven home">
           <LogoImage width={44} height={44} priority />
-          <span
-            className="hidden text-base font-bold leading-tight text-navy sm:block"
-            style={{ fontFamily: 'var(--font-heading)' }}
-          >
+          <span className="hidden font-heading text-base font-bold leading-tight text-navy sm:block">
             Brixton's
             <br />
-            <span className="text-coral">Little Haven</span>
+            <span className="text-coral-ink">Little Haven</span>
           </span>
         </Link>
 
@@ -44,7 +54,12 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full px-4 py-1.5 text-sm font-semibold text-navy transition-colors hover:bg-coral/10 hover:text-coral"
+              aria-current={isActive(link.href) ? 'page' : undefined}
+              className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors ${
+                isActive(link.href)
+                  ? 'bg-coral-tint text-coral-ink'
+                  : 'text-navy hover:bg-coral-tint hover:text-coral-ink'
+              }`}
             >
               {link.label}
             </Link>
@@ -55,13 +70,13 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="hidden rounded-full bg-coral px-5 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-opacity-90 sm:block"
+            className="hidden rounded-full bg-coral-deep px-5 py-2 text-sm font-bold text-white shadow-sm transition hover:bg-coral-ink active:scale-[0.98] sm:block"
           >
             Book a Free Trial
           </Link>
 
           <button
-            className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full hover:bg-coral/10 lg:hidden"
+            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full hover:bg-coral-tint lg:hidden"
             onClick={() => setOpen((o) => !o)}
             aria-expanded={open}
             aria-label="Toggle navigation"
@@ -73,31 +88,38 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — grid-rows animation (no clipped content), inert while closed
+          so its links leave the tab order and accessibility tree. */}
       <div
-        className={`overflow-hidden transition-all duration-300 lg:hidden ${
-          open ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+        inert={!open}
+        className={`grid transition-[grid-template-rows] duration-300 lg:hidden ${
+          open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
         }`}
       >
-        <nav className="flex flex-col border-t border-navy/10 bg-cream px-4 pb-4 pt-2" aria-label="Mobile navigation">
-          {navLinks.map((link) => (
+        <div className="overflow-hidden">
+          <nav className="flex flex-col border-t border-navy/10 bg-cream px-4 pb-4 pt-2" aria-label="Mobile navigation">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive(link.href) ? 'page' : undefined}
+                className={`rounded-xl px-4 py-3 text-base font-semibold ${
+                  isActive(link.href)
+                    ? 'bg-coral-tint text-coral-ink'
+                    : 'text-navy hover:bg-coral-tint hover:text-coral-ink'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
             <Link
-              key={link.href}
-              href={link.href}
-              onClick={close}
-              className="rounded-xl px-4 py-3 text-base font-semibold text-navy hover:bg-coral/10 hover:text-coral"
+              href="/contact"
+              className="mt-3 rounded-full bg-coral-deep px-5 py-3 text-center text-base font-bold text-white transition hover:bg-coral-ink active:scale-[0.98]"
             >
-              {link.label}
+              Book a Free Trial
             </Link>
-          ))}
-          <Link
-            href="/contact"
-            onClick={close}
-            className="mt-3 rounded-full bg-coral px-5 py-3 text-center text-base font-bold text-white"
-          >
-            Book a Free Trial ✨
-          </Link>
-        </nav>
+          </nav>
+        </div>
       </div>
     </header>
   );

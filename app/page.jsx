@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { business, pillars, programs, events, communityImages, heroStrip } from '@/content/site';
+import { business, pillars, programs, activeEvents, communityImages, heroStrip } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/motion';
 import ProgramCard from '@/components/ProgramCard';
 import ScrollWorldHero from '@/components/ScrollWorldHero';
+import Icon from '@/components/Icon';
 
 export const metadata = {
   title: "Brixton's Little Haven | Indoor Playgroup & Childcare in Lapu-Lapu City",
@@ -19,6 +20,7 @@ export const metadata = {
 const featured = programs.filter((p) => p.featured).slice(0, 4);
 
 export default function HomePage() {
+  const upcoming = activeEvents();
   return (
     <>
       {/* ── Scroll-world hero: fly through the haven ─────────── */}
@@ -28,10 +30,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-gradient-to-b from-cream to-orange-50 py-16 sm:py-20">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <FadeUp delay={0}>
-            <h1
-              className="text-4xl font-bold leading-tight text-navy sm:text-5xl"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
+            <h1 className="font-heading text-4xl font-bold leading-tight text-navy sm:text-5xl">
               No Yaya?{' '}
               <span className="relative">
                 <span className="relative z-10 text-coral-ink">We've got you.</span>
@@ -75,27 +74,27 @@ export default function HomePage() {
 
           <FadeUp delay={0.4}>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-navy-soft">
-              <span className="flex items-center gap-1"><span aria-hidden="true">📍</span> Beside Gaisano Grand, Basak</span>
-              <span className="flex items-center gap-1"><span aria-hidden="true">🕐</span> Mon-Sat, 8 AM-7 PM</span>
-              <span className="flex items-center gap-1"><span aria-hidden="true">📞</span> {business.phone}</span>
+              <span className="flex items-center gap-1.5"><Icon name="pin" size={16} /> Beside Gaisano Grand, Basak</span>
+              <span className="flex items-center gap-1.5"><Icon name="clock" size={16} /> Mon-Sat, 8 AM-7 PM</span>
+              <span className="flex items-center gap-1.5"><Icon name="phone" size={16} /> {business.phone}</span>
             </div>
           </FadeUp>
         </div>
       </section>
 
       {/* ── Kids in Action strip ─────────────────────────────── */}
-      <section className="bg-gradient-to-b from-orange-50 to-cream py-10">
+      <section className="bg-gradient-to-b from-orange-50 to-cream py-14 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <FadeUp className="mb-6 text-center">
-            <p className="text-sm font-bold uppercase tracking-widest text-coral/70">Life at Brixton's</p>
-            <h2 className="text-2xl font-bold text-navy sm:text-3xl" style={{ fontFamily: 'var(--font-heading)' }}>
+            <p className="text-sm font-bold uppercase tracking-widest text-coral-ink">Life at Brixton's</p>
+            <h2 className="font-heading text-2xl font-bold text-navy [text-wrap:balance] sm:text-3xl">
               Kids learning, playing, and growing every day
             </h2>
           </FadeUp>
           <StaggerGrid className="grid grid-cols-3 gap-3 sm:gap-5">
             {heroStrip.map((photo) => (
               <StaggerItem key={photo.id}>
-                <div className="group relative aspect-[3/4] overflow-hidden rounded-3xl shadow-md">
+                <div className="group relative aspect-[3/4] overflow-hidden rounded-2xl [box-shadow:var(--shadow-soft)]">
                   <Image
                     src={photo.src}
                     alt={photo.alt}
@@ -108,8 +107,8 @@ export default function HomePage() {
             ))}
           </StaggerGrid>
           <FadeUp delay={0.2} className="mt-6 text-center">
-            <Link href="/gallery" className="text-sm font-semibold text-coral hover:underline underline-offset-4 transition">
-              See more in the Gallery →
+            <Link href="/gallery" className="text-sm font-semibold text-coral-ink transition hover:underline underline-offset-4">
+              See more in the Gallery
             </Link>
           </FadeUp>
         </div>
@@ -118,17 +117,18 @@ export default function HomePage() {
       {/* ── Pillars ───────────────────────────────────────────── */}
       <section className="bg-navy py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 className="sr-only">Why families choose us</h2>
           <StaggerGrid className="grid gap-6 sm:grid-cols-3">
             {pillars.map((p) => (
               <StaggerItem key={p.id}>
-                <div className="flex flex-col items-center gap-3 rounded-3xl bg-white/10 p-6 text-center text-white">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/15 text-3xl">
-                    {p.icon}
+                <div className="flex h-full flex-col items-center gap-3 rounded-3xl bg-white/10 p-6 text-center">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/15 text-sun">
+                    <Icon name={p.icon} size={30} />
                   </span>
-                  <h2 className="text-lg font-bold" style={{ fontFamily: 'var(--font-heading)' }}>
+                  <h3 className="font-heading text-lg font-bold text-warm-white">
                     {p.title}
-                  </h2>
-                  <p className="text-sm leading-relaxed text-white/70">{p.description}</p>
+                  </h3>
+                  <p className="text-sm leading-relaxed text-navy-muted">{p.description}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -138,21 +138,13 @@ export default function HomePage() {
 
       {/* ── Programs highlight ────────────────────────────────── */}
       <section className="py-20" id="programs">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeUp className="mb-4 text-center">
-            <span className="rounded-full bg-coral/10 px-4 py-1 text-sm font-bold text-coral">
-              Our Programs
-            </span>
-          </FadeUp>
-          <FadeUp delay={0.1} className="mb-12 text-center">
-            <h2
-              className="text-3xl font-bold text-navy sm:text-4xl"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <FadeUp delay={0.1} className="mb-12">
+            <h2 className="font-heading text-3xl font-bold text-navy [text-wrap:balance] sm:text-4xl">
               Something for every child
             </h2>
-            <p className="mt-3 text-navy/60">
-              From playgroup to academic coaching — ages 12 months to 15 years.
+            <p className="mt-3 max-w-2xl text-navy-soft">
+              From playgroup to academic coaching, for ages 12 months to 15 years.
             </p>
           </FadeUp>
 
@@ -168,9 +160,9 @@ export default function HomePage() {
             <HoverButton>
               <Link
                 href="/programs"
-                className="inline-block rounded-full border-2 border-navy px-8 py-3 font-bold text-navy transition hover:bg-navy hover:text-white"
+                className="inline-block rounded-full border-2 border-navy px-8 py-3.5 font-bold text-navy transition hover:bg-navy hover:text-white"
               >
-                View All 7 Programs →
+                See All Programs
               </Link>
             </HoverButton>
           </FadeUp>
@@ -183,44 +175,36 @@ export default function HomePage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             {/* Text side */}
             <div>
-              <FadeUp>
-                <span className="rounded-full bg-coral/10 px-4 py-1 text-sm font-bold text-coral">
-                  Why Brixton's Little Haven?
-                </span>
-              </FadeUp>
               <FadeUp delay={0.1}>
-                <h2
-                  className="mt-4 text-3xl font-bold text-navy sm:text-4xl"
-                  style={{ fontFamily: 'var(--font-heading)' }}
-                >
+                <h2 className="font-heading text-3xl font-bold text-navy [text-wrap:balance] sm:text-4xl">
                   More than a daycare.
                   <br />
                   A place where kids{' '}
-                  <span className="text-coral">shine</span>.
+                  <span className="text-coral-ink">shine</span>.
                 </h2>
               </FadeUp>
               <FadeUp delay={0.15}>
-                <p className="mt-4 text-navy/70 leading-relaxed">
-                  We design each day with intention — balancing play, learning, rest, and social development so your child grows in every dimension.
+                <p className="mt-4 max-w-2xl leading-relaxed text-navy-soft [text-wrap:pretty]">
+                  We design each day with intention, balancing play, learning, rest, and social development so your child grows in every dimension.
                 </p>
               </FadeUp>
 
               <StaggerGrid className="mt-8 space-y-4">
                 {[
-                  { icon: '🔒', title: 'Secure & clean space', desc: 'Indoor facility designed for child safety and comfort.' },
-                  { icon: '📋', title: 'Purposeful daily schedule', desc: "Every hour is structured to support your child's development." },
-                  { icon: '👩‍🏫', title: 'Caring, trained educators', desc: 'Dedicated team focused on nurturing each unique child.' },
-                  { icon: '🌿', title: 'Monthly outdoor activities', desc: 'Real-world exploration woven into every program.' },
-                  { icon: '💬', title: 'Open communication', desc: "Regular updates so you're always in the loop." },
+                  { icon: 'shield', title: 'Secure & clean space', desc: 'Indoor facility designed for child safety and comfort.' },
+                  { icon: 'calendar', title: 'Purposeful daily schedule', desc: "Every hour is structured to support your child's development." },
+                  { icon: 'graduation', title: 'Caring, trained educators', desc: 'Dedicated team focused on nurturing each unique child.' },
+                  { icon: 'sprout', title: 'Monthly outdoor activities', desc: 'Real-world exploration woven into every program.' },
+                  { icon: 'chat', title: 'Open communication', desc: "Regular updates so you're always in the loop." },
                 ].map((item) => (
                   <StaggerItem key={item.title}>
-                    <div className="flex gap-4 rounded-2xl bg-white p-4 shadow-sm">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral/10 text-xl">
-                        {item.icon}
+                    <div className="flex gap-4 rounded-2xl bg-white p-4 [box-shadow:var(--shadow-soft)]">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral-tint text-coral-ink">
+                        <Icon name={item.icon} size={20} />
                       </span>
                       <div>
-                        <h3 className="font-bold text-navy text-sm">{item.title}</h3>
-                        <p className="text-xs text-navy/60 mt-0.5">{item.desc}</p>
+                        <h3 className="text-sm font-bold text-navy">{item.title}</h3>
+                        <p className="mt-0.5 text-xs text-navy-soft">{item.desc}</p>
                       </div>
                     </div>
                   </StaggerItem>
@@ -231,7 +215,7 @@ export default function HomePage() {
             {/* Visual side — real flyer */}
             <FadeUp delay={0.2}>
               <div className="relative mx-auto max-w-sm lg:max-w-none">
-                <div className="overflow-hidden rounded-3xl shadow-lg">
+                <div className="overflow-hidden rounded-3xl [box-shadow:var(--shadow-lift)]">
                   <Image
                     src="/images/flyer.png"
                     alt="Brixton's Little Haven programs and services overview"
@@ -241,9 +225,9 @@ export default function HomePage() {
                     className="w-full object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-4 -right-4 rounded-2xl bg-navy px-4 py-3 text-white shadow-lg">
-                  <p className="text-xs text-white/70">Ages served</p>
-                  <p className="text-2xl font-bold" style={{ fontFamily: 'var(--font-heading)' }}>12 mo – 15 yrs</p>
+                <div className="absolute bottom-4 right-4 rounded-2xl bg-navy px-4 py-3 shadow-lg">
+                  <p className="text-xs text-navy-muted">Ages served</p>
+                  <p className="font-heading text-2xl font-bold text-warm-white">12 mo - 15 yrs</p>
                 </div>
               </div>
             </FadeUp>
@@ -252,21 +236,18 @@ export default function HomePage() {
       </section>
 
       {/* ── Free trial CTA ────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-coral py-16 text-center text-white">
-        {/* Decorative blobs */}
+      <section className="relative overflow-hidden bg-coral-deep py-16 text-center text-white">
+        {/* Decorative circles */}
         <div className="pointer-events-none absolute -left-16 -top-16 h-48 w-48 rounded-full bg-white/10" aria-hidden="true" />
         <div className="pointer-events-none absolute -bottom-16 -right-16 h-64 w-64 rounded-full bg-white/10" aria-hidden="true" />
 
         <div className="relative mx-auto max-w-2xl px-4">
           <FadeUp>
-            <h2
-              className="text-3xl font-bold sm:text-4xl"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              Limited slots available!
+            <h2 className="font-heading text-3xl font-bold [text-wrap:balance] sm:text-4xl">
+              Slots fill up quickly.
             </h2>
-            <p className="mt-3 text-base text-white/80">
-              Schedule an assessment and get a <strong>FREE trial session</strong> — no obligation.
+            <p className="mt-3 text-base text-white/95">
+              Schedule an assessment and get a <strong>free trial session</strong>, no obligation.
             </p>
           </FadeUp>
           <FadeUp delay={0.15}>
@@ -274,9 +255,9 @@ export default function HomePage() {
               <HoverButton>
                 <Link
                   href="/contact"
-                  className="inline-block rounded-full bg-white px-8 py-3.5 font-bold text-coral shadow-md transition hover:shadow-lg"
+                  className="inline-block rounded-full bg-white px-8 py-3.5 font-bold text-coral-ink shadow-md transition hover:bg-cream"
                 >
-                  Book a Free Trial →
+                  Book a Free Trial
                 </Link>
               </HoverButton>
               <a
@@ -293,12 +274,9 @@ export default function HomePage() {
       {/* ── Location strip ────────────────────────────────────── */}
       <section className="bg-cream py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <FadeUp className="mb-8 text-center">
-            <h2
-              className="text-3xl font-bold text-navy"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >
-              Find Us
+          <FadeUp className="mb-8">
+            <h2 className="font-heading text-3xl font-bold text-navy">
+              Find us
             </h2>
           </FadeUp>
 
@@ -307,19 +285,19 @@ export default function HomePage() {
             <FadeUp delay={0.1}>
               <div className="space-y-4">
                 {[
-                  { icon: '📍', title: 'Address', body: business.address },
-                  { icon: '🕐', title: 'Hours', body: business.hours },
-                  { icon: '📞', title: 'Phone', body: business.phone, href: business.phoneTel },
-                  { icon: '✉️', title: 'Email', body: business.email, href: `mailto:${business.email}` },
+                  { icon: 'pin', title: 'Address', body: business.address },
+                  { icon: 'clock', title: 'Hours', body: business.hours },
+                  { icon: 'phone', title: 'Phone', body: business.phone, href: business.phoneTel },
+                  { icon: 'mail', title: 'Email', body: business.email, href: `mailto:${business.email}` },
                 ].map((item) => (
-                  <div key={item.title} className="flex gap-4 rounded-2xl bg-white p-4 shadow-sm">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral/10 text-xl">
-                      {item.icon}
+                  <div key={item.title} className="flex gap-4 rounded-2xl bg-white p-4 [box-shadow:var(--shadow-soft)]">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral-tint text-coral-ink">
+                      <Icon name={item.icon} size={20} />
                     </span>
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-wide text-navy/40">{item.title}</p>
+                      <p className="text-sm font-semibold text-navy-soft">{item.title}</p>
                       {item.href ? (
-                        <a href={item.href} className="text-sm font-medium text-navy hover:text-coral transition">
+                        <a href={item.href} className="text-sm font-medium text-navy transition hover:text-coral-ink">
                           {item.body}
                         </a>
                       ) : (
@@ -336,7 +314,8 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                     className="flex w-full items-center justify-center gap-2 rounded-2xl bg-[#0866FF] px-6 py-3 font-bold text-white shadow-sm transition"
                   >
-                    💬 Message on Facebook Messenger
+                    <Icon name="messenger" size={20} />
+                    Message us on Messenger
                   </a>
                 </HoverButton>
               </div>
@@ -344,7 +323,7 @@ export default function HomePage() {
 
             {/* Map */}
             <FadeUp delay={0.2}>
-              <div className="overflow-hidden rounded-3xl shadow-md aspect-video lg:aspect-square lg:max-h-80">
+              <div className="aspect-video overflow-hidden rounded-3xl [box-shadow:var(--shadow-soft)] lg:aspect-square lg:max-h-80">
                 <iframe
                   title="Brixton's Little Haven location map"
                   src={business.googleMapsEmbed}
@@ -362,79 +341,91 @@ export default function HomePage() {
       </section>
 
       {/* ── What's Happening ─────────────────────────────────── */}
-      <section className="bg-amber-50 py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeUp className="mb-2 text-center">
-            <span className="rounded-full bg-amber-100 px-4 py-1 text-sm font-bold text-amber-700">
-              📣 What's Happening
-            </span>
-          </FadeUp>
-          <FadeUp delay={0.1} className="mb-10 text-center">
-            <h2 className="text-3xl font-bold text-navy sm:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
-              Events & Announcements
+      <section className="bg-sun-tint py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <FadeUp delay={0.1} className="mb-10">
+            <h2 className="font-heading text-3xl font-bold text-navy [text-wrap:balance] sm:text-4xl">
+              Events & announcements
             </h2>
-            <p className="mt-2 text-navy/60">Stay up to date with what's on at Brixton's Little Haven.</p>
+            <p className="mt-2 max-w-2xl text-navy-soft">Stay up to date with what's on at Brixton's Little Haven.</p>
           </FadeUp>
 
-          <StaggerGrid className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-            {events.map((ev) => (
-              <StaggerItem key={ev.id}>
-                <div className="overflow-hidden rounded-2xl shadow-sm bg-white group">
+          {upcoming.length === 0 ? (
+            <FadeUp>
+              <div className="flex flex-col items-center gap-4 rounded-3xl bg-white p-10 text-center [box-shadow:var(--shadow-soft)] sm:flex-row sm:text-left">
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-sun-tint text-sun-ink">
+                  <Icon name="facebook" size={30} />
+                </span>
+                <div className="flex-1">
+                  <h3 className="font-heading text-lg font-bold text-navy">Nothing scheduled right now</h3>
+                  <p className="mt-1 text-sm leading-relaxed text-navy-soft">
+                    New events are announced on our Facebook page first. Follow along so you never miss a festival, workshop, or holiday notice.
+                  </p>
+                </div>
+                <a
+                  href={business.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex shrink-0 items-center gap-2 rounded-full bg-coral-deep px-6 py-3 font-bold text-white transition hover:bg-coral-ink active:scale-[0.98]"
+                >
+                  Follow us on Facebook
+                </a>
+              </div>
+            </FadeUp>
+          ) : (
+            <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4">
+              {upcoming.map((ev) => (
+                <div key={ev.id} className="group w-64 shrink-0 snap-start overflow-hidden rounded-2xl bg-white [box-shadow:var(--shadow-soft)]">
                   <div className="relative aspect-square w-full overflow-hidden">
                     <Image
                       src={ev.src}
                       alt={ev.alt}
                       fill
-                      sizes="(max-width: 640px) 50vw, 25vw"
+                      sizes="256px"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <p className="px-3 py-2 text-xs font-semibold text-navy/70 text-center">{ev.label}</p>
+                  <p className="px-3 py-2 text-center text-xs font-semibold text-navy-soft">{ev.label}</p>
                 </div>
-              </StaggerItem>
-            ))}
-          </StaggerGrid>
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
       {/* ── Community Love ───────────────────────────────────── */}
       <section className="bg-cream py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <FadeUp className="mb-2 text-center">
-            <span className="rounded-full bg-rose-100 px-4 py-1 text-sm font-bold text-rose-600">
-              💛 Our Community
-            </span>
-          </FadeUp>
-          <FadeUp delay={0.1} className="mb-10 text-center">
-            <h2 className="text-3xl font-bold text-navy sm:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
-              Families Who Brighten Our Day
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <FadeUp delay={0.1} className="mb-10">
+            <h2 className="font-heading text-3xl font-bold text-navy [text-wrap:balance] sm:text-4xl">
+              Families who brighten our day
             </h2>
-            <p className="mt-2 text-navy/60">
-              We are so grateful for the kindness and generosity of our Little Haven families. ❤️
+            <p className="mt-2 max-w-2xl text-navy-soft">
+              We are so grateful for the kindness and generosity of our Little Haven families.
             </p>
           </FadeUp>
 
-          <StaggerGrid className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-            {communityImages.map((img) => (
-              <StaggerItem key={img.id}>
-                <div className="group overflow-hidden rounded-2xl shadow-sm bg-white">
-                  <div className="relative aspect-square w-full overflow-hidden">
+          <FadeUp>
+            <div className="columns-2 gap-3 sm:columns-3 lg:columns-3">
+              {communityImages.map((img, i) => (
+                <div key={img.id} className="group mb-3 break-inside-avoid overflow-hidden rounded-2xl bg-white [box-shadow:var(--shadow-soft)]">
+                  <div className={`relative w-full overflow-hidden ${i % 3 === 0 ? 'aspect-[4/5]' : i % 3 === 1 ? 'aspect-square' : 'aspect-[5/4]'}`}>
                     <Image
                       src={img.src}
                       alt={img.alt}
                       fill
-                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+                      sizes="(max-width: 640px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                 </div>
-              </StaggerItem>
-            ))}
-          </StaggerGrid>
+              ))}
+            </div>
+          </FadeUp>
 
           <FadeUp delay={0.2} className="mt-8 text-center">
-            <p className="text-sm text-navy/50 italic">
-              Thank you for trusting us with your little ones. 🙏
+            <p className="text-sm italic text-navy-soft">
+              Thank you for trusting us with your little ones.
             </p>
           </FadeUp>
         </div>

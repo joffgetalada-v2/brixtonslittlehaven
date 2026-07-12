@@ -2,14 +2,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { galleryImages } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/motion';
+import PageHero from '@/components/PageHero';
 
 export const metadata = {
-  title: "Photo Gallery | Kids Learning & Playing — Brixton's Little Haven Lapu-Lapu City",
+  title: "Photo Gallery | Kids Learning & Playing, Brixton's Little Haven Lapu-Lapu City",
   description:
     "Browse real moments from Brixton's Little Haven: playgroup sessions, arts & crafts, academic tutorials, sensory play, and community events in Basak, Lapu-Lapu City.",
   alternates: { canonical: '/gallery' },
   openGraph: {
-    title: "Gallery — Brixton's Little Haven",
+    title: "Gallery: Brixton's Little Haven",
     description: "Real moments: kids learning, painting, playing, and growing at our indoor center in Lapu-Lapu City.",
   },
 };
@@ -38,35 +39,21 @@ export default function GalleryPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-b from-navy to-navy/90 py-16 text-center text-white">
-        <div className="mx-auto max-w-3xl px-4">
-          <FadeUp>
-            <span className="rounded-full bg-white/10 px-4 py-1 text-sm font-bold">Gallery</span>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <h1 className="mt-4 text-4xl font-bold sm:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
-              Moments at Brixton's
-            </h1>
-            <p className="mt-3 text-base text-white/70">
-              Real kids. Real learning. Real joy — every single day.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        accent="berry"
+        icon="heart"
+        title="Moments at Brixton's"
+        intro="Real kids. Real learning. Real joy, every single day."
+      />
 
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 space-y-16">
+      <div className="mx-auto max-w-6xl space-y-14 px-4 py-14 sm:space-y-16 sm:px-6 sm:py-16 lg:px-8">
 
         {sortedCategories.map((category) => (
           <section key={category}>
             <FadeUp>
-              <div className="mb-6 flex items-center gap-4">
-                <span className="h-px flex-1 bg-navy/10" />
-                <span className="rounded-full bg-coral/10 px-4 py-1 text-sm font-bold text-coral">
-                  {category}
-                </span>
-                <span className="h-px flex-1 bg-navy/10" />
-              </div>
+              <h2 className="mb-6 font-heading text-2xl font-bold text-navy [text-wrap:balance]">
+                {category}
+              </h2>
             </FadeUp>
 
             <StaggerGrid className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
@@ -75,7 +62,7 @@ export default function GalleryPage() {
                   key={img.id}
                   className={i === 0 && grouped[category].length >= 3 ? 'col-span-2 row-span-2' : ''}
                 >
-                  <div className={`group relative overflow-hidden rounded-2xl shadow-sm bg-navy/5 ${
+                  <div className={`group relative overflow-hidden rounded-2xl bg-berry-tint [box-shadow:var(--shadow-soft)] ${
                     i === 0 && grouped[category].length >= 3
                       ? 'aspect-square'
                       : 'aspect-[3/4]'
@@ -85,11 +72,15 @@ export default function GalleryPage() {
                         src={img.src}
                         alt={img.alt}
                         fill
-                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        sizes={
+                          i === 0 && grouped[category].length >= 3
+                            ? '(max-width: 640px) 100vw, 50vw'
+                            : '(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw'
+                        }
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     ) : (
-                      <div className="flex h-full items-center justify-center text-navy/30 text-sm font-medium">
+                      <div className="flex h-full items-center justify-center text-sm font-medium text-navy-soft">
                         Photo coming soon
                       </div>
                     )}
@@ -102,18 +93,20 @@ export default function GalleryPage() {
 
         {/* CTA */}
         <FadeUp>
-          <div className="rounded-3xl bg-navy px-8 py-10 text-center text-white">
-            <h2 className="text-2xl font-bold" style={{ fontFamily: 'var(--font-heading)' }}>
+          <div className="rounded-3xl bg-coral-tint px-8 py-10 text-center [box-shadow:var(--shadow-soft)]">
+            <h2 className="font-heading text-2xl font-bold text-navy [text-wrap:balance]">
               Want to see it in person?
             </h2>
-            <p className="mt-2 text-white/70 text-sm">Come visit us — we offer a FREE assessment and trial session.</p>
+            <p className="mx-auto mt-2 max-w-2xl text-sm text-navy-soft [text-wrap:pretty]">
+              Come visit us: we offer a free assessment and trial session.
+            </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <HoverButton>
-                <Link href="/contact" className="inline-block rounded-full bg-coral px-7 py-3 font-bold text-white shadow">
-                  Book a Free Visit →
+                <Link href="/contact" className="inline-block rounded-full bg-coral-deep px-7 py-3.5 font-bold text-white shadow-md transition hover:bg-coral-ink active:scale-[0.98]">
+                  Book a Free Trial
                 </Link>
               </HoverButton>
-              <Link href="/about" className="inline-block rounded-full border-2 border-white/30 px-7 py-3 font-bold text-white hover:border-white transition">
+              <Link href="/about" className="inline-block rounded-full border-2 border-navy px-7 py-3.5 font-bold text-navy transition hover:bg-navy hover:text-white">
                 About Our Space
               </Link>
             </div>

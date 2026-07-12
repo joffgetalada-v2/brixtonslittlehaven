@@ -14,24 +14,29 @@ function FaqItem({ faq, index }) {
         aria-expanded={open}
         aria-controls={panelId}
         onClick={() => setOpen((o) => !o)}
-        className="flex w-full items-center justify-between gap-4 py-4 text-left text-base font-semibold text-navy hover:text-coral transition-colors"
+        className="flex w-full items-center justify-between gap-4 py-4 text-left text-base font-semibold text-navy transition-colors hover:text-coral-ink"
       >
         <span>{faq.question}</span>
         <span
-          className={`shrink-0 text-coral transition-transform duration-300 ${open ? 'rotate-45' : ''}`}
+          className={`shrink-0 text-coral-ink transition-transform duration-300 ${open ? 'rotate-45' : ''}`}
           aria-hidden="true"
         >
           +
         </span>
       </button>
 
+      {/* grid-rows animation: any answer length expands fully (no max-height clipping) */}
       <div
         id={panelId}
         role="region"
         aria-labelledby={id}
-        className={`overflow-hidden transition-all duration-300 ${open ? 'max-h-96 pb-4 opacity-100' : 'max-h-0 opacity-0'}`}
+        className={`grid transition-[grid-template-rows] duration-300 ${
+          open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+        }`}
       >
-        <p className="text-sm leading-relaxed text-navy/70">{faq.answer}</p>
+        <div className="overflow-hidden">
+          <p className="pb-4 text-sm leading-relaxed text-navy-soft">{faq.answer}</p>
+        </div>
       </div>
     </div>
   );
@@ -39,7 +44,7 @@ function FaqItem({ faq, index }) {
 
 export default function FaqAccordion({ faqs }) {
   return (
-    <div className="divide-y divide-navy/10">
+    <div>
       {faqs.map((faq, i) => (
         <FaqItem key={i} faq={faq} index={i} />
       ))}

@@ -2,29 +2,31 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { business, pillars, spacePhotos } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/motion';
+import PageHero from '@/components/PageHero';
+import Icon from '@/components/Icon';
 
 export const metadata = {
-  title: "Our Space & Story | Safe Indoor Learning Center — Brixton's Little Haven",
+  title: "Our Space & Story | Safe Indoor Learning Center | Brixton's Little Haven",
   description:
-    "Step inside Brixton's Little Haven in Basak, Lapu-Lapu City — a clean, secure indoor space with a dedicated play area, arts corner, learning room, and rest area. Built on Safety, Structure, and Growth.",
+    "Step inside Brixton's Little Haven in Basak, Lapu-Lapu City: a clean, secure indoor space with a dedicated play area, arts corner, learning room, and rest area. Built on Safety, Structure, and Growth.",
   alternates: { canonical: '/about' },
   openGraph: {
-    title: "Our Space — Brixton's Little Haven",
+    title: "Our Space | Brixton's Little Haven",
     description: "A safe, structured indoor environment for children in Lapu-Lapu City, Philippines.",
   },
 };
 
 const spaceFeatures = [
-  { icon: '🏠', title: 'Indoor Play Area', desc: 'A clean, safe indoor environment — cool, comfortable, and designed for kids to move freely.' },
-  { icon: '🎨', title: 'Creative Corner', desc: 'Dedicated art and craft space stocked with child-safe materials for open-ended exploration.' },
-  { icon: '📚', title: 'Learning Area', desc: 'Quiet, structured zone for tutorials, reading, and guided academic activities.' },
-  { icon: '🎵', title: 'Music & Movement Space', desc: 'Open floor area for music, dance, gross motor activities, and energetic play.' },
-  { icon: '😴', title: 'Rest Corner', desc: 'A calm, cozy space for younger children to nap and recharge during full-day care.' },
-  { icon: '🌿', title: 'Monthly Outdoor Trips', desc: 'Beyond the walls — every program includes monthly outdoor exploration adventures.' },
+  { icon: 'house',  title: 'Indoor Play Area', desc: 'A clean, safe indoor environment. Cool, comfortable, and designed for kids to move freely.' },
+  { icon: 'paint',  title: 'Creative Corner', desc: 'Dedicated art and craft space stocked with child-safe materials for open-ended exploration.' },
+  { icon: 'books',  title: 'Learning Area', desc: 'Quiet, structured zone for tutorials, reading, and guided academic activities.' },
+  { icon: 'music',  title: 'Music & Movement Space', desc: 'Open floor area for music, dance, gross motor activities, and energetic play.' },
+  { icon: 'moon',   title: 'Rest Corner', desc: 'A calm, cozy space for younger children to nap and recharge during full-day care.' },
+  { icon: 'sprout', title: 'Monthly Outdoor Trips', desc: 'Beyond the walls, every program includes monthly outdoor exploration adventures.' },
 ];
 
 const safetyFeatures = [
-  'Secured entry and exit — only authorized pickups allowed',
+  'Secured entry and exit, with only authorized pickups allowed',
   'Sanitized play equipment and surfaces daily',
   'Child-proofed space with no sharp edges or hazards',
   'Supervised at all times by trained caregivers',
@@ -32,75 +34,72 @@ const safetyFeatures = [
   'Regular health and cleanliness checks',
 ];
 
+const pillarAccents = {
+  sky:   { card: 'bg-sky-tint',   ink: 'text-sky-ink' },
+  coral: { card: 'bg-coral-tint', ink: 'text-coral-ink' },
+  green: { card: 'bg-leaf-tint',  ink: 'text-leaf-ink' },
+};
+
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-b from-navy to-navy/90 py-16 text-center text-white">
-        <div className="mx-auto max-w-3xl px-4">
-          <FadeUp>
-            <span className="rounded-full bg-white/10 px-4 py-1 text-sm font-bold">Our Space</span>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <h1 className="mt-4 text-4xl font-bold sm:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
-              A place built for little ones
-            </h1>
-            <p className="mt-3 text-base text-white/70 max-w-xl mx-auto">
-              Every corner of Brixton's Little Haven is designed with your child's safety, comfort, and growth in mind.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        accent="sky"
+        icon="house"
+        title="A place built for little ones"
+        intro="Every corner of Brixton's Little Haven is designed with your child's safety, comfort, and growth in mind."
+      />
 
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 space-y-20">
+      <div className="mx-auto max-w-6xl space-y-16 px-4 py-14 sm:px-6 sm:py-16 lg:px-8 lg:space-y-20">
 
         {/* Three Pillars */}
         <section>
-          <FadeUp className="mb-10 text-center">
-            <h2 className="text-3xl font-bold text-navy sm:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
+          <FadeUp className="mb-10">
+            <h2 className="font-heading text-3xl font-bold text-navy [text-wrap:balance] sm:text-4xl">
               Built on three pillars
             </h2>
-            <p className="mt-2 text-navy/60">The foundation of everything we do.</p>
+            <p className="mt-2 text-navy-soft">The foundation of everything we do.</p>
           </FadeUp>
 
           <StaggerGrid className="grid gap-6 sm:grid-cols-3">
-            {pillars.map((p, i) => (
-              <StaggerItem key={p.id}>
-                <div className={`rounded-3xl p-8 text-center shadow-sm ${
-                  ['bg-sky-50 border-2 border-sky-100', 'bg-rose-50 border-2 border-rose-100', 'bg-green-50 border-2 border-green-100'][i]
-                }`}>
-                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white mx-auto text-3xl shadow-sm">
-                    {p.icon}
-                  </span>
-                  <h3 className="mt-4 text-xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
-                    {p.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-navy/70">{p.description}</p>
-                </div>
-              </StaggerItem>
-            ))}
+            {pillars.map((p) => {
+              const a = pillarAccents[p.color] ?? pillarAccents.coral;
+              return (
+                <StaggerItem key={p.id}>
+                  <div className={`h-full rounded-3xl p-8 text-center ${a.card} [box-shadow:var(--shadow-soft)]`}>
+                    <span className={`mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/80 ${a.ink}`}>
+                      <Icon name={p.icon} size={32} />
+                    </span>
+                    <h3 className="mt-4 font-heading text-xl font-bold text-navy">
+                      {p.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-navy-soft">{p.description}</p>
+                  </div>
+                </StaggerItem>
+              );
+            })}
           </StaggerGrid>
         </section>
 
         {/* Space features */}
         <section>
-          <FadeUp className="mb-10 text-center">
-            <h2 className="text-3xl font-bold text-navy sm:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
+          <FadeUp className="mb-10">
+            <h2 className="font-heading text-3xl font-bold text-navy [text-wrap:balance] sm:text-4xl">
               Inside our space
             </h2>
-            <p className="mt-2 text-navy/60">Purpose-built areas for every part of your child's day.</p>
+            <p className="mt-2 text-navy-soft">Purpose-built areas for every part of your child's day.</p>
           </FadeUp>
 
           <StaggerGrid className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {spaceFeatures.map((f) => (
               <StaggerItem key={f.title}>
-                <div className="flex gap-4 rounded-2xl bg-white p-5 shadow-sm border border-navy/5 h-full">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-coral/10 text-2xl">
-                    {f.icon}
+                <div className="flex h-full gap-4 rounded-2xl bg-white p-5 [box-shadow:var(--shadow-soft)]">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-sky-tint text-sky-ink">
+                    <Icon name={f.icon} size={24} />
                   </span>
                   <div>
                     <h3 className="font-bold text-navy">{f.title}</h3>
-                    <p className="mt-1 text-sm text-navy/70 leading-relaxed">{f.desc}</p>
+                    <p className="mt-1 text-sm leading-relaxed text-navy-soft">{f.desc}</p>
                   </div>
                 </div>
               </StaggerItem>
@@ -111,17 +110,19 @@ export default function AboutPage() {
         {/* Safety */}
         <section className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <FadeUp>
-            <span className="rounded-full bg-sky-100 px-4 py-1 text-sm font-bold text-sky-600">Safety First</span>
-            <h2 className="mt-4 text-3xl font-bold text-navy sm:text-4xl" style={{ fontFamily: 'var(--font-heading)' }}>
+            <p className="text-sm font-bold uppercase tracking-wide text-sky-ink">Safety first</p>
+            <h2 className="mt-3 font-heading text-3xl font-bold text-navy [text-wrap:balance] sm:text-4xl">
               Your peace of mind is our priority
             </h2>
-            <p className="mt-3 text-navy/70 leading-relaxed">
-              We take safety seriously — from the moment you drop off to the moment you pick up, your child is in good hands.
+            <p className="mt-3 leading-relaxed text-navy-soft [text-wrap:pretty]">
+              We take safety seriously. From the moment you drop off to the moment you pick up, your child is in good hands.
             </p>
             <ul className="mt-6 space-y-3">
               {safetyFeatures.map((f) => (
-                <li key={f} className="flex items-start gap-2.5 text-sm text-navy/80">
-                  <span className="mt-0.5 shrink-0 text-sky-500 font-bold">✓</span>
+                <li key={f} className="flex items-start gap-2.5 text-sm text-navy">
+                  <span className="mt-0.5 shrink-0 text-sky-ink">
+                    <Icon name="check" size={16} weight="bold" />
+                  </span>
                   {f}
                 </li>
               ))}
@@ -131,7 +132,7 @@ export default function AboutPage() {
           <FadeUp delay={0.2}>
             <div className="grid grid-cols-2 gap-3">
               {spacePhotos.map((photo) => (
-                <div key={photo.id} className="group relative aspect-square overflow-hidden rounded-2xl shadow-sm">
+                <div key={photo.id} className="group relative aspect-square overflow-hidden rounded-2xl [box-shadow:var(--shadow-soft)]">
                   <Image
                     src={photo.src}
                     alt={photo.alt}
@@ -147,20 +148,20 @@ export default function AboutPage() {
 
         {/* Promise */}
         <FadeUp>
-          <div className="rounded-3xl bg-gradient-to-br from-coral to-orange-400 p-10 text-center text-white shadow-xl">
-            <h2 className="text-2xl font-bold sm:text-3xl" style={{ fontFamily: 'var(--font-heading)' }}>
-              Our Promise to Parents
+          <div className="rounded-3xl bg-coral-deep p-10 text-center text-white [box-shadow:var(--shadow-lift)]">
+            <h2 className="font-heading text-2xl font-bold [text-wrap:balance] sm:text-3xl">
+              Our promise to parents
             </h2>
-            <p className="mt-4 text-base text-white/90 max-w-2xl mx-auto leading-relaxed">
-              When you leave your child with us, we treat them as our own. We promise a safe, loving, and growth-oriented environment — every single day.
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/95 [text-wrap:pretty]">
+              When you leave your child with us, we treat them as our own. We promise a safe, loving, and growth-oriented environment, every single day.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <HoverButton>
-                <Link href="/contact" className="inline-block rounded-full bg-white px-7 py-3 font-bold text-coral shadow">
-                  Book a Visit →
+                <Link href="/contact" className="inline-block rounded-full bg-white px-7 py-3.5 font-bold text-coral-ink shadow-md transition hover:bg-cream active:scale-[0.98]">
+                  Book a Free Trial
                 </Link>
               </HoverButton>
-              <Link href="/gallery" className="inline-block rounded-full border-2 border-white px-7 py-3 font-bold text-white hover:bg-white/10 transition">
+              <Link href="/gallery" className="inline-block rounded-full border-2 border-white px-7 py-3.5 font-bold text-white transition hover:bg-white/10">
                 See the Gallery
               </Link>
             </div>

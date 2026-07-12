@@ -1,36 +1,36 @@
 import Link from 'next/link';
-import { faqs, business } from '@/content/site';
+import { publishedFaqs, business } from '@/content/site';
 import { FadeUp, HoverButton } from '@/components/motion';
 import FaqAccordion from '@/components/FaqAccordion';
+import PageHero from '@/components/PageHero';
+import Icon from '@/components/Icon';
 
 export const metadata = {
-  title: "FAQ | Childcare & Enrollment Questions — Brixton's Little Haven Lapu-Lapu City",
+  title: "FAQ | Childcare & Enrollment Questions | Brixton's Little Haven Lapu-Lapu City",
   description:
-    "Answers to common parent questions about Brixton's Little Haven: what ages we accept, our hours, where we're located, how to enrol, drop-in care, and more. Basak, Lapu-Lapu City.",
+    "Answers to common parent questions about Brixton's Little Haven: what ages we accept, our hours, where we're located, how to enroll, drop-in care, and more. Basak, Lapu-Lapu City.",
   alternates: { canonical: '/faq' },
   openGraph: {
-    title: "FAQ — Brixton's Little Haven",
+    title: "FAQ | Brixton's Little Haven",
     description: "Everything parents ask before enrolling: ages, hours, location, enrollment, drop-in care, and more.",
   },
 };
 
-// FAQPage schema — enables Google rich results (expandable Q&A in search)
+// FAQPage schema enables Google rich results (expandable Q&A in search)
 function buildFaqSchema(faqList) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: faqList
-      .filter((f) => !f.answer.startsWith('[PLACEHOLDER'))
-      .map((f) => ({
-        '@type': 'Question',
-        name: f.question,
-        acceptedAnswer: { '@type': 'Answer', text: f.answer },
-      })),
+    mainEntity: faqList.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
   };
 }
 
 export default function FaqPage() {
-  const jsonLd = buildFaqSchema(faqs);
+  const jsonLd = buildFaqSchema(publishedFaqs);
 
   return (
     <>
@@ -39,51 +39,44 @@ export default function FaqPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c') }}
       />
 
-      {/* Hero */}
-      <section className="bg-gradient-to-b from-navy to-navy/90 py-16 text-center text-white">
-        <div className="mx-auto max-w-3xl px-4">
-          <FadeUp>
-            <span className="rounded-full bg-white/10 px-4 py-1 text-sm font-bold">FAQ</span>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <h1 className="mt-4 text-4xl font-bold sm:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
-              Questions? We have answers.
-            </h1>
-            <p className="mt-3 text-base text-white/70">
-              Everything parents ask before enrolling their little ones.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        accent="coral"
+        icon="chat"
+        title="Questions? We have answers."
+        intro="Everything parents ask before enrolling their little ones."
+      />
 
-      <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <FadeUp>
-          <div className="rounded-3xl bg-white p-6 shadow-sm sm:p-8">
-            <FaqAccordion faqs={faqs} />
+          <div className="rounded-3xl bg-white p-6 [box-shadow:var(--shadow-soft)] sm:p-8">
+            <FaqAccordion faqs={publishedFaqs} />
           </div>
         </FadeUp>
 
         <FadeUp delay={0.2}>
-          <div className="mt-10 rounded-3xl bg-coral/5 border-2 border-coral/20 p-8 text-center">
-            <p className="text-2xl">💬</p>
-            <h2 className="mt-2 text-xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
+          <div className="mt-10 rounded-3xl bg-coral-tint p-8 text-center [box-shadow:var(--shadow-soft)]">
+            <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-white/70 text-coral-ink">
+              <Icon name="chat" size={28} />
+            </span>
+            <h2 className="mt-3 font-heading text-xl font-bold text-navy [text-wrap:balance]">
               Still have a question?
             </h2>
-            <p className="mt-2 text-sm text-navy/60">
+            <p className="mt-2 text-sm text-navy-soft">
               Send us a message and we'll reply as soon as possible.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <HoverButton>
-                <Link href="/contact" className="inline-block rounded-full bg-coral px-7 py-3 font-bold text-white shadow">
-                  Contact Us →
+                <Link href="/contact" className="inline-block rounded-full bg-coral-deep px-7 py-3.5 font-bold text-white shadow-md transition hover:bg-coral-ink active:scale-[0.98]">
+                  Contact Us
                 </Link>
               </HoverButton>
               <a
                 href={business.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block rounded-full border-2 border-navy px-7 py-3 font-bold text-navy hover:bg-navy hover:text-white transition"
+                className="inline-flex items-center gap-2 rounded-full border-2 border-navy px-7 py-3.5 font-bold text-navy transition hover:bg-navy hover:text-white"
               >
+                <Icon name="messenger" size={18} />
                 Message on Facebook
               </a>
             </div>

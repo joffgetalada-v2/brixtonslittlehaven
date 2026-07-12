@@ -1,12 +1,13 @@
 // ============================================================
 // BRIXTON'S LITTLE HAVEN — Central Content & Data File
 // Edit this file to update any text, programs, or business info.
+// Icons are semantic names rendered by components/Icon.jsx.
 // ============================================================
 
 export const business = {
   name: "Brixton's Little Haven",
   tagline: "Learn • Play • Grow • Shine",
-  logo: '/logo.jpg',         // Circular colorful logo — replace with '/logo.png' if you re-export as PNG
+  logo: '/logo.png',         // Transparent circular logo (derived from logo.jpg)
   logoAlt: "Brixton's Little Haven logo",
 
   // ── Contact ─────────────────────────────────────────────
@@ -25,33 +26,33 @@ export const business = {
     'https://maps.google.com/?q=Gaisano+Grand+Mall+Basak+Lapu-Lapu+City+Philippines',
 
   // ── Hours ────────────────────────────────────────────────
-  hours: 'Monday – Saturday, 8:00 AM – 7:00 PM',
+  hours: 'Monday to Saturday, 8:00 AM to 7:00 PM',
 
   // ── SEO defaults ─────────────────────────────────────────
   siteUrl: 'https://brixtonslittlehaven.com',
   seoDescription:
-    "Safe indoor playgroup, flexible childcare, and academic tutorials for ages 12 months to 15 years — right beside Gaisano Grand Mall in Lapu-Lapu City.",
+    "Safe indoor playgroup, flexible childcare, and academic tutorials for ages 12 months to 15 years, right beside Gaisano Grand Mall in Lapu-Lapu City.",
 };
 
 // ── Value Pillars ─────────────────────────────────────────
 export const pillars = [
   {
     id: 'safe',
-    icon: '🛡️',
+    icon: 'shield',
     title: 'Safe Environment',
-    description: 'Clean, secure, and fully child-focused — so you can leave with total peace of mind.',
+    description: 'Clean, secure, and fully child-focused, so you can leave with total peace of mind.',
     color: 'sky',
   },
   {
     id: 'structured',
-    icon: '📅',
+    icon: 'calendar',
     title: 'Structured Routine',
     description: "Not just babysitting. Every day is purposefully designed to support your child's growth.",
     color: 'coral',
   },
   {
     id: 'growth',
-    icon: '🌱',
+    icon: 'sprout',
     title: 'Focused on Growth',
     description: 'Social, emotional, and cognitive development woven into every activity.',
     color: 'green',
@@ -59,7 +60,7 @@ export const pillars = [
 ];
 
 // ── Programs ─────────────────────────────────────────────
-// Each program has an accent color used for its card border and icon.
+// Each program has an accent color used for its card surface and icon.
 // accent: one of 'coral' | 'orange' | 'amber' | 'green' | 'sky' | 'purple' | 'pink'
 export const programs = [
   // ── CARE ───────────────────────────────────────────────
@@ -67,9 +68,9 @@ export const programs = [
     id: 'playgroup',
     category: 'Care',
     accent: 'coral',
-    icon: '🎨',
+    icon: 'palette',
     title: 'Playgroup',
-    ageRange: '12 months – 6 years',
+    ageRange: '12 months - 6 years',
     duration: 'Up to 4 hours per session',
     summary:
       'A structured, play-based program that builds social skills, independence, and early-learning foundations.',
@@ -87,9 +88,9 @@ export const programs = [
     id: 'integrated-care',
     category: 'Care',
     accent: 'orange',
-    icon: '🏠',
+    icon: 'house',
     title: 'Integrated Care',
-    ageRange: '12 months – 12 years',
+    ageRange: '12 months - 12 years',
     duration: 'Up to 12 hours per day',
     summary:
       'Full-day care combining babysitting and the playgroup program, with rest and learning tailored to your child\'s growth.',
@@ -105,7 +106,7 @@ export const programs = [
     id: 'drop-in',
     category: 'Care',
     accent: 'amber',
-    icon: '⏱️',
+    icon: 'clock',
     title: 'Drop-In Care',
     ageRange: 'All ages',
     duration: 'Flexible hourly care',
@@ -120,9 +121,9 @@ export const programs = [
     id: 'academic-tutorials',
     category: 'Learning & Enrichment',
     accent: 'green',
-    icon: '📚',
+    icon: 'books',
     title: 'Academic Tutorials',
-    ageRange: '3 – 15 years',
+    ageRange: '3 - 15 years',
     duration: 'Flexible sessions',
     summary:
       'Focused support in early literacy, numeracy, and school readiness to build confidence and strengthen skills.',
@@ -138,7 +139,7 @@ export const programs = [
     id: 'play-learn',
     category: 'Learning & Enrichment',
     accent: 'sky',
-    icon: '⭐',
+    icon: 'star',
     title: 'Play + Learn Program',
     subtitle: 'School Readiness Track',
     ageRange: '3 years and up',
@@ -159,7 +160,7 @@ export const programs = [
     id: 'combo',
     category: 'Learning & Enrichment',
     accent: 'purple',
-    icon: '🎯',
+    icon: 'target',
     title: 'Playgroup + Academic Tutorial Combo',
     ageRange: 'Varies',
     duration: 'Combined session',
@@ -172,9 +173,9 @@ export const programs = [
     id: 'esl',
     category: 'Learning & Enrichment',
     accent: 'pink',
-    icon: '🗣️',
+    icon: 'chat',
     title: 'ESL Classes',
-    ageRange: '3 years – Adults',
+    ageRange: '3 years - Adults',
     duration: 'Flexible sessions',
     summary:
       'English language learning through storytelling, vocabulary games, speaking activities, and environment-based outdoor practice.',
@@ -189,6 +190,7 @@ export const programs = [
 ];
 
 // ── FAQ ──────────────────────────────────────────────────
+// Items with published: false stay hidden until real answers are supplied.
 export const faqs = [
   {
     question: 'What ages do you accept?',
@@ -197,7 +199,7 @@ export const faqs = [
   },
   {
     question: 'What are your hours?',
-    answer: 'We are open Monday to Saturday, 8:00 AM – 7:00 PM.',
+    answer: 'We are open Monday to Saturday, 8:00 AM to 7:00 PM.',
   },
   {
     question: 'Where are you located?',
@@ -207,69 +209,82 @@ export const faqs = [
   {
     question: 'How do I enroll or book a free trial?',
     answer:
-      'Message us on Facebook, send us an email, give us a call, or use the contact form on our website to schedule an assessment — which includes a FREE trial session.',
+      'Message us on Facebook, send us an email, give us a call, or use the contact form on our website to schedule an assessment, which includes a free trial session.',
   },
   {
     question: 'Do you offer flexible or hourly care?',
     answer:
-      'Yes! Our Drop-In Care program is available by the hour — perfect for errands, appointments, or whenever you need a hand.',
+      'Yes. Our Drop-In Care program is available by the hour. Perfect for errands, appointments, or whenever you need a hand.',
   },
   {
     question: 'What should my child bring?',
-    answer: '[PLACEHOLDER — Please contact us for the full checklist.]',
+    answer: 'Please contact us for the full checklist.',
+    published: false,
   },
   {
     question: 'What is your sick-child policy?',
-    answer:
-      '[PLACEHOLDER — Please contact us for details on our health and wellness guidelines.]',
+    answer: 'Please contact us for details on our health and wellness guidelines.',
+    published: false,
   },
   {
     question: 'How many children are in each session?',
-    answer:
-      '[PLACEHOLDER — Contact us for current group sizes and availability.]',
+    answer: 'Contact us for current group sizes and availability.',
+    published: false,
   },
 ];
 
+// Only FAQs ready for the public page.
+export const publishedFaqs = faqs.filter((f) => f.published !== false);
+
 // ── Events / Announcements ────────────────────────────────
 // Shown in the "What's Happening" section on the homepage.
+// Add `expires: 'YYYY-MM-DD'` and the entry drops off automatically after that date.
 // To add more: drop the image in public/images/events/ and add an entry here.
 export const events = [
   {
     id: 'summer-vacation',
     src: '/images/events/summer-vacation.jpg',
-    alt: 'Summer Vacation Notice — Brixton\'s Little Haven closed until June 6',
+    alt: "Summer vacation notice: Brixton's Little Haven closed until June 6",
     label: 'Summer Vacation Notice',
+    expires: '2026-06-06',
   },
   {
     id: 'little-chefs',
     src: '/images/events/little-chefs.jpg',
-    alt: 'Little Chefs Festival — A Mommy & Me Event on May 9, 2026',
+    alt: 'Little Chefs Festival, a Mommy & Me event on May 9, 2026',
     label: 'Little Chefs Festival',
+    expires: '2026-05-10',
   },
   {
     id: 'mothers-day',
     src: '/images/events/happy-mothers-day.jpg',
     alt: "Happy Mother's Day from Brixton's Little Haven",
     label: "Mother's Day",
+    expires: '2026-05-17',
   },
   {
     id: 'holiday-closure',
     src: '/images/events/holiday-closure.jpg',
-    alt: 'Holiday Closure Announcement — Labor Day long weekend',
+    alt: 'Holiday closure announcement for the Labor Day long weekend',
     label: 'Holiday Closure',
+    expires: '2026-05-04',
   },
 ];
+
+// Events still current (safe to call at render time; static builds evaluate at build time).
+export const activeEvents = (today = new Date()) =>
+  events.filter((e) => !e.expires || new Date(`${e.expires}T23:59:59`) >= today);
 
 // ── Community Love ────────────────────────────────────────
 // Shown in the "Families Who Brighten Our Day" section on the homepage.
 // To add more: drop the image in public/images/community/ and add an entry here.
 export const communityImages = [
-  { id: 'ty-pizza',  src: '/images/community/thank-you-pizza.jpg',       alt: "Thank you from Tobi's parents — Greenwich pizza treat" },
-  { id: 'ty-cake',   src: '/images/community/thank-you-cake.jpg',        alt: "Thank you from Zuriell's mom — Goldilocks egg pie" },
-  { id: 'ty-sweets', src: '/images/community/thank-you-sweets.jpg',      alt: "Thank you from Hope's mom — sweet treats" },
-  { id: 'ty-butter', src: '/images/community/thank-you-butter.jpg',      alt: "Thank you from JJ's mom — Goldilocks butter macaroons" },
-  { id: 'ty-choc',   src: '/images/community/thank-you-chocolates.jpg',  alt: 'Thank you gift — chocolates from a Brixton\'s family' },
-  { id: 'ty-pizza2', src: '/images/community/thank-you-pizza1.jpg',      alt: 'Thank you pizza treat from a Brixton\'s Little Haven family' },
+  { id: 'ty-pizza',  src: '/images/community/thank-you-pizza.jpg',       alt: "Thank you from Tobi's parents: Greenwich pizza treat" },
+  { id: 'ty-cake',   src: '/images/community/thank-you-cake.jpg',        alt: "Thank you from Zuriell's mom: Goldilocks egg pie" },
+  { id: 'ty-sweets', src: '/images/community/thank-you-sweets.jpg',      alt: "Thank you from Hope's mom: sweet treats" },
+  { id: 'ty-butter', src: '/images/community/thank-you-butter.jpg',      alt: "Thank you from JJ's mom: Goldilocks butter macaroons" },
+  { id: 'ty-choc',   src: '/images/community/thank-you-chocolates.jpg',  alt: "Thank you gift: chocolates from a Brixton's family" },
+  { id: 'ty-pizza2', src: '/images/community/thank-you-pizza1.jpg',      alt: "Thank you pizza treat from a Brixton's Little Haven family" },
 ];
 
 // ── Gallery images ────────────────────────────────────────
@@ -278,11 +293,11 @@ export const communityImages = [
 // and add one entry here. Leave src: null for placeholder tiles.
 export const galleryImages = [
   // ── Playgroup & Play ───────────────────────────────────
-  { id: 'pg-1', src: '/images/kids/playgroup/baby-girl3.jpg',    alt: 'Girl proudly showing her colourful bead necklace',        label: 'Playgroup' },
+  { id: 'pg-1', src: '/images/kids/playgroup/baby-girl3.jpg',    alt: 'Girl proudly showing her colorful bead necklace',        label: 'Playgroup' },
   { id: 'pg-2', src: '/images/kids/playgroup/babies.jpg',         alt: 'Kids doing a group fishing puzzle activity',              label: 'Playgroup' },
   { id: 'pg-3', src: '/images/kids/playgroup/baby-chefs.jpg',     alt: 'Toddlers in chef hats exploring vegetables',             label: 'Playgroup' },
   { id: 'pg-4', src: '/images/kids/playgroup/baby-girl4.jpg',     alt: 'Toddler girl doing sensory play with water beads',       label: 'Sensory Play' },
-  { id: 'pg-5', src: '/images/kids/playgroup/baby-girl5.jpg',     alt: 'Two girls playing with colourful balls',                 label: 'Gross Motor' },
+  { id: 'pg-5', src: '/images/kids/playgroup/baby-girl5.jpg',     alt: 'Two girls playing with colorful balls',                 label: 'Gross Motor' },
   { id: 'pg-6', src: '/images/kids/playgroup/baby-girl-boy1.jpg', alt: 'Boy and girl in uniform doing a movement floor activity', label: 'Playgroup' },
 
   // ── Arts & Crafts ─────────────────────────────────────
@@ -290,7 +305,7 @@ export const galleryImages = [
   { id: 'art-2', src: '/images/kids/arts/baby-painting2.jpg', alt: 'Child showing purple paint-covered hands proudly',      label: 'Arts & Crafts' },
   { id: 'art-3', src: '/images/kids/arts/baby-painting3.jpg', alt: 'Girl with green hands after Easter painting session',   label: 'Arts & Crafts' },
   { id: 'art-4', src: '/images/kids/arts/baby-girl2.jpg',     alt: 'Girl doing crafts; group finger-painting session',      label: 'Arts & Crafts' },
-  { id: 'art-5', src: '/images/kids/arts/baby-boy6.jpg',      alt: 'Kids colouring an Easter egg together with a teacher',  label: 'Arts & Crafts' },
+  { id: 'art-5', src: '/images/kids/arts/baby-boy6.jpg',      alt: 'Kids coloring an Easter egg together with a teacher',  label: 'Arts & Crafts' },
 
   // ── Learning & Tutorials ───────────────────────────────
   { id: 'lrn-1', src: '/images/kids/learning/baby-girl1.jpg', alt: 'Girl pointing at the alphabet wall display',                label: 'Learning' },
@@ -301,7 +316,7 @@ export const galleryImages = [
   { id: 'lrn-6', src: '/images/kids/learning/baby-boy5.jpg',  alt: 'Little boy holding a "Little Helpers: Medicine Delivery" role-play sign', label: 'Role Play' },
 
   // ── Events ────────────────────────────────────────────
-  { id: 'ev-1', src: '/images/events/little-chefs.jpg',      alt: 'Little Chefs Festival — Mommy & Me event poster', label: 'Events' },
+  { id: 'ev-1', src: '/images/events/little-chefs.jpg',      alt: 'Little Chefs Festival, Mommy & Me event poster', label: 'Events' },
   { id: 'ev-2', src: '/images/events/happy-mothers-day.jpg', alt: "Happy Mother's Day greeting from Brixton's",       label: 'Events' },
 ];
 
@@ -309,7 +324,7 @@ export const galleryImages = [
 // 3 joyful kid photos shown between the hero and the pillars.
 // Swap any src here to change which photos appear in that strip.
 export const heroStrip = [
-  { id: 'hs-1', src: '/images/kids/playgroup/baby-girl3.jpg',  alt: 'Child proudly showing her colourful bead necklace' },
+  { id: 'hs-1', src: '/images/kids/playgroup/baby-girl3.jpg',  alt: 'Child proudly showing her colorful bead necklace' },
   { id: 'hs-2', src: '/images/kids/arts/baby-painting2.jpg',   alt: 'Child showing paint-covered hands after a fun art session' },
   { id: 'hs-3', src: '/images/kids/playgroup/baby-chefs.jpg',  alt: 'Toddlers in chef hats exploring food in a cooking activity' },
 ];
@@ -318,7 +333,7 @@ export const heroStrip = [
 // 4 photos shown in the safety/space grid on the About page.
 export const spacePhotos = [
   { id: 'sp-1', src: '/images/kids/playgroup/babies.jpg',        alt: 'Kids doing a group activity in the play area' },
-  { id: 'sp-2', src: '/images/kids/arts/baby-painting1.jpg',     alt: 'Child painting on the play fence — arts corner' },
+  { id: 'sp-2', src: '/images/kids/arts/baby-painting1.jpg',     alt: 'Child painting on the play fence in the arts corner' },
   { id: 'sp-3', src: '/images/kids/playgroup/baby-girl4.jpg',    alt: 'Toddler enjoying sensory play' },
   { id: 'sp-4', src: '/images/kids/learning/baby-girl1.jpg',     alt: 'Girl learning the alphabet on the reading wall' },
 ];

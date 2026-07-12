@@ -1,53 +1,45 @@
 import { business } from '@/content/site';
 import { FadeUp } from '@/components/motion';
 import ContactForm from '@/components/ContactForm';
+import PageHero from '@/components/PageHero';
+import Icon from '@/components/Icon';
 
 export const metadata = {
-  title: "Contact & Book a Free Trial | Brixton's Little Haven — Basak, Lapu-Lapu City",
+  title: "Contact & Book a Free Trial | Brixton's Little Haven | Basak, Lapu-Lapu City",
   description:
-    "Book a free assessment and trial session at Brixton's Little Haven. Call 0999 807 4755, message us on Facebook, or fill out our form. Open Mon–Sat, 8:00 AM–7:00 PM. Beside Gaisano Grand Mall.",
+    "Book a free assessment and trial session at Brixton's Little Haven. Call 0999 807 4755, message us on Facebook, or fill out our form. Open Mon-Sat, 8:00 AM-7:00 PM. Beside Gaisano Grand Mall.",
   alternates: { canonical: '/contact' },
   openGraph: {
-    title: "Contact Us — Brixton's Little Haven",
-    description: "Call, email, or message us on Facebook to schedule your child's FREE assessment. Basak, Lapu-Lapu City.",
+    title: "Contact Us | Brixton's Little Haven",
+    description: "Call, email, or message us on Facebook to schedule your child's free assessment. Basak, Lapu-Lapu City.",
   },
 };
 
 const contactInfo = [
-  { icon: '📞', label: 'Phone', value: business.phone, href: business.phoneTel },
-  { icon: '✉️', label: 'Email', value: business.email, href: `mailto:${business.email}` },
-  { icon: '💬', label: 'Facebook / Messenger', value: "Brixton's Little Haven", href: business.facebook, external: true },
-  { icon: '📍', label: 'Address', value: business.address },
-  { icon: '🕐', label: 'Hours', value: business.hours },
+  { icon: 'phone', label: 'Phone', value: business.phone, href: business.phoneTel },
+  { icon: 'mail', label: 'Email', value: business.email, href: `mailto:${business.email}` },
+  { icon: 'messenger', label: 'Facebook / Messenger', value: "Brixton's Little Haven", href: business.facebook, external: true },
+  { icon: 'pin', label: 'Address', value: business.address },
+  { icon: 'clock', label: 'Hours', value: business.hours },
 ];
 
 export default function ContactPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-gradient-to-b from-navy to-navy/90 py-16 text-center text-white">
-        <div className="mx-auto max-w-3xl px-4">
-          <FadeUp>
-            <span className="rounded-full bg-white/10 px-4 py-1 text-sm font-bold">Contact</span>
-          </FadeUp>
-          <FadeUp delay={0.1}>
-            <h1 className="mt-4 text-4xl font-bold sm:text-5xl" style={{ fontFamily: 'var(--font-heading)' }}>
-              Book a FREE trial today
-            </h1>
-            <p className="mt-3 text-base text-white/70">
-              Reach out via form, phone, email, or Messenger — we'll get back to you quickly.
-            </p>
-          </FadeUp>
-        </div>
-      </section>
+      <PageHero
+        accent="coral"
+        icon="phone"
+        title="Book a free trial today"
+        intro="Reach out via form, phone, email, or Messenger, and we'll get back to you quickly."
+      />
 
-      <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
 
           {/* Contact form */}
           <FadeUp>
-            <div className="rounded-3xl bg-white p-6 shadow-sm sm:p-8">
-              <h2 className="mb-6 text-2xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
+            <div className="rounded-3xl bg-white p-6 [box-shadow:var(--shadow-soft)] sm:p-8">
+              <h2 className="mb-6 font-heading text-2xl font-bold text-navy">
                 Send us a message
               </h2>
               <ContactForm />
@@ -57,24 +49,24 @@ export default function ContactPage() {
           {/* Contact details + map */}
           <div className="space-y-6">
             <FadeUp delay={0.1}>
-              <div className="rounded-3xl bg-white p-6 shadow-sm sm:p-8">
-                <h2 className="mb-5 text-xl font-bold text-navy" style={{ fontFamily: 'var(--font-heading)' }}>
+              <div className="rounded-3xl bg-white p-6 [box-shadow:var(--shadow-soft)] sm:p-8">
+                <h2 className="mb-5 font-heading text-xl font-bold text-navy">
                   Other ways to reach us
                 </h2>
                 <ul className="space-y-4">
                   {contactInfo.map((item) => (
                     <li key={item.label} className="flex items-start gap-4">
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral/10 text-xl">
-                        {item.icon}
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-coral-tint text-coral-ink">
+                        <Icon name={item.icon} size={20} />
                       </span>
                       <div>
-                        <p className="text-xs font-bold uppercase tracking-wide text-navy/40">{item.label}</p>
+                        <p className="text-sm font-semibold text-navy-soft">{item.label}</p>
                         {item.href ? (
                           <a
                             href={item.href}
                             target={item.external ? '_blank' : undefined}
                             rel={item.external ? 'noopener noreferrer' : undefined}
-                            className="text-sm font-medium text-navy hover:text-coral transition break-all"
+                            className="break-all text-sm font-medium text-navy transition hover:text-coral-ink"
                           >
                             {item.value}
                           </a>
@@ -90,7 +82,7 @@ export default function ContactPage() {
 
             {/* Map */}
             <FadeUp delay={0.2}>
-              <div className="overflow-hidden rounded-3xl shadow-sm aspect-video">
+              <div className="aspect-video overflow-hidden rounded-3xl [box-shadow:var(--shadow-soft)]">
                 <iframe
                   title="Brixton's Little Haven on Google Maps"
                   src={business.googleMapsEmbed}
