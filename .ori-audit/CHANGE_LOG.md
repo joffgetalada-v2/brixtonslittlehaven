@@ -84,3 +84,32 @@ Branch: `feature/scroll-world-redesign`. Git is the canonical revert layer; this
 **Note:** the 4-agent rollout workflow died mid-flight on a session limit (2.5 of 8 files done: programs/gallery/blog-index complete, homepage partial); the remainder was completed inline to the same spec.
 **Acceptance QA (production build, headless):** all 9 routes 200 with single h1, ZERO visible em/en-dashes, aria-current on every nav page, zero dead links; FAQ shows exactly 5 questions; events fallback renders; article renders 6 real h2s; focus ring 2px solid; reduced-motion = stills only; mobile encodes served; hero still CLS-exact (11,120px) and scrub-accurate. Only console error = Vercel Analytics' expected localhost 404.
 → **Checkpoint E: final review before merge. Asset weight: ~103 MB scroll-world clips (lazy blob-loaded) + ~1 MB logo + self-hosted fonts.**
+
+---
+
+## Phase 6 — Content refresh from 2026 enrollment materials (2026-07-12)
+
+Source: 16 official flyers/infographics supplied by the user (Pre-K curriculum 2026-2027, enrollment promo, program packages & rates, policies, parent handbook, Term 2 playgroup calendar). User pre-approved all placements ("no need for permission and everything is approved").
+
+**Data layer (`content/site.js`):**
+- Business facts corrected from flyers: hours 8AM→**7:00 AM**-7:00 PM (updated in FAQ, homepage find-us, hero tag, contact metadata, LocalBusiness JSON-LD), address now names **AGC Building**, added Instagram + Viber/WhatsApp.
+- New exports: `packageGroups` (full rate card: Curious Fox ₱9,000/4,800/4,800/3,800 · Bumblebee Buddies ₱6,000/3,500/3,500/2,500 · Busy Butterflies ₱250/hr · School Readiness Track ₱12,500/6,800/6,800/5,500 · Clever Squirrels ₱9,000/4,800/4,800 · Wise Owls ₱15,999/8,999 · Little Foxes ₱13,999/7,999), `flexiblePass` (₱250/hr · ₱899 half-day · ₱1,299 daily), `prek` (mission, 8 pillars, 4 curriculum domains with full area lists, 8-block daily routine, freebies, no-fees, 5%/15% savings), `enrollmentSteps` (₱1,000 assessment → schedule → free 2-hr trial → choose program), `enrollmentRequirements`, `handbookSections` (8 condensed policy sections incl. late-pickup fee scale ₱100/₱50/₱250-hr).
+- FAQ: the 3 hidden drafts now published with **recommended answers** (bring list + sick-child policy sourced from the policy flyers; group sizes phrased safely pending client confirmation) + 5 new FAQs (costs, assessment fee, documents, no make-ups/refunds, parent updates). 13 questions live.
+- Events: stale entries removed; real entries added — Pre-K founding batch (links to /pre-kindergarten, no expiry), Nutrition Prince & Princess 2026 (expires 2026-07-31), Parada ng Munting Bayani (expires 2026-08-31).
+- Program card "Play + Learn" renamed to **Pre-Kindergarten** (ages 3-5, 4 hrs) with link to the new page.
+
+**New pages:**
+- **/pre-kindergarten** — founding-batch intro + no-fees checklist, 8 pillars, curriculum domain cards (Language & Literacy, Math & Logic, Science & Discovery, Writing & Fine Motor), numbered daily routine, tuition + savings + freebies (#tuition anchor), 4-step enrollment + requirements, CTA band. Service JSON-LD. Added to nav ("Pre-K"), sitemap (0.9).
+- **/parent-handbook** — 8 policy sections with anchor chips (arrival/separation, pick-up + late fees, attendance/reserved-slot, health, uniforms/belongings/ID, Kriyo communication, CCTV/privacy/child protection, payments). Linked from footer bottom bar + FAQ. Sitemap 0.6. Payment account numbers deliberately NOT published on the site.
+
+**Higgsfield artwork (10 stills, gpt_image_2, locked clay style preamble, stylised figures only, zero in-image text; 70 cr spent, ~1,024 remaining):**
+- Page heroes: `prek-hero.webp` (classroom island), `handbook-hero.webp` (drop-off scene) → `public/images/illustrations/`.
+- 6 package mascots (fox, bee, butterfly, star, squirrel, owl) → rate cards.
+- 2 event cards: `nutrition-prince-princess.webp`, `parada-ng-munting-bayani.webp` → `public/images/events/`.
+- All ≤116 KB. Gotchas hit: plan caps at 8 concurrent jobs (extras rejected instantly, 0 cr); one transient generation failure re-rolled clean.
+
+**Other wiring:** Programs page gains "Packages & monthly rates" (#rates) + Flexible Care Pass + updated metadata; `PackageCard` component; ProgramCard optional href; homepage event cards support date + link; contact page lists Viber/WhatsApp + Instagram; footer Instagram + Parent Handbook link; `sameAs` includes Instagram.
+
+**QA (production build, headless):** 18 routes build clean; all 10 public routes 200 with single h1, zero dashes, zero dead links, zero broken images; 13 FAQs render; events shelf shows 3 linked/labeled cards; rates verified on-page (₱12,500 etc., 7 mascot images); every whileInView section verified VISIBLE on scroll (blank areas in full-page screenshots are an IntersectionObserver capture artifact only); sole console error remains Vercel Analytics' localhost 404. Adversarial review workflow run over the diff before committing: 6 confirmed findings, all fixed — 5 legacy "free assessment" claims (contact metadata ×2, gallery CTA, programs CTA, blog post) corrected to paid ₱1,000 assessment + free 2-hr trial, and the free-ID-vs-parent-expense contradiction reconciled in the handbook wording.
+
+**Flagged for user:** hours changed to 7 AM on flyer authority; "AGC Building" used (one flyer says ACE — majority wins); TikTok mentioned on flyers but no URL known, so not linked; group-sizes FAQ is a recommendation pending client's real numbers.
