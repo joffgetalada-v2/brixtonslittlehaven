@@ -30,12 +30,12 @@ export default function ParentHandbookPage() {
     <>
       <PageHero accent="sky" icon="books" title="The parent handbook" intro={handbookIntro}>
         {/* Section shortcuts */}
-        <nav aria-label="Handbook sections" className="mt-6 flex max-w-3xl flex-wrap gap-2">
+        <nav aria-label="Handbook sections" className="mt-6 flex max-w-3xl flex-wrap gap-2.5">
           {handbookSections.map((s) => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className="rounded-full bg-white/70 px-3.5 py-1.5 text-xs font-semibold text-sky-ink transition hover:bg-white"
+              className="inline-flex min-h-10 items-center rounded-full bg-white/70 px-4 text-xs font-semibold text-sky-ink transition hover:bg-white"
             >
               {s.title}
             </a>

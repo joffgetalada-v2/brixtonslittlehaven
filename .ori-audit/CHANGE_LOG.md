@@ -113,3 +113,25 @@ Source: 16 official flyers/infographics supplied by the user (Pre-K curriculum 2
 **QA (production build, headless):** 18 routes build clean; all 10 public routes 200 with single h1, zero dashes, zero dead links, zero broken images; 13 FAQs render; events shelf shows 3 linked/labeled cards; rates verified on-page (₱12,500 etc., 7 mascot images); every whileInView section verified VISIBLE on scroll (blank areas in full-page screenshots are an IntersectionObserver capture artifact only); sole console error remains Vercel Analytics' localhost 404. Adversarial review workflow run over the diff before committing: 6 confirmed findings, all fixed — 5 legacy "free assessment" claims (contact metadata ×2, gallery CTA, programs CTA, blog post) corrected to paid ₱1,000 assessment + free 2-hr trial, and the free-ID-vs-parent-expense contradiction reconciled in the handbook wording.
 
 **Flagged for user:** hours changed to 7 AM on flyer authority; "AGC Building" used (one flyer says ACE — majority wins); TikTok mentioned on flyers but no URL known, so not linked; group-sizes FAQ is a recommendation pending client's real numbers.
+
+---
+
+## Phase 7 — Full flyer-fidelity audit + responsive/cross-browser/SEO hardening (2026-07-18)
+
+User directive: flyers are the ONLY source of truth (client has no prior website); audit everything, then commit and push to main (explicit user authorization for the production push).
+
+**Canonical fact sheet:** `.ori-audit/FLYER_FACTS.md` now holds the full transcription of all 16 flyers — every rate, age, time, policy, and promo. All future copy changes check against it.
+
+**Flyer-consistency fixes (workflow-confirmed + inline audit, 16 items):**
+- Killed every remaining invented/legacy claim: "The first assessment is free" and "book a free visit" (blog posts), "ages 12 months to 15 years" / "3 - 15 years" / "Ages 1-15" / "3 years - Adults" (site.js, homepage metadata + CTA band, hero engine copy + SSR frame, ContactForm options, posts). Ages now flyer-true: playgroup/care 1-5, Pre-K 3-5, tutorials/ESL "3 and up".
+- Drop-In Care age range aligned to its own rate card (1-5). Integrated Care now "1 - 5 years, up to 12 hrs per session".
+- Replaced the non-flyer "Playgroup + Academic Tutorial Combo" card with the flyer-backed **After-School Care** program card; ContactForm program options updated to the real lineup.
+- Pre-K daily routine now all 10 flyer blocks (added "Introducing self" and "Independence & responsibility skills").
+- Parent handbook: early pick-up fee policy added (matching flyer), attendance section stamped "effective June 8, 2026" + travel-no-refund + full no-transfers wording.
+- Pre-K page: full learning-materials + hygiene-kit checklist (from the Step-by-Step flyer) and the "Preparing confident learners for Kindergarten, Grade 1, and beyond" line.
+
+**SEO foundation:** JSON-LD geo corrected (longitude 124.0 → 123.9494 city-level; street now AGC Building), priceRange added, keywords expanded (pre-kindergarten/preschool/daycare + geo variants), og:image upgraded from square logo to a 1200x630 card (clay exterior + logo) installed as file-based `app/opengraph-image.jpg` so every route inherits it (page-level openGraph objects had silently dropped the config image), twitter card → summary_large_image. All 11 routes have unique title/description/canonical; robots + sitemap verified.
+
+**Responsive & cross-browser (8 fixes):** form fields 16px + min-w-0 (kills iOS focus-zoom AND a real 24-33px horizontal overflow on /contact found in all three engines — the select's longest option set the min width); hero SSR frame h-screen → h-svh; hero vh reservation handed to the engine after mount (fixes phone URL-bar gap); route-rail dots 28→40px touch targets; Best Value badge and event dates 10-11px → 12px; handbook chips ≥40px tall. **Verified: Chromium + Firefox + WebKit (real engines) × desktop + 390px mobile × 10 routes = all clean** (status, single h1, no horizontal overflow, no broken images, no page errors).
+
+**Final QA:** build green (19 static outputs), 13 FAQs, 3 event cards, 7 mascots, 10 Pre-K routine blocks, zero dashes/dead links. → Pushed to master per user instruction.

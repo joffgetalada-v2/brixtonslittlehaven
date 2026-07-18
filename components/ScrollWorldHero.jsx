@@ -25,8 +25,8 @@ const CONFIG = {
       scroll: 1.5, linger: 0.35,
       eyebrow: 'Beside Gaisano Grand Mall, Basak',
       title: 'A little haven for big beginnings.',
-      body: 'Safe, structured indoor care and learning for kids aged 1 to 15 in Lapu-Lapu City.',
-      tags: ['Ages 1-15', 'Mon-Sat 7AM-7PM'],
+      body: 'Safe, structured indoor care and learning for little ones in Lapu-Lapu City.',
+      tags: ['From age 1', 'Mon-Sat 7AM-7PM'],
     },
     {
       id: 'sw-playgroup', label: 'Playgroup',
@@ -36,7 +36,7 @@ const CONFIG = {
       eyebrow: 'Playgroup',
       title: 'Play with purpose.',
       body: 'Structured, play-based sessions that build social skills, independence, and early learning.',
-      tags: ['12 months to 6 years', 'Sensory play', 'Circle time'],
+      tags: ['Ages 1-5', 'Sensory play', 'Circle time'],
     },
     {
       id: 'sw-arts', label: 'Arts & Crafts',
@@ -65,7 +65,7 @@ const CONFIG = {
       accent: '#3e7a2e',
       eyebrow: 'Academic Tutorials',
       title: 'Ready for big school.',
-      body: "Reading, writing, and numbers at your child's own pace, from age 3 to 15.",
+      body: "Reading, writing, and numbers at your child's own pace, from age 3 and up.",
       tags: ['School readiness', 'ESL classes'],
     },
     {
@@ -112,6 +112,10 @@ export default function ScrollWorldHero() {
     mountedOnce.current = true;
     node.innerHTML = '';
     mountScrollWorld(node, CONFIG);
+    // The vh reservation only exists for zero-CLS SSR. The engine sizes its own
+    // track from innerHeight, which diverges from 1vh on phones (URL bar), so
+    // hand the height over to the engine once it has built the world.
+    node.style.minHeight = '';
   }, []);
 
   return (
@@ -119,7 +123,7 @@ export default function ScrollWorldHero() {
       <div ref={worldRef} style={{ minHeight: `${TOTAL_VH}vh` }}>
         {/* Server-rendered landing frame: LCP poster + first-scene copy. The engine
             replaces this on mount with the same visual, so hydration is seamless. */}
-        <div className="relative flex h-screen items-end overflow-hidden bg-cream">
+        <div className="relative flex h-svh items-end overflow-hidden bg-cream">
           <Image
             src="/scrollworld/still1.webp"
             alt="Miniature clay world of Brixton's Little Haven: a bright storefront beside the mall"
@@ -136,7 +140,7 @@ export default function ScrollWorldHero() {
               A little haven for big beginnings.
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-navy-soft">
-              Safe, structured indoor care and learning for kids aged 1 to 15 in Lapu-Lapu City.
+              Safe, structured indoor care and learning for little ones in Lapu-Lapu City.
             </p>
           </div>
         </div>

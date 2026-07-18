@@ -3,8 +3,10 @@
 import { useState } from 'react';
 import Icon from '@/components/Icon';
 
+// text-base (16px) on fields: anything smaller makes iOS Safari zoom the page on focus.
+// w-full + min-w-0 lets the select shrink below its longest option on narrow phones.
 const FIELD_CLASSES =
-  'rounded-xl border-2 border-navy/15 bg-white px-4 py-2.5 text-sm text-navy transition focus:border-coral-deep';
+  'w-full min-w-0 rounded-xl border-2 border-navy/15 bg-white px-4 py-2.5 text-base text-navy transition focus:border-coral-deep';
 
 export default function ContactForm() {
   const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
@@ -148,12 +150,12 @@ export default function ContactForm() {
           className={FIELD_CLASSES}
         >
           <option value="">Select a program (optional)</option>
-          <option>Playgroup (Ages 12 mo to 6 yrs)</option>
-          <option>Integrated Care (up to 12 hrs/day)</option>
+          <option>Playgroup (Ages 1-5)</option>
+          <option>Pre-Kindergarten (Ages 3-5)</option>
+          <option>Integrated Care + Play (12 hrs)</option>
           <option>Drop-In Care (hourly)</option>
-          <option>Academic Tutorials (Ages 3-15)</option>
-          <option>Play + Learn Program (School Readiness)</option>
-          <option>Playgroup + Academic Tutorial Combo</option>
+          <option>Academic Tutorials (Ages 3+)</option>
+          <option>After-School Care</option>
           <option>ESL Classes</option>
           <option>Not sure yet</option>
         </select>

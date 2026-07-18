@@ -45,7 +45,7 @@ export const posts = [
       "**3. It supports language development.**\nSensory play gives children real experiences to talk about. When a caregiver narrates, describing textures, temperatures, and actions, children build vocabulary organically. Research shows that language-rich sensory play leads to significantly larger vocabularies in toddlers.",
       "**4. It teaches problem-solving and scientific thinking.**\nWhat happens if I pour water into sand? What if I mix the two colors together? Sensory play is, at its heart, toddler-level science: observe, try, see what happens, adjust, try again. This is the same process behind every scientific discovery ever made.",
       "**5. It helps regulate emotions and reduce anxiety.**\nSensory input, especially touch, has a proven calming effect on the nervous system. Many children who struggle with emotional regulation respond beautifully to structured sensory activities. For anxious or overstimulated children, a quiet sensory tray can be as effective as a timeout, and far more positive.",
-      "At Brixton's Little Haven, sensory play is a core part of our Playgroup program. From water bead trays to kinetic sand, finger painting, and texture boards, we design activities that are rich in learning and irresistible to little hands. If you'd like to see it in action, book a free visit today.",
+      "At Brixton's Little Haven, sensory play is a core part of our Playgroup program. From water bead trays to kinetic sand, finger painting, and texture boards, we design activities that are rich in learning and irresistible to little hands. If you'd like to see it in action, book an assessment today, and your child gets a free trial session.",
     ],
   },
   {
@@ -66,7 +66,7 @@ export const posts = [
       "**3. They're falling behind their peers and losing confidence.**\nIf a school-age child has started avoiding reading, dreading homework, or expressing that they feel less capable than classmates, early intervention is important. A small gap can widen quickly without support, and a child's self-belief is deeply tied to their early academic experiences.",
       "**4. Their teacher has mentioned specific areas to work on.**\nTeachers often notice learning gaps early. If your child's teacher has suggested working on reading fluency, number recognition, or writing, a structured tutorial program is the natural next step. It shows your child that you take their learning seriously, and that's powerful motivation.",
       "**5. They're bored and asking for more challenge.**\nAcademic tutorials aren't only for children who are struggling. Advanced learners can also stagnate in a standard classroom. Enrichment tutorials that go deeper into science, math patterns, or creative writing keep bright children engaged and challenged.",
-      "Our Academic Tutorials at Brixton's Little Haven serve children aged 3 to 15. We assess each child individually, build a plan around their current level, and grow from there, always prioritizing enjoyment and confidence alongside skills. If you recognize your child in any of these signs, reach out. The first assessment is free.",
+      "Our Academic Tutorials at Brixton's Little Haven serve children from age 3. We assess each child individually, build a plan around their current level, and grow from there, always prioritizing enjoyment and confidence alongside skills. If you recognize your child in any of these signs, reach out. The assessment is play-based, takes about 30 minutes, and comes with a free trial session.",
     ],
   },
 ];

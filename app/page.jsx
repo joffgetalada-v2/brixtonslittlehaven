@@ -9,7 +9,7 @@ import Icon from '@/components/Icon';
 export const metadata = {
   title: "Brixton's Little Haven | Indoor Playgroup & Childcare in Lapu-Lapu City",
   description:
-    "Safe indoor playgroup, flexible childcare, and academic tutorials for kids aged 12 months to 15 years, beside Gaisano Grand Mall, Basak, Lapu-Lapu City. Book a free trial today.",
+    "Safe indoor playgroup and childcare for ages 1-5, plus pre-K, tutorials, and ESL from age 3 and up, beside Gaisano Grand Mall, Basak, Lapu-Lapu City. Book a free trial today.",
   alternates: { canonical: '/' },
   openGraph: {
     title: "Brixton's Little Haven | Learn • Play • Grow • Shine",
@@ -144,7 +144,7 @@ export default function HomePage() {
               Something for every child
             </h2>
             <p className="mt-3 max-w-2xl text-navy-soft">
-              From playgroup to academic coaching, for ages 12 months to 15 years.
+              From playgroup for ages 1 to 5 to academic coaching from age 3 and up.
             </p>
           </FadeUp>
 
@@ -388,7 +388,7 @@ export default function HomePage() {
                     </div>
                     <div className="px-3 py-2.5 text-center">
                       <p className="text-xs font-bold text-navy">{ev.label}</p>
-                      {ev.date && <p className="mt-0.5 text-[11px] text-navy-soft">{ev.date}</p>}
+                      {ev.date && <p className="mt-0.5 text-xs text-navy-soft">{ev.date}</p>}
                     </div>
                   </>
                 );

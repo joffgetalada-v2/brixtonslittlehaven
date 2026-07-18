@@ -13,7 +13,7 @@ export const metadata = {
   alternates: { canonical: '/programs' },
   openGraph: {
     title: "Programs & Rates | Brixton's Little Haven",
-    description: "Playgroup, Pre-K, tutorials, ESL, and full-day care with transparent monthly rates. Ages 12 months to adults.",
+    description: "Playgroup, Pre-K, tutorials, ESL, and full-day care with transparent monthly rates. Ages 1-5, tutorials from age 3 and up.",
   },
 };
 
@@ -52,7 +52,7 @@ export default function ProgramsPage() {
         accent="sun"
         icon="star"
         title="Programs for every stage"
-        intro="From 12 months to adulthood, we have structured, nurturing programs to match every child's needs and your family's schedule."
+        intro="From your toddler's first playgroup to school-age tutorials, we have structured, nurturing programs to match every child's needs and your family's schedule."
       >
         <div className="mt-8">
           <HoverButton>
@@ -157,7 +157,7 @@ export default function ProgramsPage() {
                       <p className="text-xs font-semibold text-navy-soft">{opt.label}</p>
                       <p className="mt-1 font-heading text-lg font-bold text-navy">{opt.price}</p>
                       {opt.badge && (
-                        <span className="mt-1 inline-block rounded-full bg-navy px-2.5 py-0.5 text-[10px] font-bold text-warm-white">
+                        <span className="mt-1 inline-block rounded-full bg-navy px-2.5 py-0.5 text-xs font-bold text-warm-white">
                           {opt.badge}
                         </span>
                       )}

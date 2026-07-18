@@ -28,11 +28,14 @@ export const metadata = {
   description: business.seoDescription,
   keywords: [
     'childcare Lapu-Lapu City',
-    'playgroup Philippines',
+    'playgroup Lapu-Lapu City',
+    'pre-kindergarten Lapu-Lapu City',
+    'preschool Mactan Cebu',
+    'daycare Basak Lapu-Lapu',
     'indoor playground Mactan',
-    'academic tutorial kids',
+    'academic tutorial kids Cebu',
     'ESL classes children',
-    'daycare Basak',
+    'babysitting Lapu-Lapu',
     "Brixton's Little Haven",
   ],
   authors: [{ name: business.name }],
@@ -44,13 +47,13 @@ export const metadata = {
     siteName: business.name,
     title: `${business.name} | ${business.tagline}`,
     description: business.seoDescription,
-    images: [{ url: business.logo, width: 800, height: 800, alt: business.logoAlt }],
+    images: [{ url: '/og.jpg', width: 1200, height: 630, alt: "Brixton's Little Haven, a cosy miniature world of learning and play" }],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: business.name,
     description: business.seoDescription,
-    images: [business.logo],
+    images: ['/og.jpg'],
   },
   icons: {
     icon: business.logo,
@@ -70,17 +73,19 @@ export default function RootLayout({ children }) {
     email: business.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Beside Gaisano Grand Mall, Basak',
+      streetAddress: 'AGC Building, beside Gaisano Grand Mall, Basak',
       addressLocality: 'Lapu-Lapu City',
       addressRegion: 'Cebu',
       postalCode: '6015',
       addressCountry: 'PH',
     },
+    // City-level coordinates for Lapu-Lapu City (exact pin lives in the Maps link)
     geo: {
       '@type': 'GeoCoordinates',
       latitude: 10.3103,
-      longitude: 124.0,
+      longitude: 123.9494,
     },
+    priceRange: '₱250 - ₱15,999',
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',

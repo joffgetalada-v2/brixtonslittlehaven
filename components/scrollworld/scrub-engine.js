@@ -436,8 +436,8 @@ function injectCSS() {
   }
   /* Touch: give the route dots a finger-sized hit area without growing the visible dot. */
   @media (hover:none) and (pointer:coarse){
-    .sw-route{padding:14px 6px;}
-    .sw-route__dot{width:28px;height:28px;}
+    .sw-route{padding:14px 4px;gap:12px;}
+    .sw-route__dot{width:40px;height:40px;}
     .sw-btn{padding:15px 26px;}
   }
   @media (prefers-reduced-motion:reduce){ .sw-hint i::after{animation:none;} .sw-pt{display:none;} }

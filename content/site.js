@@ -33,7 +33,7 @@ export const business = {
   // ── SEO defaults ─────────────────────────────────────────
   siteUrl: 'https://brixtonslittlehaven.com',
   seoDescription:
-    "Safe indoor playgroup, flexible childcare, and academic tutorials for ages 12 months to 15 years, right beside Gaisano Grand Mall in Lapu-Lapu City.",
+    "Safe indoor playgroup and childcare for ages 1 to 5, plus pre-kindergarten, academic tutorials, and ESL classes from age 3 and up, right beside Gaisano Grand Mall in Lapu-Lapu City.",
 };
 
 // ── Value Pillars ─────────────────────────────────────────
@@ -72,7 +72,7 @@ export const programs = [
     accent: 'coral',
     icon: 'palette',
     title: 'Playgroup',
-    ageRange: '12 months - 6 years',
+    ageRange: '1 - 5 years',
     duration: 'Up to 4 hours per session',
     summary:
       'A structured, play-based program that builds social skills, independence, and early-learning foundations.',
@@ -92,8 +92,8 @@ export const programs = [
     accent: 'orange',
     icon: 'house',
     title: 'Integrated Care',
-    ageRange: '12 months - 12 years',
-    duration: 'Up to 12 hours per day',
+    ageRange: '1 - 5 years',
+    duration: 'Up to 12 hours per session',
     summary:
       'Full-day care combining babysitting and the playgroup program, with rest and learning tailored to your child\'s growth.',
     includes: [
@@ -110,7 +110,7 @@ export const programs = [
     accent: 'amber',
     icon: 'clock',
     title: 'Drop-In Care',
-    ageRange: 'All ages',
+    ageRange: '1 - 5 years',
     duration: 'Flexible hourly care',
     summary:
       'Flexible hourly care based on your schedule. Perfect for errands, appointments, or sudden needs.',
@@ -125,7 +125,7 @@ export const programs = [
     accent: 'green',
     icon: 'books',
     title: 'Academic Tutorials',
-    ageRange: '3 - 15 years',
+    ageRange: '3 years and up',
     duration: 'Flexible sessions',
     summary:
       'Focused support in early literacy, numeracy, and school readiness to build confidence and strengthen skills.',
@@ -160,15 +160,15 @@ export const programs = [
     href: '/pre-kindergarten',
   },
   {
-    id: 'combo',
-    category: 'Learning & Enrichment',
+    id: 'after-school',
+    category: 'Care',
     accent: 'purple',
-    icon: 'target',
-    title: 'Playgroup + Academic Tutorial Combo',
-    ageRange: 'Varies',
-    duration: 'Combined session',
+    icon: 'graduation',
+    title: 'After-School Care',
+    ageRange: 'School-age kids',
+    duration: 'Open year-round',
     summary:
-      'A balanced blend of structured play and guided learning that supports developmental milestones and academic readiness.',
+      'A safe, supervised place for your child after school hours. Enroll anytime, and message us to build a schedule that fits your family.',
     includes: [],
     featured: false,
   },
@@ -178,7 +178,7 @@ export const programs = [
     accent: 'pink',
     icon: 'chat',
     title: 'ESL Classes',
-    ageRange: '3 years - Adults',
+    ageRange: '3 years and up',
     duration: 'Flexible sessions',
     summary:
       'English language learning through storytelling, vocabulary games, speaking activities, and environment-based outdoor practice.',
@@ -198,7 +198,7 @@ export const faqs = [
   {
     question: 'What ages do you accept?',
     answer:
-      'From 12 months old. Programs run up to age 15, and ESL classes are open to adults of any age.',
+      'Playgroup, drop-in, and integrated care programs welcome ages 1 to 5. Pre-Kindergarten serves ages 3 to 5, and academic tutorials and ESL classes are open from age 3 and up.',
   },
   {
     question: 'What are your hours?',
@@ -589,12 +589,14 @@ export const prek = {
     blocks: [
       { title: 'Welcome time & free choice learning', description: 'Children arrive, greet their classmates and teachers, and explore learning centers.' },
       { title: 'Morning circle time', description: 'Prayer, flag ceremony, calendar and weather, days of the week, and a "How do I feel today?" check-in.' },
+      { title: 'Introducing self', description: 'Practicing name, age, and personal information, one small confident voice at a time.' },
       { title: 'Science, discovery & general knowledge', description: 'Topic discussion, hands-on exploration, worksheets, and learning center activity.' },
-      { title: 'Wiggle time', description: 'Movement games, obstacle courses, and action songs to reset busy bodies.' },
+      { title: 'Wiggle time', description: 'Movement games, the reading corner, obstacle courses, and action songs to reset busy bodies.' },
       { title: 'Mathematics & logical thinking', description: 'Guided practice, worksheets, and hands-on learning activities.' },
       { title: 'Snack time & practical life skills', description: 'Handwashing routines, healthy eating habits, table manners, and independence.' },
       { title: 'Language, reading & writing', description: 'Phonics, reading activities, writing practice, and interactive learning.' },
-      { title: 'Reflection & dismissal', description: 'Goodbye song, packing away materials, putting on shoes independently, and a positive send-off.' },
+      { title: 'Independence & responsibility skills', description: 'Packing away materials, classroom clean-up, and organizing personal belongings.' },
+      { title: 'Reflection & dismissal', description: 'Goodbye song, putting on shoes independently, preparing bags, and a positive send-off.' },
     ],
   },
   freebies: [
@@ -649,6 +651,25 @@ export const enrollmentRequirements = [
   "Parent or guardian's ID",
 ];
 
+// Learning materials, submitted on or before the first day of classes.
+export const learningMaterials = {
+  creative: [
+    'Plastic envelope with handle (orange)',
+    'A4 sticker paper (20 sheets)',
+    'A4 photo paper, glossy or matte (20 sheets)',
+    'Vellum paper (10 sheets, 180 gsm)',
+    'Poster paint (12 colors)',
+    'Stick glue (big)',
+    'Crayola "So Big" crayons (8 or 12 colors)',
+    'Original Play-Doh (3 pcs)',
+    'Washable markers (thick, easy grip)',
+    'Safety scissors (child-friendly)',
+    'Paint brush set (large sizes for toddlers)',
+  ],
+  hygiene: ['Alcohol', 'Baby wipes', 'Liquid hand soap', 'Toilet tissue'],
+  note: 'Academic Tutorial and Pre-Kindergarten students also bring four orange writing notebooks. Materials are submitted on or before the official start of classes.',
+};
+
 // ── Parent Handbook (condensed policies) ──────────────────
 export const handbookIntro =
   'Everything families need to know about daily routines, safety, and policies at Brixton\'s Little Haven. These guidelines help us keep every child safe, settled, and thriving.';
@@ -672,7 +693,8 @@ export const handbookSections = [
     title: 'Drop-off & pick-up',
     points: [
       'Children are released only to authorized adults listed on their record. Please notify us in advance if someone else will pick up your child. Staff may request a valid ID before releasing a child.',
-      'A 15-minute grace period applies after dismissal time. After that, a fee of ₱100 covers the first 15 minutes and ₱50 each succeeding 15-minute interval. Extended supervision may be charged at ₱250 per hour when applicable.',
+      'Late pick-up: a 15-minute grace period applies after dismissal time. After that, a fee of ₱100 covers the first 15 minutes and ₱50 each succeeding 15-minute interval. Extended supervision may be charged at ₱250 per hour when applicable.',
+      'Early pick-up: a matching 15-minute grace period applies before regular dismissal time, with the same ₱100 and ₱50 fee schedule beyond it.',
       'These fees cover the additional staffing and supervision needed beyond regular session hours.',
     ],
   },
@@ -682,9 +704,9 @@ export const handbookSections = [
     accent: 'sun',
     title: 'Attendance & absences',
     points: [
-      'Please report absences at least 2 hours before class. Late notice means the absence is recorded as unexcused.',
-      'Three or more consecutive days of absence due to illness require a medical certificate, submitted on or before your child\'s return. For travel, please inform us at least 48 hours in advance.',
-      'We operate on a reserved-slot system: your child\'s classroom space, teacher allocation, and materials are reserved regardless of attendance. All absences count as consumed sessions, and there are no make-up classes, refunds, credits, or extensions.',
+      'Effective June 8, 2026: please report absences at least 2 hours before class. Late notice means the absence is recorded as unexcused.',
+      'Three or more consecutive days of absence due to illness require a medical certificate, submitted on or before your child\'s return. For travel, please inform us at least 48 hours in advance; travel does not qualify for a pause, extension, or refund.',
+      'We operate on a reserved-slot system: your child\'s classroom space, teacher allocation, and materials are reserved regardless of attendance. All absences count as consumed sessions, and there are no make-up classes, refunds, credits, extensions, or transfers to another day, month, program, or child.',
       'Crying, clinginess, or difficulty adjusting are normal and are not grounds for pausing enrollment. Consistent attendance is the best way to help your child settle in.',
     ],
   },

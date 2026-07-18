@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { business, prek, packageGroups, enrollmentSteps, enrollmentRequirements } from '@/content/site';
+import { business, prek, packageGroups, enrollmentSteps, enrollmentRequirements, learningMaterials } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/motion';
 import PageHero from '@/components/PageHero';
 import PackageCard from '@/components/PackageCard';
@@ -312,9 +312,49 @@ export default function PreKindergartenPage() {
               </ul>
               <p className="mt-4 text-xs text-navy-soft">
                 Digital and physical copies both help make processing smooth. Some documents can be
-                submitted after enrollment, and the full learning materials checklist is shared when you
-                enroll.
+                submitted after enrollment.
               </p>
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={0.15}>
+            <div className="mt-6 rounded-3xl bg-white p-6 [box-shadow:var(--shadow-soft)] sm:p-7">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-berry-tint text-berry-ink">
+                  <Icon name="paint" size={24} />
+                </span>
+                <h3 className="font-heading text-base font-bold text-navy">
+                  Learning materials & creative supplies
+                </h3>
+              </div>
+              <div className="mt-4 grid gap-6 sm:grid-cols-2">
+                <ul className="space-y-1.5">
+                  {learningMaterials.creative.map((item) => (
+                    <li key={item} className="flex items-start gap-1.5 text-xs leading-relaxed text-navy-soft">
+                      <span className="mt-px shrink-0 text-berry-ink">
+                        <Icon name="check" size={13} weight="bold" />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div>
+                  <h4 className="text-xs font-bold uppercase tracking-wide text-berry-ink">Hygiene kit</h4>
+                  <ul className="mt-2 space-y-1.5">
+                    {learningMaterials.hygiene.map((item) => (
+                      <li key={item} className="flex items-start gap-1.5 text-xs leading-relaxed text-navy-soft">
+                        <span className="mt-px shrink-0 text-berry-ink">
+                          <Icon name="check" size={13} weight="bold" />
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 text-xs leading-relaxed text-navy-soft [text-wrap:pretty]">
+                    {learningMaterials.note}
+                  </p>
+                </div>
+              </div>
             </div>
           </FadeUp>
         </section>
@@ -327,7 +367,7 @@ export default function PreKindergartenPage() {
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-white/95 [text-wrap:pretty]">
               Book an assessment today and your child gets a free 2-hour trial session. First come,
-              first served.
+              first served. Preparing confident learners for Kindergarten, Grade 1, and beyond.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <HoverButton>
