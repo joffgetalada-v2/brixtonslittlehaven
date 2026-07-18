@@ -135,3 +135,16 @@ User directive: flyers are the ONLY source of truth (client has no prior website
 **Responsive & cross-browser (8 fixes):** form fields 16px + min-w-0 (kills iOS focus-zoom AND a real 24-33px horizontal overflow on /contact found in all three engines — the select's longest option set the min width); hero SSR frame h-screen → h-svh; hero vh reservation handed to the engine after mount (fixes phone URL-bar gap); route-rail dots 28→40px touch targets; Best Value badge and event dates 10-11px → 12px; handbook chips ≥40px tall. **Verified: Chromium + Firefox + WebKit (real engines) × desktop + 390px mobile × 10 routes = all clean** (status, single h1, no horizontal overflow, no broken images, no page errors).
 
 **Final QA:** build green (19 static outputs), 13 FAQs, 3 event cards, 7 mascots, 10 Pre-K routine blocks, zero dashes/dead links. → Pushed to master per user instruction.
+
+---
+
+## Phase 8 — Production "static hero" fix (2026-07-18)
+
+User report: the live site's hero read as static images, unlike the demo. Root cause was NOT a code break (local scrub QA passed): Vercel serves the mp4s to this region at only 78-266 KB/s even on CDN HIT (sin1 edge), so the 8.4 MB first dive kept real visitors on poster stills for 30-100+ seconds. Localhost QA was instant, masking it.
+
+**Fix (commit d0bd825):**
+- All 22 clips re-encoded from the retained Phase 3 raw sources: desktop 1080p CRF 25 `-g 12`, mobile 720p CRF 26 `-g 8`. Chain 101 MB → **48.7 MB**; first clip 8.4 → 3.7 MB (desktop), 4.7 → 2.2 MB (mobile). SSIM vs old masters 0.986; frame-locked seams unaffected (same sources, same filters).
+- First clip preloaded from SSR HTML. GOTCHA: `<link rel="preload" as="fetch">` WITHOUT `crossorigin` does NOT match the engine's `fetch()` and double-downloads (verified: 2 requests); `crossorigin="anonymous"` fixes the match (verified: 1 request). Media queries mirror the engine's `isMobile()` (max-width 860px / coarse pointer).
+- Engine LOCAL PATCH #3: `.sw-loading` "Loading the flight" chip — arms after 500ms, dismisses on first `loadedmetadata`, suppressed under reduced motion, dropped past the exit fade.
+
+**Still true / recommended to the user:** Vercel is not a video CDN; for instant loads in PH, move `/scrollworld/vid/*` to a real media host (e.g. Cloudflare R2 behind its Manila edge) and point the CONFIG urls there. Custom domain brixtonslittlehaven.com is NOT connected (DNS dead); production runs on brixtonslittlehaven.vercel.app.
