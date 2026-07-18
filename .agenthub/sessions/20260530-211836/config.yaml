@@ -1,0 +1,5 @@
+session_id: 20260530-211836
+task: "Build a new feature"
+agent_count: 3
+base_branch: master
+created: 2026-05-30T13:18:36.583765+00:00

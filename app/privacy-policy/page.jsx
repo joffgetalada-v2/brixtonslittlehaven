@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
       <h1 className="mb-2 font-heading text-3xl font-bold text-navy">
         Privacy Policy
       </h1>
-      <p className="mb-10 text-sm text-navy-soft">Last updated: June 2026</p>
+      <p className="mb-10 text-sm text-navy-soft">Last updated: July 2026</p>
 
       <div className="space-y-8 text-base leading-relaxed text-navy-soft">
 
@@ -66,9 +66,11 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2 className="text-lg font-bold text-navy mb-2">5. Google AdSense & Cookies</h2>
           <p>
-            This website uses <strong>Google AdSense</strong> to display advertisements. Google AdSense uses cookies
-            to serve ads based on your prior visits to this and other websites. Google's use of advertising cookies
-            enables it and its partners to serve ads based on your visit to our site and/or other sites on the internet.
+            This website may display advertisements through <strong>Google AdSense</strong>. When ads are shown,
+            Google AdSense uses cookies to serve ads based on your prior visits to this and other websites.
+            Google's use of advertising cookies enables it and its partners to serve ads based on your visit
+            to our site and/or other sites on the internet. Third-party vendors, including Google, use cookies
+            to serve ads based on your prior visits.
           </p>
           <p className="mt-2">
             You may opt out of personalised advertising by visiting{' '}
@@ -114,9 +116,11 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2 className="text-lg font-bold text-navy mb-2">9. Your Rights</h2>
           <p>
-            You have the right to request access to, correction of, or deletion of any personal data
-            we hold about you. To exercise these rights, contact us at{' '}
+            Under the Philippine <strong>Data Privacy Act of 2012 (Republic Act No. 10173)</strong>, you have
+            the right to be informed about, access, correct, and object to the processing of your personal
+            data, and to request its deletion. To exercise these rights, contact us at{' '}
             <a href={`mailto:${business.email}`} className="text-coral-ink hover:underline">{business.email}</a>.
+            You may also lodge a complaint with the National Privacy Commission.
           </p>
         </section>
 

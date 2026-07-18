@@ -148,3 +148,16 @@ User report: the live site's hero read as static images, unlike the demo. Root c
 - Engine LOCAL PATCH #3: `.sw-loading` "Loading the flight" chip — arms after 500ms, dismisses on first `loadedmetadata`, suppressed under reduced motion, dropped past the exit fade.
 
 **Still true / recommended to the user:** Vercel is not a video CDN; for instant loads in PH, move `/scrollworld/vid/*` to a real media host (e.g. Cloudflare R2 behind its Manila edge) and point the CONFIG urls there. Custom domain brixtonslittlehaven.com is NOT connected (DNS dead); production runs on brixtonslittlehaven.vercel.app.
+
+---
+
+## Phase 9 — Production-readiness + AdSense-readiness (2026-07-18)
+
+- **Contact form silent-loss bug fixed:** with no NEXT_PUBLIC_FORMSPREE_ID (prod's current state) the form showed a dev "Demo mode" banner and FAKED a success message while inquiries went nowhere. Now it renders a direct-contact panel (Messenger / call / email) instead; the real form activates the moment the env var is set in Vercel.
+- **Branded 404** (app/not-found.jsx, fox mascot, home/programs/contact links).
+- **Favicons:** metadata.icons pointed at the 1 MB logo.png; replaced with file-based app/icon.png (192, 75 KB) + app/apple-icon.png (180, 67 KB) alongside the existing favicon.ico.
+- **AdSense scaffolding (one-line activation):** `adsense.publisherId` in content/site.js gates (a) the sitewide adsbygoogle script in layout, (b) /ads.txt via app/ads.txt/route.js (returns a real 404 while blank; route kept dynamic because force-static strips the 404 status; deleted a stale placeholder public/ads.txt that shadowed the route).
+- **Cookie notice** (components/CookieNotice.jsx): dismissible, localStorage, PH DPA-appropriate notice (not a consent gate — analytics is cookieless and ads are off). EEA/UK targeting would need a Google-certified CMP (AdSense Privacy & messaging).
+- **Privacy policy:** "may display" AdSense wording (accurate pre-approval), third-party-vendors sentence, Data Privacy Act of 2012 (RA 10173) + NPC in Your Rights, date bumped.
+- **QA:** internal-link crawl (14 unique links, 0 broken), branded 404 verified, cookie notice shows/dismisses/persists, no adsbygoogle script while blank, icon links point at sized files, contact fallback verified. Build green.
+- **AdSense to-dos that are the CLIENT's (documented for the user):** connect the custom domain first (AdSense does not accept *.vercel.app subdomains), then apply, then paste the ca-pub ID into content/site.js.

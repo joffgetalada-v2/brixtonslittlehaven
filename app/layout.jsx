@@ -1,10 +1,12 @@
 import './globals.css';
 import { Fredoka, Nunito } from 'next/font/google';
+import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import MessengerButton from '@/components/MessengerButton';
-import { business } from '@/content/site';
+import CookieNotice from '@/components/CookieNotice';
+import { business, adsense } from '@/content/site';
 
 const fredoka = Fredoka({
   subsets: ['latin'],
@@ -55,10 +57,7 @@ export const metadata = {
     description: business.seoDescription,
     images: ['/og.jpg'],
   },
-  icons: {
-    icon: business.logo,
-    apple: business.logo,
-  },
+  // Icons are file-based: app/favicon.ico, app/icon.png (192), app/apple-icon.png (180).
   robots: { index: true, follow: true },
 };
 
@@ -113,7 +112,17 @@ export default function RootLayout({ children }) {
         <main className="flex-1">{children}</main>
         <Footer />
         <MessengerButton />
+        <CookieNotice />
         <Analytics />
+        {/* AdSense loads only once the publisher ID is filled in content/site.js. */}
+        {adsense.publisherId && (
+          <Script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsense.publisherId}`}
+            crossOrigin="anonymous"
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   );

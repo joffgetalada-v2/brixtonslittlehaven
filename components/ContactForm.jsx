@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Icon from '@/components/Icon';
+import { business } from '@/content/site';
 
 // text-base (16px) on fields: anything smaller makes iOS Safari zoom the page on focus.
 // w-full + min-w-0 lets the select shrink below its longest option on narrow phones.
@@ -10,7 +11,43 @@ const FIELD_CLASSES =
 
 export default function ContactForm() {
   const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
-  const demoMode = !formId;
+
+  // Without a Formspree ID there is no backend to receive the message. Never
+  // show a form that silently drops inquiries: offer the direct channels instead.
+  // (Set NEXT_PUBLIC_FORMSPREE_ID in Vercel env vars to activate the real form.)
+  if (!formId) {
+    return (
+      <div className="flex flex-col gap-4">
+        <p className="text-sm leading-relaxed text-navy-soft">
+          The quickest way to reach us is a message or a call. We reply fast during open hours,
+          Monday to Saturday, 7:00 AM to 7:00 PM.
+        </p>
+        <a
+          href={business.messengerUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-coral-deep px-7 py-3.5 font-bold text-white shadow-md transition hover:bg-coral-ink active:scale-[0.98]"
+        >
+          <Icon name="messenger" size={20} />
+          Message us on Messenger
+        </a>
+        <a
+          href={business.phoneTel}
+          className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy px-7 py-3.5 font-bold text-navy transition hover:bg-navy hover:text-white"
+        >
+          <Icon name="phone" size={20} />
+          Call {business.phone}
+        </a>
+        <a
+          href={`mailto:${business.email}`}
+          className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy px-7 py-3.5 font-bold text-navy transition hover:bg-navy hover:text-white"
+        >
+          <Icon name="mail" size={20} />
+          {business.email}
+        </a>
+      </div>
+    );
+  }
 
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
   const [form, setForm] = useState({ name: '', contact: '', program: '', message: '' });
@@ -48,12 +85,6 @@ export default function ContactForm() {
     }
     setStatus('sending');
 
-    if (demoMode) {
-      await new Promise((r) => setTimeout(r, 900));
-      setStatus('success');
-      return;
-    }
-
     try {
       const res = await fetch(`https://formspree.io/f/${formId}`, {
         method: 'POST',
@@ -86,12 +117,6 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
-      {demoMode && (
-        <div className="rounded-2xl bg-sun-tint px-4 py-3 text-sm text-sun-ink">
-          <strong>Demo mode:</strong> set <code className="rounded bg-white/70 px-1">NEXT_PUBLIC_FORMSPREE_ID</code> to send real emails.
-        </div>
-      )}
-
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
           <label htmlFor="name" className="text-sm font-semibold text-navy">

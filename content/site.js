@@ -35,9 +35,20 @@ export const business = {
   hours: 'Monday to Saturday, 7:00 AM to 7:00 PM',
 
   // ── SEO defaults ─────────────────────────────────────────
+  // The custom domain goes live once the client's Cloudflare setup is approved;
+  // canonicals/sitemap already point at it so indexing lands on the final domain.
   siteUrl: 'https://brixtonslittlehaven.com',
   seoDescription:
     "Safe indoor playgroup and childcare for ages 1 to 5, plus pre-kindergarten, academic tutorials, and ESL classes from age 3 and up, right beside Gaisano Grand Mall in Lapu-Lapu City.",
+};
+
+// ── Google AdSense ────────────────────────────────────────
+// Paste the AdSense publisher ID (format: ca-pub-1234567890123456) here once the
+// account is approved. That single edit activates the sitewide AdSense script
+// (app/layout.jsx) and the /ads.txt file (app/ads.txt/route.js). Leave blank
+// until then; nothing ad-related loads while it is empty.
+export const adsense = {
+  publisherId: '',
 };
 
 // ── Value Pillars ─────────────────────────────────────────
