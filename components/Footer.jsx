@@ -77,6 +77,14 @@ export default function Footer() {
                   Instagram
                 </a>
               </li>
+              {business.tiktok && (
+                <li>
+                  <a href={business.tiktok} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-warm-white transition hover:text-sun">
+                    <Icon name="tiktok" size={18} className="mt-0.5 shrink-0" />
+                    TikTok
+                  </a>
+                </li>
+              )}
             </ul>
           </div>
 

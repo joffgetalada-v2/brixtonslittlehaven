@@ -34,6 +34,7 @@ import {
   HandWaving,
   DeviceMobile,
   InstagramLogo,
+  TiktokLogo,
 } from '@phosphor-icons/react/dist/ssr';
 
 const MAP = {
@@ -69,6 +70,7 @@ const MAP = {
   wave: HandWaving,
   device: DeviceMobile,
   instagram: InstagramLogo,
+  tiktok: TiktokLogo,
 };
 
 export default function Icon({ name, size = 24, weight = 'duotone', className = '', label }) {

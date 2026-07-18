@@ -94,7 +94,7 @@ export default function RootLayout({ children }) {
         closes: '19:00',
       },
     ],
-    sameAs: [business.facebook, business.instagram],
+    sameAs: [business.facebook, business.instagram, ...(business.tiktok ? [business.tiktok] : [])],
     image: `${business.siteUrl}${business.logo}`,
   };
 

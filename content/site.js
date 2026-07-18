@@ -18,6 +18,10 @@ export const business = {
   facebook: 'https://www.facebook.com/profile.php?id=61580366842564',
   messengerUrl: 'https://m.me/61580366842564',
   instagram: 'https://www.instagram.com/brixtons_little_haven',
+  // TikTok exists ("Brixton's Little Haven") but the URL is not confirmed yet.
+  // Paste it here when the client provides it; the footer and contact page
+  // pick it up automatically while it stays hidden when blank.
+  tiktok: '',
 
   // ── Location ─────────────────────────────────────────────
   address: 'AGC Building, beside Gaisano Grand Mall, Basak, Lapu-Lapu City (Mactan), Philippines 6015',

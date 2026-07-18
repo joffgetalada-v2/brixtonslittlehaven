@@ -21,6 +21,9 @@ const contactInfo = [
   { icon: 'mail', label: 'Email', value: business.email, href: `mailto:${business.email}` },
   { icon: 'messenger', label: 'Facebook / Messenger', value: "Brixton's Little Haven", href: business.facebook, external: true },
   { icon: 'instagram', label: 'Instagram', value: '@brixtons_little_haven', href: business.instagram, external: true },
+  ...(business.tiktok
+    ? [{ icon: 'tiktok', label: 'TikTok', value: "Brixton's Little Haven", href: business.tiktok, external: true }]
+    : []),
   { icon: 'pin', label: 'Address', value: business.address },
   { icon: 'clock', label: 'Hours', value: business.hours },
 ];
