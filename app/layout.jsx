@@ -85,11 +85,11 @@ export default function RootLayout({ children }) {
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        opens: '08:00',
+        opens: '07:00',
         closes: '19:00',
       },
     ],
-    sameAs: [business.facebook],
+    sameAs: [business.facebook, business.instagram],
     image: `${business.siteUrl}${business.logo}`,
   };
 

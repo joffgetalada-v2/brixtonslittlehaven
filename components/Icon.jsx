@@ -25,6 +25,15 @@ import {
   MoonStars,
   Baby,
   PaintBrush,
+  PencilSimple,
+  Flask,
+  Wallet,
+  LockSimple,
+  Backpack,
+  UsersThree,
+  HandWaving,
+  DeviceMobile,
+  InstagramLogo,
 } from '@phosphor-icons/react/dist/ssr';
 
 const MAP = {
@@ -51,6 +60,15 @@ const MAP = {
   moon: MoonStars,
   baby: Baby,
   paint: PaintBrush,
+  pencil: PencilSimple,
+  flask: Flask,
+  wallet: Wallet,
+  lock: LockSimple,
+  bag: Backpack,
+  users: UsersThree,
+  wave: HandWaving,
+  device: DeviceMobile,
+  instagram: InstagramLogo,
 };
 
 export default function Icon({ name, size = 24, weight = 'duotone', className = '', label }) {
