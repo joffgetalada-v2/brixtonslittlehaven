@@ -161,3 +161,12 @@ User report: the live site's hero read as static images, unlike the demo. Root c
 - **Privacy policy:** "may display" AdSense wording (accurate pre-approval), third-party-vendors sentence, Data Privacy Act of 2012 (RA 10173) + NPC in Your Rights, date bumped.
 - **QA:** internal-link crawl (14 unique links, 0 broken), branded 404 verified, cookie notice shows/dismisses/persists, no adsbygoogle script while blank, icon links point at sized files, contact fallback verified. Build green.
 - **AdSense to-dos that are the CLIENT's (documented for the user):** connect the custom domain first (AdSense does not accept *.vercel.app subdomains), then apply, then paste the ca-pub ID into content/site.js.
+
+---
+
+## Phase 10 — Washed-out first scene fix + video CDN switch (2026-07-19)
+
+- **Bug (user screenshot, reproduced at 45% opacity):** the trackTop anchoring patch made page-top y negative (y = scrollY - trackTop), which the crossfade math treated as "outside scene 1" and faded the whole first scene behind the header offset. Engine guard added: above the world, segment 0 stays fully opaque.
+- **Video host switch:** `NEXT_PUBLIC_VIDEO_CDN` env var re-points all 22 clip URLs + the first-clip preload to any media host (Cloudflare R2 planned; requires CORS ACAO for the site origin). Blank = same-origin /public as today.
+- **Adaptive encode:** Chromium's Network Information API (downlink < 3 Mbps) now serves the 720p `-m` encodes to slow desktop links too - except the first segment, which always matches the HTML preload to avoid double download.
+- QA: scene-0 opacity 1 at top, scrub t-series advances, preload single-fetch, build green.

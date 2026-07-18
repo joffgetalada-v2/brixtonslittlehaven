@@ -9,6 +9,14 @@ import { mountScrollWorld } from './scrollworld/scrub-engine';
 // below the hero shifts when the engine mounts.
 const TOTAL_VH = 13.9 * 100;
 
+// Flight video host. Vercel's CDN is slow for large media in this region, so the
+// clips can live on a dedicated host (e.g. Cloudflare R2): set NEXT_PUBLIC_VIDEO_CDN
+// to the public base URL (no trailing slash) and redeploy - all 22 clip URLs and the
+// first-clip preload switch over. The host must send CORS headers
+// (Access-Control-Allow-Origin) for this site's origin. Blank = same-origin /public.
+const VIDEO_CDN = (process.env.NEXT_PUBLIC_VIDEO_CDN || '').replace(/\/+$/, '');
+const vid = (file) => `${VIDEO_CDN}/scrollworld/vid/${file}`;
+
 const CONFIG = {
   // Site chrome (Header) stays on top of the flight, so the engine's own topbar is
   // suppressed: no brand, no nav pills, no top CTA. Route rail + section copy remain.
@@ -20,7 +28,7 @@ const CONFIG = {
     {
       id: 'sw-exterior', label: 'Welcome',
       still: '/scrollworld/still1.webp',
-      clip: '/scrollworld/vid/dive1.mp4', clipMobile: '/scrollworld/vid/dive1-m.mp4',
+      clip: vid('dive1.mp4'), clipMobile: vid('dive1-m.mp4'),
       accent: '#c6402e',
       scroll: 1.5, linger: 0.35,
       eyebrow: 'Beside Gaisano Grand Mall, Basak',
@@ -31,7 +39,7 @@ const CONFIG = {
     {
       id: 'sw-playgroup', label: 'Playgroup',
       still: '/scrollworld/still2.webp',
-      clip: '/scrollworld/vid/dive2.mp4', clipMobile: '/scrollworld/vid/dive2-m.mp4',
+      clip: vid('dive2.mp4'), clipMobile: vid('dive2-m.mp4'),
       accent: '#2b6cb0',
       eyebrow: 'Playgroup',
       title: 'Play with purpose.',
@@ -41,7 +49,7 @@ const CONFIG = {
     {
       id: 'sw-arts', label: 'Arts & Crafts',
       still: '/scrollworld/still3.webp',
-      clip: '/scrollworld/vid/dive3.mp4', clipMobile: '/scrollworld/vid/dive3-m.mp4',
+      clip: vid('dive3.mp4'), clipMobile: vid('dive3-m.mp4'),
       accent: '#9c4a7f',
       eyebrow: 'Arts & Crafts',
       title: 'Messy hands, proud hearts.',
@@ -51,7 +59,7 @@ const CONFIG = {
     {
       id: 'sw-chefs', label: 'Little Chefs',
       still: '/scrollworld/still4.webp',
-      clip: '/scrollworld/vid/dive4.mp4', clipMobile: '/scrollworld/vid/dive4-m.mp4',
+      clip: vid('dive4.mp4'), clipMobile: vid('dive4-m.mp4'),
       accent: '#8a6116',
       eyebrow: 'Little Chefs',
       title: 'Tiny cooks, big smiles.',
@@ -61,7 +69,7 @@ const CONFIG = {
     {
       id: 'sw-tutorial', label: 'Tutorials',
       still: '/scrollworld/still5.webp',
-      clip: '/scrollworld/vid/dive5.mp4', clipMobile: '/scrollworld/vid/dive5-m.mp4',
+      clip: vid('dive5.mp4'), clipMobile: vid('dive5-m.mp4'),
       accent: '#3e7a2e',
       eyebrow: 'Academic Tutorials',
       title: 'Ready for big school.',
@@ -71,7 +79,7 @@ const CONFIG = {
     {
       id: 'sw-finale', label: 'Visit Us',
       still: '/scrollworld/still6.webp',
-      clip: '/scrollworld/vid/dive6.mp4', clipMobile: '/scrollworld/vid/dive6-m.mp4',
+      clip: vid('dive6.mp4'), clipMobile: vid('dive6-m.mp4'),
       accent: '#c6402e',
       scroll: 1.7, linger: 0.45,
       eyebrow: 'Learn • Play • Grow • Shine',
@@ -85,18 +93,18 @@ const CONFIG = {
     },
   ],
   connectors: [
-    '/scrollworld/vid/conn1.mp4',
-    '/scrollworld/vid/conn2.mp4',
-    '/scrollworld/vid/conn3.mp4',
-    '/scrollworld/vid/conn4.mp4',
-    '/scrollworld/vid/conn5.mp4',
+    vid('conn1.mp4'),
+    vid('conn2.mp4'),
+    vid('conn3.mp4'),
+    vid('conn4.mp4'),
+    vid('conn5.mp4'),
   ],
   connectorsMobile: [
-    '/scrollworld/vid/conn1-m.mp4',
-    '/scrollworld/vid/conn2-m.mp4',
-    '/scrollworld/vid/conn3-m.mp4',
-    '/scrollworld/vid/conn4-m.mp4',
-    '/scrollworld/vid/conn5-m.mp4',
+    vid('conn1-m.mp4'),
+    vid('conn2-m.mp4'),
+    vid('conn3-m.mp4'),
+    vid('conn4-m.mp4'),
+    vid('conn5-m.mp4'),
   ],
 };
 

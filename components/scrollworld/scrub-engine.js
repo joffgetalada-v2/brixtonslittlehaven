@@ -205,8 +205,13 @@ function mountScrollWorld(container, config) {
     // and simply cross-dissolve as you scroll. No scrubbed video motion, no decode cost.
     if (reduce || s.loading || !s.clip) return;
     s.loading = true;
-    // Serve the lighter mobile encode on phones when one was provided.
-    const url = (isMobile() && s.clipM) ? s.clipM : s.clip;
+    // Serve the lighter mobile encode on phones - and on slow desktop links
+    // (Network Information API, Chromium only; others just get the full encode).
+    // The FIRST segment always uses the desktop pick: its file is already being
+    // preloaded from the HTML, and switching would double-download it.
+    const conn = navigator.connection;
+    const slowLink = !!(conn && conn.downlink && conn.downlink < 3) && s !== SEGMENTS[0];
+    const url = ((isMobile() || slowLink) && s.clipM) ? s.clipM : s.clip;
     fetch(url).then(r => r.ok ? r.blob() : Promise.reject(new Error('404')))
       .then(blob => {
         const v = document.createElement('video');
@@ -241,6 +246,10 @@ function mountScrollWorld(container, config) {
       s.target = s.linger ? lingerEase(local, s.linger) : local;
       let outside = 0;
       if (y < s.start) outside = s.start - y; else if (y > s.end) outside = y - s.end;
+      // LOCAL PATCH: when the world sits below a sticky header, page-top y is
+      // negative (y = scrollY - trackTop). That is "before the world", not a
+      // crossfade zone - the first scene must stay fully opaque, not washed out.
+      if (i === 0 && y < s.start) outside = 0;
       const op = smooth(1 - outside / fade);
       s.el.style.opacity = op; s.visible = op > 0.001;
       s.el.style.zIndex = (i === ci) ? '120' : String(100 + Math.round(op * 10));
