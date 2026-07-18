@@ -75,7 +75,7 @@ export default function HomePage() {
           <FadeUp delay={0.4}>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-navy-soft">
               <span className="flex items-center gap-1.5"><Icon name="pin" size={16} /> Beside Gaisano Grand, Basak</span>
-              <span className="flex items-center gap-1.5"><Icon name="clock" size={16} /> Mon-Sat, 8 AM-7 PM</span>
+              <span className="flex items-center gap-1.5"><Icon name="clock" size={16} /> Mon-Sat, 7 AM-7 PM</span>
               <span className="flex items-center gap-1.5"><Icon name="phone" size={16} /> {business.phone}</span>
             </div>
           </FadeUp>
@@ -374,20 +374,38 @@ export default function HomePage() {
             </FadeUp>
           ) : (
             <div className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4">
-              {upcoming.map((ev) => (
-                <div key={ev.id} className="group w-64 shrink-0 snap-start overflow-hidden rounded-2xl bg-white [box-shadow:var(--shadow-soft)]">
-                  <div className="relative aspect-square w-full overflow-hidden">
-                    <Image
-                      src={ev.src}
-                      alt={ev.alt}
-                      fill
-                      sizes="256px"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+              {upcoming.map((ev) => {
+                const card = (
+                  <>
+                    <div className="relative aspect-square w-full overflow-hidden">
+                      <Image
+                        src={ev.src}
+                        alt={ev.alt}
+                        fill
+                        sizes="256px"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="px-3 py-2.5 text-center">
+                      <p className="text-xs font-bold text-navy">{ev.label}</p>
+                      {ev.date && <p className="mt-0.5 text-[11px] text-navy-soft">{ev.date}</p>}
+                    </div>
+                  </>
+                );
+                return ev.href ? (
+                  <Link
+                    key={ev.id}
+                    href={ev.href}
+                    className="group w-64 shrink-0 snap-start overflow-hidden rounded-2xl bg-white [box-shadow:var(--shadow-soft)] transition hover:-translate-y-0.5 hover:[box-shadow:var(--shadow-lift)]"
+                  >
+                    {card}
+                  </Link>
+                ) : (
+                  <div key={ev.id} className="group w-64 shrink-0 snap-start overflow-hidden rounded-2xl bg-white [box-shadow:var(--shadow-soft)]">
+                    {card}
                   </div>
-                  <p className="px-3 py-2 text-center text-xs font-semibold text-navy-soft">{ev.label}</p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </div>

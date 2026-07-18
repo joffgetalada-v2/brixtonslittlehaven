@@ -62,7 +62,11 @@ export default function FaqPage() {
               Still have a question?
             </h2>
             <p className="mt-2 text-sm text-navy-soft">
-              Send us a message and we'll reply as soon as possible.
+              Our{' '}
+              <Link href="/parent-handbook" className="font-bold text-coral-ink underline-offset-2 hover:underline">
+                Parent Handbook
+              </Link>{' '}
+              covers policies in detail, or send us a message and we'll reply as soon as possible.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <HoverButton>

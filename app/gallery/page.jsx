@@ -98,7 +98,7 @@ export default function GalleryPage() {
               Want to see it in person?
             </h2>
             <p className="mx-auto mt-2 max-w-2xl text-sm text-navy-soft [text-wrap:pretty]">
-              Come visit us: we offer a free assessment and trial session.
+              Come visit us: book an assessment and your child gets a free 2-hour trial session.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <HoverButton>

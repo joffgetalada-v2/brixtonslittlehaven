@@ -71,6 +71,12 @@ export default function Footer() {
                   Facebook / Messenger
                 </a>
               </li>
+              <li>
+                <a href={business.instagram} target="_blank" rel="noopener noreferrer" className="flex items-start gap-2 text-warm-white transition hover:text-sun">
+                  <Icon name="instagram" size={18} className="mt-0.5 shrink-0" />
+                  Instagram
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -103,9 +109,14 @@ export default function Footer() {
           <p className="text-xs text-navy-muted">
             © {year} Brixton's Little Haven. All rights reserved.
           </p>
-          <Link href="/privacy-policy" className="text-xs text-navy-muted transition hover:text-sun">
-            Privacy Policy
-          </Link>
+          <span className="flex items-center gap-4">
+            <Link href="/parent-handbook" className="text-xs text-navy-muted transition hover:text-sun">
+              Parent Handbook
+            </Link>
+            <Link href="/privacy-policy" className="text-xs text-navy-muted transition hover:text-sun">
+              Privacy Policy
+            </Link>
+          </span>
           <p className="text-xs text-navy-muted">
             Basak, Lapu-Lapu City, Philippines
           </p>

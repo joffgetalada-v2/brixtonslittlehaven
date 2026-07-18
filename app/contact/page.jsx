@@ -7,18 +7,20 @@ import Icon from '@/components/Icon';
 export const metadata = {
   title: "Contact & Book a Free Trial | Brixton's Little Haven | Basak, Lapu-Lapu City",
   description:
-    "Book a free assessment and trial session at Brixton's Little Haven. Call 0999 807 4755, message us on Facebook, or fill out our form. Open Mon-Sat, 8:00 AM-7:00 PM. Beside Gaisano Grand Mall.",
+    "Book your child's assessment and free trial session at Brixton's Little Haven. Call 0999 807 4755, message us on Facebook, or fill out our form. Open Mon-Sat, 7:00 AM-7:00 PM. Beside Gaisano Grand Mall.",
   alternates: { canonical: '/contact' },
   openGraph: {
     title: "Contact Us | Brixton's Little Haven",
-    description: "Call, email, or message us on Facebook to schedule your child's free assessment. Basak, Lapu-Lapu City.",
+    description: "Call, email, or message us on Facebook to schedule your child's assessment and free trial session. Basak, Lapu-Lapu City.",
   },
 };
 
 const contactInfo = [
   { icon: 'phone', label: 'Phone', value: business.phone, href: business.phoneTel },
+  { icon: 'device', label: 'Viber / WhatsApp', value: business.phone },
   { icon: 'mail', label: 'Email', value: business.email, href: `mailto:${business.email}` },
   { icon: 'messenger', label: 'Facebook / Messenger', value: "Brixton's Little Haven", href: business.facebook, external: true },
+  { icon: 'instagram', label: 'Instagram', value: '@brixtons_little_haven', href: business.instagram, external: true },
   { icon: 'pin', label: 'Address', value: business.address },
   { icon: 'clock', label: 'Hours', value: business.hours },
 ];

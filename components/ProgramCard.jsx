@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Icon from '@/components/Icon';
 
 // Content accents (7 keys, stable contract in content/site.js) map onto the
@@ -64,6 +65,16 @@ export default function ProgramCard({ program, compact }) {
             </li>
           ))}
         </ul>
+      )}
+
+      {program.href && (
+        <Link
+          href={program.href}
+          className={`mt-4 inline-flex items-center gap-1 text-sm font-bold ${c.text} underline-offset-2 hover:underline`}
+        >
+          Explore the full program
+          <Icon name="sparkle" size={14} weight="fill" />
+        </Link>
       )}
     </div>
   );
