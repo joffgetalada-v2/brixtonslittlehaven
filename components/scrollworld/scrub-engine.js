@@ -126,9 +126,16 @@ function mountScrollWorld(container, config) {
   const hint = el('div', 'sw-hint');
   const hintText = el('span'); hintText.textContent = config.hint || 'scroll'; hint.appendChild(hintText);
   hint.appendChild(el('i'));
+  // LOCAL PATCH (slow networks): a small "loading" chip so the poster phase reads
+  // as intentional while the first clip downloads. Armed after 500ms, dismissed
+  // the moment any clip becomes scrubbable. Never shown under reduced motion.
+  const loadchip = el('div', 'sw-loading');
+  loadchip.innerHTML = `<i></i><span>${esc(config.loadingText || 'Loading the flight')}</span>`;
+  let firstClipReady = false;
+  if (!reduce) setTimeout(() => { if (!firstClipReady) loadchip.classList.add('is-on'); }, 500);
   const track = el('div', 'sw-track');
 
-  [sky, scrollbar, topbar, stage, copylayer, route, hint, track].forEach(n => container.appendChild(n));
+  [sky, scrollbar, topbar, stage, copylayer, route, hint, loadchip, track].forEach(n => container.appendChild(n));
 
   // segment scenes
   SEGMENTS.forEach(s => {
@@ -207,7 +214,11 @@ function mountScrollWorld(container, config) {
         v.muted = true; v.playsInline = true; v.preload = 'auto';
         v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
         v.src = URL.createObjectURL(blob);
-        v.addEventListener('loadedmetadata', () => { s.ready = true; read(); });
+        v.addEventListener('loadedmetadata', () => {
+          s.ready = true;
+          if (!firstClipReady) { firstClipReady = true; loadchip.classList.remove('is-on'); }
+          read();
+        });
         // Reveal the video (hide the still poster) only once a real frame has
         // painted — on iOS a seeked-but-never-played muted video stays blank, so
         // hiding the still on metadata alone would flash an empty scene.
@@ -274,6 +285,8 @@ function mountScrollWorld(container, config) {
       n.style.opacity = exit;
       n.style.visibility = exit < 0.02 ? 'hidden' : '';
     });
+    // Past the flight the loading chip is noise; drop it (it never re-arms).
+    if (overshoot > 0) loadchip.classList.remove('is-on');
     ticking = false;
   }
 
@@ -412,6 +425,10 @@ function injectCSS() {
   .sw-route__dot.is-active i{background:var(--sw-accent);transform:scale(1.4);box-shadow:0 0 0 5px color-mix(in srgb,var(--sw-accent) 22%,transparent);}
   .sw-route__label{position:absolute;right:24px;top:50%;transform:translateY(-50%) translateX(6px);white-space:nowrap;font-size:.78rem;font-weight:600;color:var(--sw-ink);background:color-mix(in srgb,#fff 85%,transparent);backdrop-filter:blur(6px);padding:5px 11px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;border:1px solid color-mix(in srgb,var(--sw-accent) 14%,transparent);}
   .sw-route__dot:hover .sw-route__label,.sw-route__dot.is-active .sw-route__label{opacity:1;transform:translateY(-50%) translateX(0);}
+  .sw-loading{position:fixed;left:50%;bottom:84px;z-index:31;transform:translateX(-50%);display:flex;align-items:center;gap:9px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sw-ink-soft);background:color-mix(in srgb,#fff 80%,transparent);backdrop-filter:blur(6px);padding:9px 16px;border-radius:999px;border:1px solid color-mix(in srgb,var(--sw-ink) 10%,transparent);opacity:0;pointer-events:none;transition:opacity .35s;}
+  .sw-loading.is-on{opacity:1;}
+  .sw-loading i{width:11px;height:11px;border-radius:50%;border:2px solid color-mix(in srgb,var(--sw-accent) 35%,transparent);border-top-color:var(--sw-accent);animation:sw-spin .9s linear infinite;}
+  @keyframes sw-spin{to{transform:rotate(360deg)}}
   .sw-hint{position:fixed;left:50%;bottom:26px;z-index:30;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sw-ink-soft);transition:opacity .3s;}
   .sw-hint i{width:22px;height:34px;border-radius:12px;border:2px solid color-mix(in srgb,var(--sw-ink) 28%,transparent);position:relative;}
   .sw-hint i::after{content:"";position:absolute;left:50%;top:7px;width:4px;height:7px;border-radius:2px;background:var(--sw-accent);transform:translateX(-50%);animation:sw-wheel 1.7s ease-in-out infinite;}

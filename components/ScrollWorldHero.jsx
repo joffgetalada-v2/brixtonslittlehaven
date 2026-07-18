@@ -120,6 +120,22 @@ export default function ScrollWorldHero() {
 
   return (
     <section aria-label="A scrolling tour through Brixton's Little Haven">
+      {/* Start the first clip's download before React boots; the engine's fetch then
+          reads it from the HTTP cache. Media queries mirror the engine's isMobile(). */}
+      <link
+        rel="preload"
+        as="fetch"
+        crossOrigin="anonymous"
+        href={CONFIG.sections[0].clip}
+        media="(min-width: 861px) and (hover: hover) and (pointer: fine)"
+      />
+      <link
+        rel="preload"
+        as="fetch"
+        crossOrigin="anonymous"
+        href={CONFIG.sections[0].clipMobile}
+        media="(max-width: 860px), ((hover: none) and (pointer: coarse))"
+      />
       <div ref={worldRef} style={{ minHeight: `${TOTAL_VH}vh` }}>
         {/* Server-rendered landing frame: LCP poster + first-scene copy. The engine
             replaces this on mount with the same visual, so hydration is seamless. */}
