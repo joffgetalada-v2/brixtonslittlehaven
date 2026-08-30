@@ -9,21 +9,23 @@ import { business } from '@/content/site';
 const FIELD_CLASSES =
   'w-full min-w-0 rounded-xl border-2 border-navy/15 bg-white px-4 py-2.5 text-base text-navy transition focus:border-coral-deep';
 
-export default function ContactForm() {
-  const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
-
+// `enabled` is decided on the server by app/contact/page.jsx, which checks for
+// RESEND_API_KEY. The key itself must stay server-side, so the page hands down a
+// boolean rather than this component reading any env var of its own.
+export default function ContactForm({ enabled = false }) {
   // Every hook runs before the early return below. React requires the same hooks
   // in the same order on every render, and the direct-contact branch returns
   // before the form is built - declaring these after it would be a violation that
-  // only bites once NEXT_PUBLIC_FORMSPREE_ID makes the branch reachable both ways.
+  // bites as soon as `enabled` can differ between renders.
   const [status, setStatus] = useState('idle'); // idle | sending | success | error
   const [form, setForm] = useState({ name: '', contact: '', program: '', message: '' });
   const [errors, setErrors] = useState({});
+  const [sendError, setSendError] = useState('');
 
-  // Without a Formspree ID there is no backend to receive the message. Never
-  // show a form that silently drops inquiries: offer the direct channels instead.
-  // (Set NEXT_PUBLIC_FORMSPREE_ID in Vercel env vars to activate the real form.)
-  if (!formId) {
+  // With no mail backend configured there is nothing to receive the message.
+  // Never show a form that silently drops inquiries: offer the direct channels
+  // instead. (Set RESEND_API_KEY in Vercel env vars to activate the real form.)
+  if (!enabled) {
     return (
       <div className="flex flex-col gap-4">
         <p className="text-sm leading-relaxed text-navy-soft">
@@ -88,15 +90,27 @@ export default function ContactForm() {
       return;
     }
     setStatus('sending');
+    setSendError('');
 
     try {
-      const res = await fetch(`https://formspree.io/f/${formId}`, {
+      // The honeypot is uncontrolled, so read it off the form rather than state.
+      const company = new FormData(e.target).get('company') || '';
+      // Posts to our own route handler, which sends the mail through Resend. The
+      // API key never leaves the server.
+      const res = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, company }),
       });
-      setStatus(res.ok ? 'success' : 'error');
+      if (res.ok) {
+        setStatus('success');
+        return;
+      }
+      const data = await res.json().catch(() => ({}));
+      setSendError(data.error || '');
+      setStatus('error');
     } catch {
+      setSendError('');
       setStatus('error');
     }
   }
@@ -110,7 +124,7 @@ export default function ContactForm() {
           Thank you. We&apos;ll reach out shortly to schedule your assessment and free trial.
         </p>
         <button
-          onClick={() => { setStatus('idle'); setForm({ name: '', contact: '', program: '', message: '' }); }}
+          onClick={() => { setStatus('idle'); setSendError(''); setForm({ name: '', contact: '', program: '', message: '' }); }}
           className="mt-2 rounded-full bg-coral-deep px-6 py-2 font-semibold text-white transition hover:bg-coral-ink active:scale-[0.98]"
         >
           Send another message
@@ -120,7 +134,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit} noValidate className="relative flex flex-col gap-4">
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
           <label htmlFor="name" className="text-sm font-semibold text-navy">
@@ -211,9 +225,16 @@ export default function ContactForm() {
         )}
       </div>
 
+      {/* Honeypot: hidden from people, tempting to bots. The route handler
+          silently accepts and discards anything that fills it in. */}
+      <div aria-hidden="true" className="absolute h-px w-px overflow-hidden opacity-0 -z-10">
+        <label htmlFor="company">Company</label>
+        <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       {status === 'error' && (
-        <p className="rounded-xl bg-coral-tint px-4 py-2 text-sm font-semibold text-coral-ink">
-          Something went wrong. Please try again, or message us on Facebook instead.
+        <p role="alert" className="rounded-xl bg-coral-tint px-4 py-2 text-sm font-semibold text-coral-ink">
+          {sendError || 'Something went wrong. Please try again, or message us on Facebook instead.'}
         </p>
       )}
 

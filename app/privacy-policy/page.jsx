@@ -51,15 +51,16 @@ export default function PrivacyPolicyPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-navy mb-2">4. Contact Form & Formspree</h2>
+          <h2 className="text-lg font-bold text-navy mb-2">4. Contact Form & Resend</h2>
           <p>
-            Our contact form is processed by <strong>Formspree</strong> (formspree.io). When you submit the form,
-            your data is transmitted to Formspree&apos;s servers and forwarded to our email address.
-            Formspree stores your submission for a limited period. Please review{' '}
-            <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer" className="text-coral-ink hover:underline">
-              Formspree&apos;s Privacy Policy
+            When you submit our contact form, your message is sent to our own server and delivered to
+            our email address using <strong>Resend</strong> (resend.com), an email delivery service.
+            Your details are used only to reply to your enquiry. We do not add you to a mailing list,
+            and the form does not save your submission to a database. Please review{' '}
+            <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-coral-ink hover:underline">
+              Resend&apos;s Privacy Policy
             </a>{' '}
-            for details.
+            for how they handle email in transit.
           </p>
         </section>
 

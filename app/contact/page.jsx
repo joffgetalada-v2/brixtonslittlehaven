@@ -47,7 +47,7 @@ export default function ContactPage() {
               <h2 className="mb-6 font-heading text-2xl font-bold text-navy">
                 Send us a message
               </h2>
-              <ContactForm />
+              <ContactForm enabled={Boolean(process.env.RESEND_API_KEY)} />
             </div>
           </FadeUp>
 
