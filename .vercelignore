@@ -1,0 +1,5 @@
+# Video masters and the audit trail are kept in the repo for recovery, but neither is
+# imported by the app or served from public/, so they never need to reach a deployment.
+# (Applies to `vercel deploy` uploads; Git-integration builds clone the whole repo.)
+media-sources/
+.ori-audit/
