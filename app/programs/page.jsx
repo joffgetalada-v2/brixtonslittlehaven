@@ -7,9 +7,9 @@ import PageHero from '@/components/PageHero';
 import Icon from '@/components/Icon';
 
 export const metadata = {
-  title: "Programs, Packages & Rates | Playgroup, Pre-K, Childcare & Tutorials | Brixton's Little Haven",
+  title: 'Programs, Packages & Rates',
   description:
-    "Explore 7 programs with transparent monthly rates: Playgroup from ₱2,500, Pre-Kindergarten from ₱5,500, Academic Enrichment & ESL, Integrated Care + Play, and ₱250/hr drop-in care. Lapu-Lapu City.",
+    'Seven programs with clear monthly rates: Playgroup from ₱2,500, Pre-K from ₱5,500, tutorials, ESL, full-day care, and ₱250/hr drop-in. Lapu-Lapu City.',
   alternates: { canonical: '/programs' },
   openGraph: {
     title: "Programs & Rates | Brixton's Little Haven",
@@ -176,7 +176,7 @@ export default function ProgramsPage() {
               Not sure which program fits?
             </h2>
             <p className="mx-auto mt-3 max-w-2xl text-white/95 [text-wrap:pretty]">
-              Book an assessment and we'll recommend the best match for your child's age and needs. Every assessment includes a free 2-hour trial session.
+              Book an assessment and we&apos;ll recommend the best match for your child&apos;s age and needs. Every assessment includes a free 2-hour trial session.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <HoverButton>

@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { business, pillars, spacePhotos } from '@/content/site';
+import { pillars, spacePhotos } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/motion';
 import PageHero from '@/components/PageHero';
 import Icon from '@/components/Icon';
 
 export const metadata = {
-  title: "Our Space & Story | Safe Indoor Learning Center | Brixton's Little Haven",
+  title: 'Our Space & Story',
   description:
-    "Step inside Brixton's Little Haven in Basak, Lapu-Lapu City: a clean, secure indoor space with a dedicated play area, arts corner, learning room, and rest area. Built on Safety, Structure, and Growth.",
+    'Step inside our clean, secure indoor space in Basak, Lapu-Lapu City: a dedicated play area, arts corner, learning room, and rest area for little ones.',
   alternates: { canonical: '/about' },
   openGraph: {
     title: "Our Space | Brixton's Little Haven",
@@ -87,7 +87,7 @@ export default function AboutPage() {
             <h2 className="font-heading text-3xl font-bold text-navy [text-wrap:balance] sm:text-4xl">
               Inside our space
             </h2>
-            <p className="mt-2 text-navy-soft">Purpose-built areas for every part of your child's day.</p>
+            <p className="mt-2 text-navy-soft">Purpose-built areas for every part of your child&apos;s day.</p>
           </FadeUp>
 
           <StaggerGrid className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

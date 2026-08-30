@@ -1,9 +1,28 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 
 const STORAGE_KEY = 'blh-cookie-notice-v1';
+
+// Read the stored acknowledgement through useSyncExternalStore rather than an
+// effect: localStorage is an external system, and this way the first client
+// render already knows the answer instead of flashing the notice and retracting
+// it. The server snapshot says "acknowledged" so the notice never appears in SSR
+// HTML, where localStorage cannot be consulted.
+function subscribe(onChange) {
+  window.addEventListener('storage', onChange);
+  return () => window.removeEventListener('storage', onChange);
+}
+function hasAcknowledged() {
+  try {
+    return !!localStorage.getItem(STORAGE_KEY);
+  } catch {
+    // Storage unavailable (private mode): stay quiet rather than nag every view.
+    return true;
+  }
+}
+const acknowledgedOnServer = () => true;
 
 // Cookie/privacy notice (Philippine Data Privacy Act friendly). This is a notice
 // with acknowledgement, not a consent gate: analytics is cookieless and the
@@ -11,24 +30,19 @@ const STORAGE_KEY = 'blh-cookie-notice-v1';
 // targets EEA/UK visitors with ads, replace this with a Google-certified CMP
 // (AdSense "Privacy & messaging" provides one).
 export default function CookieNotice() {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    try {
-      if (!localStorage.getItem(STORAGE_KEY)) setVisible(true);
-    } catch {
-      // Storage unavailable (private mode): stay quiet rather than nag every view.
-    }
-  }, []);
+  const acknowledged = useSyncExternalStore(subscribe, hasAcknowledged, acknowledgedOnServer);
+  // Dismissing in this tab does not fire a storage event, so the click is tracked
+  // separately to hide the notice immediately.
+  const [dismissedHere, setDismissedHere] = useState(false);
 
   function dismiss() {
     try {
       localStorage.setItem(STORAGE_KEY, String(Date.now()));
     } catch {}
-    setVisible(false);
+    setDismissedHere(true);
   }
 
-  if (!visible) return null;
+  if (acknowledged || dismissedHere) return null;
 
   return (
     <div

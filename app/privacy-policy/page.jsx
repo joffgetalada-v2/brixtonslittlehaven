@@ -2,7 +2,7 @@ import { business } from '@/content/site';
 import Icon from '@/components/Icon';
 
 export const metadata = {
-  title: "Privacy Policy | Brixton's Little Haven",
+  title: 'Privacy Policy',
   description:
     "Privacy Policy for the Brixton's Little Haven website: how we collect, use, and protect your information.",
   alternates: { canonical: '/privacy-policy' },
@@ -22,7 +22,7 @@ export default function PrivacyPolicyPage() {
         <section>
           <h2 className="text-lg font-bold text-navy mb-2">1. Who We Are</h2>
           <p>
-            This website is operated by <strong>Brixton's Little Haven</strong>, an indoor childcare, playgroup,
+            This website is operated by <strong>Brixton&apos;s Little Haven</strong>, an indoor childcare, playgroup,
             and tutorial center located beside Gaisano Grand Mall, Basak, Lapu-Lapu City, Philippines 6015.
             We can be reached at <a href={`mailto:${business.email}`} className="text-coral-ink hover:underline">{business.email}</a> or{' '}
             <a href={business.phoneTel} className="text-coral-ink hover:underline">{business.phone}</a>.
@@ -54,10 +54,10 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-lg font-bold text-navy mb-2">4. Contact Form & Formspree</h2>
           <p>
             Our contact form is processed by <strong>Formspree</strong> (formspree.io). When you submit the form,
-            your data is transmitted to Formspree's servers and forwarded to our email address.
+            your data is transmitted to Formspree&apos;s servers and forwarded to our email address.
             Formspree stores your submission for a limited period. Please review{' '}
             <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer" className="text-coral-ink hover:underline">
-              Formspree's Privacy Policy
+              Formspree&apos;s Privacy Policy
             </a>{' '}
             for details.
           </p>
@@ -68,7 +68,7 @@ export default function PrivacyPolicyPage() {
           <p>
             This website may display advertisements through <strong>Google AdSense</strong>. When ads are shown,
             Google AdSense uses cookies to serve ads based on your prior visits to this and other websites.
-            Google's use of advertising cookies enables it and its partners to serve ads based on your visit
+            Google&apos;s use of advertising cookies enables it and its partners to serve ads based on your visit
             to our site and/or other sites on the internet. Third-party vendors, including Google, use cookies
             to serve ads based on your prior visits.
           </p>
@@ -79,7 +79,7 @@ export default function PrivacyPolicyPage() {
             </a>.
             You can also opt out via{' '}
             <a href="https://www.networkadvertising.org/choices/" target="_blank" rel="noopener noreferrer" className="text-coral-ink hover:underline">
-              NAI's opt-out page
+              NAI&apos;s opt-out page
             </a>.
           </p>
         </section>
@@ -91,7 +91,7 @@ export default function PrivacyPolicyPage() {
             device types). No personally identifiable information is stored. Data is aggregated and cannot be used
             to identify individual visitors. See{' '}
             <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-coral-ink hover:underline">
-              Vercel's Privacy Policy
+              Vercel&apos;s Privacy Policy
             </a>.
           </p>
         </section>
@@ -106,7 +106,7 @@ export default function PrivacyPolicyPage() {
         </section>
 
         <section>
-          <h2 className="text-lg font-bold text-navy mb-2">8. Children's Privacy</h2>
+          <h2 className="text-lg font-bold text-navy mb-2">8. Children&apos;s Privacy</h2>
           <p>
             Our website is intended for parents and guardians, not for children under 13. We do not
             knowingly collect personal information from children under 13 without verified parental consent.

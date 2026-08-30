@@ -25,8 +25,14 @@ export default function Header() {
     return () => io.disconnect();
   }, []);
 
-  // Close the mobile menu whenever the route changes.
-  useEffect(() => { setOpen(false); }, [pathname]);
+  // Close the mobile menu whenever the route changes. Adjusting state during
+  // render is React's documented pattern for reacting to a changed value; an
+  // effect would queue a second render pass and paint the open menu first.
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
+    setOpen(false);
+  }
 
   const isActive = (href) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 
@@ -42,7 +48,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2.5" aria-label="Brixton's Little Haven home">
           <LogoImage width={44} height={44} priority />
           <span className="hidden font-heading text-base font-bold leading-tight text-navy sm:block">
-            Brixton's
+            Brixton&apos;s
             <br />
             <span className="text-coral-ink">Little Haven</span>
           </span>

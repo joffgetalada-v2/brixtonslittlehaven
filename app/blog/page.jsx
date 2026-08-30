@@ -7,9 +7,9 @@ import Icon from '@/components/Icon';
 import { formatDate } from '@/lib/format';
 
 export const metadata = {
-  title: "Blog | Parenting Tips & Child Development | Brixton's Little Haven",
+  title: 'Parenting Tips & Child Development',
   description:
-    "Practical parenting tips, child development insights, and school readiness guides from the team at Brixton's Little Haven in Lapu-Lapu City, Philippines.",
+    'Practical parenting tips, child development insights, and school readiness guides from our team in Lapu-Lapu City, Philippines.',
   alternates: { canonical: '/blog' },
   openGraph: {
     title: "Blog | Brixton's Little Haven",

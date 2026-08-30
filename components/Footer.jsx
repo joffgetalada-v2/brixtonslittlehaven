@@ -15,7 +15,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3" aria-label="Brixton's Little Haven home">
               <LogoImage width={56} height={56} />
               <span className="font-heading text-lg font-bold leading-tight">
-                Brixton's
+                Brixton&apos;s
                 <br />
                 <span className="text-sun">Little Haven</span>
               </span>
@@ -115,7 +115,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-10 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-center sm:flex-row sm:justify-between">
           <p className="text-xs text-navy-muted">
-            © {year} Brixton's Little Haven. All rights reserved.
+            © {year} Brixton&apos;s Little Haven. All rights reserved.
           </p>
           <span className="flex items-center gap-4">
             <Link href="/parent-handbook" className="text-xs text-navy-muted transition hover:text-sun">

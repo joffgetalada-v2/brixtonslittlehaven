@@ -6,9 +6,9 @@ import PageHero from '@/components/PageHero';
 import Icon from '@/components/Icon';
 
 export const metadata = {
-  title: "Parent Handbook | Policies & Guidelines | Brixton's Little Haven",
+  title: 'Parent Handbook',
   description:
-    "Everything families need to know: arrival and pick-up, attendance, health and safety, uniforms, communication, privacy, and payment policies at Brixton's Little Haven, Lapu-Lapu City.",
+    'Everything families need: arrival and pick-up, attendance, health and safety, uniforms, communication, privacy, and payment policies in one place.',
   alternates: { canonical: '/parent-handbook' },
   openGraph: {
     title: "Parent Handbook | Brixton's Little Haven",

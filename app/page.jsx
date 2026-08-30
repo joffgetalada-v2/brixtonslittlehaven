@@ -9,7 +9,7 @@ import Icon from '@/components/Icon';
 export const metadata = {
   title: "Brixton's Little Haven | Indoor Playgroup & Childcare in Lapu-Lapu City",
   description:
-    "Safe indoor playgroup and childcare for ages 1-5, plus pre-K, tutorials, and ESL from age 3 and up, beside Gaisano Grand Mall, Basak, Lapu-Lapu City. Book a free trial today.",
+    'Safe indoor playgroup and childcare for ages 1-5, plus pre-K and tutorials from age 3, beside Gaisano Grand Mall in Basak. Book a free trial today.',
   alternates: { canonical: '/' },
   openGraph: {
     title: "Brixton's Little Haven | Learn • Play • Grow • Shine",
@@ -33,7 +33,7 @@ export default function HomePage() {
             <h1 className="font-heading text-4xl font-bold leading-tight text-navy sm:text-5xl">
               No Yaya?{' '}
               <span className="relative">
-                <span className="relative z-10 text-coral-ink">We've got you.</span>
+                <span className="relative z-10 text-coral-ink">We&apos;ve got you.</span>
                 <span className="absolute -bottom-1 left-0 z-0 h-3 w-full rounded-full bg-amber-200/60" aria-hidden="true" />
               </span>
             </h1>
@@ -86,7 +86,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-b from-orange-50 to-cream py-14 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <FadeUp className="mb-6 text-center">
-            <p className="text-sm font-bold uppercase tracking-widest text-coral-ink">Life at Brixton's</p>
+            <p className="text-sm font-bold uppercase tracking-widest text-coral-ink">Life at Brixton&apos;s</p>
             <h2 className="font-heading text-2xl font-bold text-navy [text-wrap:balance] sm:text-3xl">
               Kids learning, playing, and growing every day
             </h2>
@@ -217,7 +217,7 @@ export default function HomePage() {
               <div className="relative mx-auto max-w-sm lg:max-w-none">
                 <div className="overflow-hidden rounded-3xl [box-shadow:var(--shadow-lift)]">
                   <Image
-                    src="/images/flyer.png"
+                    src="/images/flyer.webp"
                     alt="Brixton's Little Haven programs and services overview"
                     width={1016}
                     height={387}
@@ -347,7 +347,7 @@ export default function HomePage() {
             <h2 className="font-heading text-3xl font-bold text-navy [text-wrap:balance] sm:text-4xl">
               Events & announcements
             </h2>
-            <p className="mt-2 max-w-2xl text-navy-soft">Stay up to date with what's on at Brixton's Little Haven.</p>
+            <p className="mt-2 max-w-2xl text-navy-soft">Stay up to date with what&apos;s on at Brixton&apos;s Little Haven.</p>
           </FadeUp>
 
           {upcoming.length === 0 ? (

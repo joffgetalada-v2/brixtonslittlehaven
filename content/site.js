@@ -35,11 +35,17 @@ export const business = {
   hours: 'Monday to Saturday, 7:00 AM to 7:00 PM',
 
   // ── SEO defaults ─────────────────────────────────────────
-  // The custom domain goes live once the client's Cloudflare setup is approved;
-  // canonicals/sitemap already point at it so indexing lands on the final domain.
-  siteUrl: 'https://brixtonslittlehaven.com',
+  // Every canonical, the sitemap, robots.txt and the JSON-LD are built from this.
+  // It MUST be a host that resolves: pointing it at a domain that does not exist
+  // yet tells Google the real page lives somewhere unreachable, and nothing gets
+  // indexed. brixtonslittlehaven.com is still unregistered, so this stays on the
+  // live Vercel URL. The day the domain resolves, set NEXT_PUBLIC_SITE_URL in
+  // Vercel to https://brixtonslittlehaven.com and redeploy - no code change - then
+  // file a change of address in Search Console.
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://brixtonslittlehaven.vercel.app',
+  // Kept under 155 characters so search results show it whole.
   seoDescription:
-    "Safe indoor playgroup and childcare for ages 1 to 5, plus pre-kindergarten, academic tutorials, and ESL classes from age 3 and up, right beside Gaisano Grand Mall in Lapu-Lapu City.",
+    'Safe indoor playgroup and childcare for ages 1 to 5, plus pre-kindergarten and tutorials from age 3, beside Gaisano Grand Mall in Lapu-Lapu City.',
 };
 
 // ── Google AdSense ────────────────────────────────────────

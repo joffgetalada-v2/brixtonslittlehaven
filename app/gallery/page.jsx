@@ -5,9 +5,9 @@ import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/moti
 import PageHero from '@/components/PageHero';
 
 export const metadata = {
-  title: "Photo Gallery | Kids Learning & Playing, Brixton's Little Haven Lapu-Lapu City",
+  title: 'Photo Gallery',
   description:
-    "Browse real moments from Brixton's Little Haven: playgroup sessions, arts & crafts, academic tutorials, sensory play, and community events in Basak, Lapu-Lapu City.",
+    'Real moments from our indoor center: playgroup sessions, arts and crafts, academic tutorials, sensory play, and community events in Basak, Lapu-Lapu City.',
   alternates: { canonical: '/gallery' },
   openGraph: {
     title: "Gallery: Brixton's Little Haven",

@@ -7,9 +7,9 @@ import PackageCard from '@/components/PackageCard';
 import Icon from '@/components/Icon';
 
 export const metadata = {
-  title: "Pre-Kindergarten School Readiness Program | Ages 3-5 | Brixton's Little Haven",
+  title: 'Pre-Kindergarten Program | Ages 3-5',
   description:
-    'A balanced Pre-K curriculum in Lapu-Lapu City: reading, writing, math, science, and life skills for ages 3-5. Founding batch promo with free school bag, uniform, and learning materials. From ₱5,500 per month.',
+    'A balanced Pre-K curriculum for ages 3-5 in Lapu-Lapu City: reading, writing, math, science, and life skills. Founding batch freebies, from ₱5,500 a month.',
   alternates: { canonical: '/pre-kindergarten' },
   openGraph: {
     title: "Pre-Kindergarten | Brixton's Little Haven",

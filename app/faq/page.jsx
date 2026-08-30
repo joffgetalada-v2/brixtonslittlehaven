@@ -6,9 +6,9 @@ import PageHero from '@/components/PageHero';
 import Icon from '@/components/Icon';
 
 export const metadata = {
-  title: "FAQ | Childcare & Enrollment Questions | Brixton's Little Haven Lapu-Lapu City",
+  title: 'FAQ | Childcare & Enrollment',
   description:
-    "Answers to common parent questions about Brixton's Little Haven: what ages we accept, our hours, where we're located, how to enroll, drop-in care, and more. Basak, Lapu-Lapu City.",
+    'What ages we accept, our hours, where to find us, how to enroll, drop-in care, and more. Answers for parents in Basak, Lapu-Lapu City.',
   alternates: { canonical: '/faq' },
   openGraph: {
     title: "FAQ | Brixton's Little Haven",
@@ -66,7 +66,7 @@ export default function FaqPage() {
               <Link href="/parent-handbook" className="font-bold text-coral-ink underline-offset-2 hover:underline">
                 Parent Handbook
               </Link>{' '}
-              covers policies in detail, or send us a message and we'll reply as soon as possible.
+              covers policies in detail, or send us a message and we&apos;ll reply as soon as possible.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <HoverButton>

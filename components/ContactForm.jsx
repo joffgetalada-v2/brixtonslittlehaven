@@ -12,6 +12,14 @@ const FIELD_CLASSES =
 export default function ContactForm() {
   const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
 
+  // Every hook runs before the early return below. React requires the same hooks
+  // in the same order on every render, and the direct-contact branch returns
+  // before the form is built - declaring these after it would be a violation that
+  // only bites once NEXT_PUBLIC_FORMSPREE_ID makes the branch reachable both ways.
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+  const [form, setForm] = useState({ name: '', contact: '', program: '', message: '' });
+  const [errors, setErrors] = useState({});
+
   // Without a Formspree ID there is no backend to receive the message. Never
   // show a form that silently drops inquiries: offer the direct channels instead.
   // (Set NEXT_PUBLIC_FORMSPREE_ID in Vercel env vars to activate the real form.)
@@ -48,10 +56,6 @@ export default function ContactForm() {
       </div>
     );
   }
-
-  const [status, setStatus] = useState('idle'); // idle | sending | success | error
-  const [form, setForm] = useState({ name: '', contact: '', program: '', message: '' });
-  const [errors, setErrors] = useState({});
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -103,7 +107,7 @@ export default function ContactForm() {
         <span className="text-leaf-ink"><Icon name="sparkle" size={48} /></span>
         <h3 className="font-heading text-xl font-bold text-navy">Message sent.</h3>
         <p className="text-navy-soft">
-          Thank you. We'll reach out shortly to schedule your assessment and free trial.
+          Thank you. We&apos;ll reach out shortly to schedule your assessment and free trial.
         </p>
         <button
           onClick={() => { setStatus('idle'); setForm({ name: '', contact: '', program: '', message: '' }); }}

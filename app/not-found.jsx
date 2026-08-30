@@ -24,7 +24,7 @@ export default function NotFound() {
         This little explorer wandered off the map
       </h1>
       <p className="mt-4 max-w-md leading-relaxed text-navy-soft [text-wrap:pretty]">
-        The page you are looking for does not exist or has moved. Let's get you back to
+        The page you are looking for does not exist or has moved. Let&apos;s get you back to
         somewhere fun.
       </p>
       <div className="mt-8 flex flex-wrap items-center justify-center gap-3">

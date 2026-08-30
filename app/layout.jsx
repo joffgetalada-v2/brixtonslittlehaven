@@ -108,8 +108,16 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="flex min-h-screen flex-col">
+        {/* First tab stop on every page: lets keyboard and screen reader users
+            jump the header and route rail instead of tabbing through them. */}
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-navy focus:px-5 focus:py-3 focus:font-bold focus:text-warm-white"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main" tabIndex={-1} className="flex-1">{children}</main>
         <Footer />
         <MessengerButton />
         <CookieNotice />

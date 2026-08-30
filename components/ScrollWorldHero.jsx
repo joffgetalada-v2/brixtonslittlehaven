@@ -160,9 +160,12 @@ export default function ScrollWorldHero() {
             <p className="text-sm font-bold uppercase tracking-wide text-coral-ink">
               Beside Gaisano Grand Mall, Basak
             </p>
-            <h2 className="mt-3 font-heading text-4xl font-bold leading-tight text-navy sm:text-5xl">
+            {/* Styled like a heading but rendered as a paragraph: the page's real
+                h1 lives below the hero, and a heading here would open the document
+                outline at level 2 before it. */}
+            <p className="mt-3 font-heading text-4xl font-bold leading-tight text-navy sm:text-5xl">
               A little haven for big beginnings.
-            </h2>
+            </p>
             <p className="mt-4 text-lg leading-relaxed text-navy-soft">
               Safe, structured indoor care and learning for little ones in Lapu-Lapu City.
             </p>

@@ -5,9 +5,9 @@ import PageHero from '@/components/PageHero';
 import Icon from '@/components/Icon';
 
 export const metadata = {
-  title: "Contact & Book a Free Trial | Brixton's Little Haven | Basak, Lapu-Lapu City",
+  title: 'Contact & Book a Free Trial',
   description:
-    "Book your child's assessment and free trial session at Brixton's Little Haven. Call 0999 807 4755, message us on Facebook, or fill out our form. Open Mon-Sat, 7:00 AM-7:00 PM. Beside Gaisano Grand Mall.",
+    "Book your child's assessment and free trial session. Call 0999 807 4755 or message us on Facebook. Open Mon to Sat, 7:00 AM to 7:00 PM, in Basak.",
   alternates: { canonical: '/contact' },
   openGraph: {
     title: "Contact Us | Brixton's Little Haven",
