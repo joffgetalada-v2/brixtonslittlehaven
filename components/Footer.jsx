@@ -99,7 +99,10 @@ export default function Footer() {
             </p>
             <p className="mt-3 flex items-start gap-2 text-sm text-warm-white">
               <Icon name="clock" size={18} className="mt-0.5 shrink-0" />
-              {business.hours}
+              <span>
+                {business.hours}
+                <span className="block text-navy-muted">{business.hoursNote}</span>
+              </span>
             </p>
             <a
               href={business.googleMapsLink}

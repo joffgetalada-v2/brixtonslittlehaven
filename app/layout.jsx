@@ -84,13 +84,13 @@ export default function RootLayout({ children }) {
       latitude: 10.3103,
       longitude: 123.9494,
     },
-    priceRange: '₱250 - ₱15,999',
+    priceRange: '₱250 - ₱12,500',
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        opens: '07:00',
-        closes: '19:00',
+        opens: '08:00',
+        closes: '18:00',
       },
     ],
     sameAs: [business.facebook, business.instagram, ...(business.tiktok ? [business.tiktok] : [])],

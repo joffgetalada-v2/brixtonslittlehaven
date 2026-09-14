@@ -32,7 +32,16 @@ export const business = {
     'https://maps.google.com/?q=Gaisano+Grand+Mall+Basak+Lapu-Lapu+City+Philippines',
 
   // ── Hours ────────────────────────────────────────────────
-  hours: 'Monday to Saturday, 7:00 AM to 7:00 PM',
+  // June 2026 handbook (Learning Programs guide + Integrated Care guide) both
+  // print 8:00 AM - 6:00 PM, closed Sundays. Every session slot on the new rate
+  // card ends by 5:00 PM and drop-in care is 8am-6pm, so the shorter day is the
+  // coherent reading. The older enrollment/payment flyers still print 7am-7pm
+  // for the school office - flagged to the client for confirmation.
+  hours: 'Monday to Saturday, 8:00 AM to 6:00 PM',
+  hoursNote: 'Closed on Sundays for general cleaning',
+  // The school office runs longer than the care day: p2, p17, p18 and p19 all print
+  // 7:00 AM - 7:00 PM for enquiries and over-the-counter cash payments.
+  officeHours: 'Monday to Saturday, 7:00 AM to 7:00 PM',
 
   // ── SEO defaults ─────────────────────────────────────────
   // Every canonical, the sitemap, robots.txt and the JSON-LD are built from this.
@@ -45,7 +54,7 @@ export const business = {
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || 'https://brixtonslittlehaven.vercel.app',
   // Kept under 155 characters so search results show it whole.
   seoDescription:
-    'Safe indoor playgroup and childcare for ages 1 to 5, plus pre-kindergarten and tutorials from age 3, beside Gaisano Grand Mall in Lapu-Lapu City.',
+    'Indoor playgroup and childcare in Lapu-Lapu City for ages 1 to 5, full-day care to age 13, plus pre-kindergarten and tutorials from age 3.',
 };
 
 // ── Google AdSense ────────────────────────────────────────
@@ -112,15 +121,16 @@ export const programs = [
     category: 'Care',
     accent: 'orange',
     icon: 'house',
-    title: 'Integrated Care',
-    ageRange: '1 - 5 years',
-    duration: 'Up to 12 hours per session',
+    title: 'Integrated Care + Play',
+    ageRange: '1 - 13 years',
+    duration: '6 or 8 hours of care daily',
     summary:
-      'Full-day care combining babysitting and the playgroup program, with rest and learning tailored to your child\'s growth.',
+      'Full-day childcare with play-based learning, enrichment, rest, and nurturing care. Now open to school-age children up to 13.',
     includes: [
       'Structured routines + play-based learning',
-      'Interactive Games',
-      'Storytelling',
+      'Rest & quiet time',
+      'Homework support',
+      'Engaging activities',
       'Monthly Outdoor Adventures',
     ],
     featured: true,
@@ -132,7 +142,7 @@ export const programs = [
     icon: 'clock',
     title: 'Drop-In Care',
     ageRange: '1 - 5 years',
-    duration: 'Flexible hourly care',
+    duration: 'Flexible hourly care, 8:00 AM - 6:00 PM',
     summary:
       'Flexible hourly care based on your schedule. Perfect for errands, appointments, or sudden needs.',
     includes: [],
@@ -147,14 +157,15 @@ export const programs = [
     icon: 'books',
     title: 'Academic Tutorials',
     ageRange: '3 years and up',
-    duration: 'Flexible sessions',
+    duration: '2 hrs per session',
     summary:
-      'Focused support in early literacy, numeracy, and school readiness to build confidence and strengthen skills.',
+      'Personalized learning that builds fluency, confidence, and study habits, with progress tracked against goals set for your child.',
     includes: [
-      'Reading & Writing',
-      'Math Games',
-      'Science Experiments',
-      'Monthly Outdoor Learning Trips',
+      'Reading Fluency & Comprehension',
+      'Writing Confidence & Grammar Skills',
+      'Mathematics Mastery & Problem Solving',
+      'Study Skills, Focus & Homework Coaching',
+      'Individual Learning Goals & Progress Tracking',
     ],
     featured: true,
   },
@@ -186,7 +197,7 @@ export const programs = [
     accent: 'purple',
     icon: 'graduation',
     title: 'After-School Care',
-    ageRange: 'School-age kids',
+    ageRange: 'School-age, up to 13',
     duration: 'Open year-round',
     summary:
       'A safe, supervised place for your child after school hours. Enroll anytime, and message us to build a schedule that fits your family.',
@@ -219,11 +230,12 @@ export const faqs = [
   {
     question: 'What ages do you accept?',
     answer:
-      'Playgroup, drop-in, and integrated care programs welcome ages 1 to 5. Pre-Kindergarten serves ages 3 to 5, and academic tutorials and ESL classes are open from age 3 and up.',
+      'Playgroup and drop-in care welcome ages 1 to 5. Integrated Care + Play now covers ages 1 to 13, so school-age children are welcome too. Pre-Kindergarten serves ages 3 to 5, and academic tutorials and ESL classes are open from age 3 and up.',
   },
   {
     question: 'What are your hours?',
-    answer: 'We are open Monday to Saturday, 7:00 AM to 7:00 PM.',
+    answer:
+      'We are open Monday to Saturday, 8:00 AM to 6:00 PM. We are closed on Sundays for general cleaning.',
   },
   {
     question: 'Where are you located?',
@@ -258,7 +270,7 @@ export const faqs = [
   {
     question: 'How much do your programs cost?',
     answer:
-      'Playgroup packages start at ₱2,500 per month for a twice-a-week schedule, and flexible drop-in care is ₱250 per hour. Monthly rates depend on the program and how many sessions per week you choose. See the full rate card on our Programs page.',
+      'Playgroup packages start at ₱2,500 per month for a twice-a-week schedule, full-day Integrated Care + Play starts at ₱4,999, and flexible drop-in care is ₱250 per hour. Monthly rates depend on the program and how many sessions per week you choose. See the full rate card on our Programs page.',
   },
   {
     question: 'Is there an assessment fee?',
@@ -273,7 +285,17 @@ export const faqs = [
   {
     question: 'Do you offer make-up classes or refunds for missed sessions?',
     answer:
-      'No. We operate on a reserved-slot system: your child\'s classroom space, teacher allocation, and learning materials are reserved whether or not they attend, so all absences count as consumed sessions. Documented absences are excused on record but do not convert to make-ups, refunds, credits, or extensions. Full details are in our Parent Handbook.',
+      'Not for absences. We operate on a reserved-slot system: your child\'s classroom space, teacher allocation, and learning materials are reserved whether or not they attend, so absences count as consumed sessions. There are three exceptions, and none of them costs you a session: classes we suspend or cancel ourselves, officially declared public holidays, and our monthly outdoor activity. Full details are in our Parent Handbook.',
+  },
+  {
+    question: 'What happens if classes are suspended for a typhoon or a holiday?',
+    answer:
+      'You do not lose the session. If we cancel or suspend classes ourselves, whether for severe weather, a natural disaster, a national or local government suspension, an official city announcement, or any emergency affecting the safety of children and staff, that session is not counted as consumed and we tell you the rescheduled date or the adjustment. Officially declared public holidays are not counted either, and they follow our academic calendar. Our monthly outdoor activity is also an unconsumed session, whether or not your child joins.',
+  },
+  {
+    question: 'Do you look after school-age children?',
+    answer:
+      'Yes. Integrated Care + Play is open to ages 1 to 13, with 6-hour and 8-hour care days that include rest time, engaging activities, and homework support. After-School Care is available year-round too. Message us and we will build a schedule around your school run.',
   },
   {
     question: 'How do you keep parents updated?',
@@ -399,7 +421,7 @@ export const navLinks = [
 // Shown on the Programs page rate card. Mascot art lives in
 // public/images/illustrations/ (clay style, matches the hero world).
 export const rateNote =
-  'Rates are per month unless marked hourly. Other schedules may be available upon request.';
+  'Rates are per month unless marked hourly. All packages run on fixed weekly schedules.';
 
 export const packageGroups = [
   {
@@ -415,6 +437,7 @@ export const packageGroups = [
         mascot: '/images/illustrations/mascot-fox.webp',
         mascotAlt: 'Clay figurine of a friendly orange fox',
         duration: '4 hrs per session',
+        times: ['8:00 AM - 12:00 NN', '1:00 - 5:00 PM'],
         rates: [
           { schedule: 'Mon - Sat', sessions: '24 sessions', price: '₱9,000' },
           { schedule: 'MWF', sessions: '12 sessions', price: '₱4,800' },
@@ -429,6 +452,7 @@ export const packageGroups = [
         mascot: '/images/illustrations/mascot-bee.webp',
         mascotAlt: 'Clay figurine of a cheerful bumblebee',
         duration: '2 hrs per session',
+        times: ['8:00 - 10:00 AM', '10:00 AM - 12:00 NN', '1:00 - 3:00 PM', '3:00 - 5:00 PM'],
         rates: [
           { schedule: 'Mon - Sat', sessions: '24 sessions', price: '₱6,000' },
           { schedule: 'MWF', sessions: '12 sessions', price: '₱3,500' },
@@ -442,7 +466,7 @@ export const packageGroups = [
         tag: 'Drop-In Care',
         mascot: '/images/illustrations/mascot-butterfly.webp',
         mascotAlt: 'Clay figurine of a playful butterfly',
-        duration: 'Flexible hours, 7:00 AM - 7:00 PM',
+        duration: 'Flexible hours, 8:00 AM - 6:00 PM',
         rates: [{ schedule: 'Any day', sessions: 'Pay as you go', price: '₱250 per hour' }],
       },
     ],
@@ -460,7 +484,8 @@ export const packageGroups = [
         tag: 'Best Value',
         mascot: '/images/illustrations/mascot-star.webp',
         mascotAlt: 'Clay figurine of a happy golden star',
-        duration: '4 hrs per session, 8:00 AM - 12:00 NN or 1:00 - 5:00 PM',
+        duration: '4 hrs per session',
+        times: ['8:00 AM - 12:00 NN', '1:00 - 5:00 PM'],
         rates: [
           { schedule: 'Mon - Sat', sessions: '24 sessions', price: '₱12,500' },
           { schedule: 'MWF', sessions: '12 sessions', price: '₱6,800' },
@@ -472,7 +497,8 @@ export const packageGroups = [
   },
   {
     id: 'academic-rates',
-    title: 'Academic Enrichment & ESL',
+    title: 'Academic Excellence',
+    subtitle: 'Personalized learning',
     ageRange: 'Ages 3 and up',
     accent: 'sky',
     packages: [
@@ -483,6 +509,7 @@ export const packageGroups = [
         mascot: '/images/illustrations/mascot-squirrel.webp',
         mascotAlt: 'Clay figurine of a clever squirrel holding an acorn',
         duration: '2 hrs per session',
+        times: ['8:00 - 10:00 AM', '10:00 AM - 12:00 NN', '1:00 - 3:00 PM', '3:00 - 5:00 PM'],
         rates: [
           { schedule: 'Mon - Sat', sessions: '24 sessions', price: '₱9,000' },
           { schedule: 'MWF', sessions: '12 sessions', price: '₱4,800' },
@@ -494,48 +521,61 @@ export const packageGroups = [
   {
     id: 'care-play-rates',
     title: 'Integrated Care + Play',
-    subtitle: 'Half-day babysitting plus half-day playgroup',
-    ageRange: 'Ages 1 - 5',
+    subtitle: 'Full-day childcare with play-based learning, enrichment, rest and nurturing care',
+    ageRange: 'Ages 1 - 13',
     accent: 'berry',
+    image: '/images/illustrations/uniform-kids.webp',
+    imageAlt: "A toddler and an older child in the Brixton's Little Haven uniform, standing together in the classroom",
     packages: [
+      {
+        id: 'little-explorers',
+        name: 'Little Explorers',
+        tag: 'Play, Care & Grow',
+        mascot: '/images/illustrations/mascot-fox.webp',
+        mascotAlt: 'Clay figurine of a friendly orange fox',
+        duration: '6 hours of care per day',
+        rates: [
+          { schedule: '2 days a week', sessions: 'Any fixed 2 days, 8 sessions', price: '₱4,999' },
+          { schedule: 'MWF', sessions: '12 sessions', price: '₱6,499' },
+          { schedule: 'TTHS', sessions: '12 sessions', price: '₱6,499' },
+          { schedule: 'Mon - Fri', sessions: '20 sessions', price: '₱9,499', badge: 'Best Value' },
+          { schedule: 'Mon - Sat', sessions: '24 sessions', price: '₱10,499' },
+        ],
+      },
       {
         id: 'wise-owls',
         name: 'Wise Owls',
-        tag: 'Premium, 12 hrs',
+        tag: 'Care, Enrich & Excel',
         mascot: '/images/illustrations/mascot-owl.webp',
         mascotAlt: 'Clay figurine of a wise round owl',
-        duration: '12 hrs per session, starts as early as 7:00 AM',
+        duration: '8 hours of care per day',
         rates: [
-          { schedule: 'Mon - Sat', sessions: '24 sessions', price: '₱15,999' },
-          { schedule: 'MWF', sessions: '12 sessions', price: '₱8,999' },
-          { schedule: 'TTHS', sessions: '12 sessions', price: '₱8,999' },
+          { schedule: '2 days a week', sessions: 'Any fixed 2 days, 8 sessions', price: '₱5,999' },
+          { schedule: 'MWF', sessions: '12 sessions', price: '₱7,499' },
+          { schedule: 'TTHS', sessions: '12 sessions', price: '₱7,499' },
+          { schedule: 'Mon - Fri', sessions: '20 sessions', price: '₱10,999', badge: 'Best Value' },
+          { schedule: 'Mon - Sat', sessions: '24 sessions', price: '₱11,999' },
         ],
       },
-      {
-        id: 'little-foxes',
-        name: 'Little Foxes',
-        tag: 'Popular, 10 hrs',
-        mascot: '/images/illustrations/mascot-fox.webp',
-        mascotAlt: 'Clay figurine of a friendly orange fox',
-        duration: '10 hrs per session, starts as early as 7:00 AM',
-        rates: [
-          { schedule: 'Mon - Sat', sessions: '24 sessions', price: '₱13,999' },
-          { schedule: 'MWF', sessions: '12 sessions', price: '₱7,999' },
-          { schedule: 'TTHS', sessions: '12 sessions', price: '₱7,999' },
-        ],
-      },
+    ],
+    notes: [
+      'All packages run on fixed weekly schedules.',
+      'Make-up, refund, or credit is not applicable for absences.',
+      'Sick leave: a medical certificate is required for more than 3 consecutive absences.',
+      'Slots are limited to ensure quality care.',
     ],
   },
 ];
 
 export const flexiblePass = {
   title: 'Flexible Care Pass',
-  note: 'Flexible options for your busy days. Up to 10 hours of care, learning, and fun.',
+  note: 'Perfect for busy parents who need occasional childcare. Available for ages 1 to 13.',
   options: [
-    { label: 'Hourly rate', price: '₱250 per hour' },
-    { label: 'Half day (4 hours)', price: '₱899' },
-    { label: 'Daily pass (up to 10 hours)', price: '₱1,299', badge: 'Best Value' },
-    { label: 'Additional hours beyond 10', price: '₱250 per hour' },
+    { label: 'Hourly care', price: '₱250 per hour' },
+    { label: '4-hour pass', price: '₱999' },
+    { label: '6-hour pass', price: '₱1,399', badge: 'Most Popular' },
+    { label: '8-hour pass', price: '₱1,599', badge: 'Best Value' },
+    { label: 'Additional hour', price: '₱250 per hour' },
   ],
 };
 
@@ -604,20 +644,59 @@ export const prek = {
       ],
     },
   ],
+  // Signature Learning Formula, printed on the June 2026 Learning Programs guide.
+  formula: {
+    title: 'Our signature learning formula',
+    note: 'Every 4-hour Pre-K day is built from two deliberate halves.',
+    halves: [
+      {
+        title: '2 hours play-based learning',
+        description: 'Building confidence, creativity, social skills, and independence through purposeful play.',
+        accent: 'leaf',
+        icon: 'palette',
+      },
+      {
+        title: '2 hours academic excellence',
+        description: 'Developing literacy, numeracy, pre-writing, critical thinking, and kindergarten readiness skills.',
+        accent: 'sky',
+        icon: 'books',
+      },
+    ],
+  },
   routine: {
     title: 'A day in Pre-K',
-    note: 'Each session runs 4 hours, morning or afternoon.',
-    blocks: [
-      { title: 'Welcome time & free choice learning', description: 'Children arrive, greet their classmates and teachers, and explore learning centers.' },
-      { title: 'Morning circle time', description: 'Prayer, flag ceremony, calendar and weather, days of the week, and a "How do I feel today?" check-in.' },
-      { title: 'Introducing self', description: 'Practicing name, age, and personal information, one small confident voice at a time.' },
-      { title: 'Science, discovery & general knowledge', description: 'Topic discussion, hands-on exploration, worksheets, and learning center activity.' },
-      { title: 'Wiggle time', description: 'Movement games, the reading corner, obstacle courses, and action songs to reset busy bodies.' },
-      { title: 'Mathematics & logical thinking', description: 'Guided practice, worksheets, and hands-on learning activities.' },
-      { title: 'Snack time & practical life skills', description: 'Handwashing routines, healthy eating habits, table manners, and independence.' },
-      { title: 'Language, reading & writing', description: 'Phonics, reading activities, writing practice, and interactive learning.' },
-      { title: 'Independence & responsibility skills', description: 'Packing away materials, classroom clean-up, and organizing personal belongings.' },
-      { title: 'Reflection & dismissal', description: 'Goodbye song, putting on shoes independently, preparing bags, and a positive send-off.' },
+    note: 'Each session runs 4 hours, morning or afternoon. Times below are elapsed from the start of the session.',
+    halves: [
+      {
+        id: 'academic',
+        title: 'First 2 hours: academic enrichment',
+        subtitle: 'Focused learning and school readiness',
+        accent: 'sky',
+        icon: 'graduation',
+        blocks: [
+          { time: '0:00 - 0:20', title: 'Welcome time & free choice learning', description: 'Children arrive, greet their classmates and teachers, and explore learning centers.', develops: 'Independence, confidence, choice-making, and social skills.' },
+          { time: '0:20 - 0:40', title: 'Circle time', description: 'Prayer, calendar, weather, theme introduction, songs and rhymes, and a "How do I feel today?" check-in.', develops: 'Communication, listening skills, vocabulary, and emotional awareness.' },
+          { time: '0:40 - 0:55', title: 'Introducing self', description: 'Name, age, and personal information, one small confident voice at a time.', develops: 'Confidence, self-awareness, communication, and social skills.' },
+          { time: '0:55 - 1:20', title: 'Language, reading & writing', description: 'Phonics and letter sounds, vocabulary building, reading readiness, writing practice, and a worksheet activity.', develops: 'Communication, literacy, vocabulary, and early writing skills.' },
+          { time: '1:20 - 1:40', title: 'Mathematics & logical thinking', description: 'Number sense, counting and comparison, patterns and sorting, shapes and measurement, and a worksheet activity.', develops: 'Problem-solving, logical reasoning, and number sense.' },
+          { time: '1:40 - 2:00', title: 'Science, discovery & general knowledge', description: 'Science exploration, hands-on experiments, general knowledge, and a worksheet activity.', develops: 'Curiosity, observation, critical thinking, and understanding of the world.' },
+        ],
+      },
+      {
+        id: 'playgroup',
+        title: 'Last 2 hours: playgroup',
+        subtitle: 'Play-based learning and development',
+        accent: 'leaf',
+        icon: 'palette',
+        blocks: [
+          { time: '2:00 - 2:20', title: 'Free play & learning centers', description: 'Pretend play, building and construction, puzzles and manipulatives, and dramatic play.', develops: 'Independence, creativity, imagination, and social interaction.' },
+          { time: '2:20 - 2:40', title: 'Arts, crafts & fine motor development', description: 'Coloring and painting, cutting and pasting, craft projects, and play dough activities.', develops: 'Creativity, hand strength, and pre-writing readiness.' },
+          { time: '2:40 - 3:00', title: 'Snack time & social skills', description: 'Healthy eating habits, table manners, independent feeding, and cleaning up after snack.', develops: 'Hygiene habits, independence, and social skills.' },
+          { time: '3:00 - 3:20', title: 'Discovery, STEM & sensory exploration', description: 'Science discovery, sorting and matching, sensory play, nature exploration, and storytelling or quiet time.', develops: 'Curiosity, critical thinking, imagination, and listening skills.' },
+          { time: '3:20 - 3:40', title: 'Music, gross motor & outdoor play', description: 'Action songs and rhymes, dance and movement, obstacle courses, and outdoor or indoor play.', develops: 'Coordination, balance, strength, and self-expression.' },
+          { time: '3:40 - 4:00', title: 'Reflection, toilet check & goodbye circle', description: 'What did we learn today, sharing time, goodbye song, toilet check and handwashing, and the dismissal routine.', develops: 'Memory recall, communication, confidence, and positive classroom closure.' },
+        ],
+      },
     ],
   },
   freebies: [
@@ -638,6 +717,57 @@ export const prek = {
       title: 'Annual enrollment (SY 2026 - 2027)',
       save: 'Save 15% on tuition',
       perks: ['Lock in tuition rates for the entire school year', 'Priority slot reservation'],
+    },
+  ],
+};
+
+// ── Playgroup daily routines ──────────────────────────────
+// From the June 2026 Parent Handbook (Playgroup Program, ages 1-5).
+// Times are elapsed from the start of the session, not times of day, so the
+// same routine runs in a morning or an afternoon slot.
+// Block labels are normalised to the fuller wording used across the two sheets,
+// and the 4-hour sheet's blank Free Play / Arts cards inherit the 2-hour
+// sheet's activity lists (same blocks, longer slots).
+export const playgroupRoutines = {
+  intro:
+    'We nurture young minds through play, exploration, and meaningful experiences. Every playgroup session follows the same purposeful rhythm, whether your child joins us for two hours or four.',
+  sessions: [
+    {
+      id: 'playgroup-2hr',
+      title: '2-hour session',
+      note: 'Children ease into the classroom through purposeful play, then settle into the rhythm of the session.',
+      accent: 'sun',
+      blocks: [
+        { time: '0:00 - 0:15', title: 'Welcome time & free play', items: ['Building blocks', 'Manipulative toys', 'Sensory bins', 'Social interaction', 'Puzzles'], develops: 'Independence, confidence, choice-making, and social skills.' },
+        { time: '0:15 - 0:35', title: 'Morning circle time & language development', items: ['Greetings & attendance', 'Prayer', 'Weather today', 'Days of the week', 'Theme introduction', 'Songs & rhymes', 'Storytelling', 'How do I feel today? check-in'], develops: 'Communication, listening skills, vocabulary, and emotional awareness.' },
+        { time: '0:35 - 0:50', title: 'Self introduction', items: ['Name recognition', 'Reciting their name and age'], develops: 'Confidence, self-awareness, communication, and social skills.' },
+        { time: '0:50 - 1:10', title: 'Arts, crafts & fine motor development', items: ['Painting', 'Coloring', 'Stamping', 'Gluing', 'Tearing and pasting', 'Play dough activities'], develops: 'Creativity, hand strength, and pre-writing readiness.' },
+        { time: '1:10 - 1:25', title: 'Snack time & social skills', items: ['Healthy eating habits', 'Table manners', 'Independent feeding', 'Cleaning up after snack'], develops: 'Hygiene habits, independence, and social skills.' },
+        { time: '1:25 - 1:45', title: 'Discovery, STEM & sensory exploration', items: ['Science discovery', 'Sorting activities', 'Sensory play', 'Nature exploration', 'Cause-and-effect activities', 'Building challenges'], develops: 'Curiosity, critical thinking, and problem-solving skills.' },
+        { time: '1:45 - 1:55', title: 'Gross motor & movement time', items: ['Obstacle course', 'Action songs', 'Dance & movement', 'Ball games', 'Outdoor play'], develops: 'Balance, coordination, strength, and teamwork.' },
+        { time: '1:55 - 2:00', title: 'Reflection & goodbye circle', items: ['What did we learn today?', 'Sharing time', 'Goodbye song', 'Dismissal routine'], develops: 'Memory recall, communication, confidence, and positive classroom closure.' },
+      ],
+    },
+    {
+      id: 'playgroup-4hr',
+      title: '4-hour session',
+      note: 'The Curious Fox core day, with toileting support, quiet time, and guided learning centers.',
+      accent: 'leaf',
+      blocks: [
+        { time: '0:00 - 0:20', title: 'Free play on arrival', items: ['Building blocks', 'Manipulative toys', 'Sensory bins', 'Social interaction', 'Puzzles'], develops: 'Independence, confidence, choice-making, and social skills.' },
+        { time: '0:20 - 0:40', title: 'Morning circle time & language development', items: ['Greetings & attendance', 'Prayer', 'Weather today', 'Days of the week', 'Theme introduction', 'Songs & rhymes', 'Storytelling', 'How do I feel today? check-in'], develops: 'Communication, listening skills, vocabulary, and emotional awareness.' },
+        { time: '0:40 - 0:55', title: 'Self introduction', items: ['Name recognition', 'Reciting their name and age'], develops: 'Confidence, self-awareness, communication, and social skills.' },
+        { time: '0:55 - 1:20', title: 'Arts, crafts & fine motor development', items: ['Painting', 'Coloring', 'Stamping', 'Gluing', 'Tearing and pasting', 'Play dough activities'], develops: 'Creativity, hand strength, and pre-writing readiness.' },
+        { time: '1:20 - 1:30', title: 'Toilet break & transition', items: ['Hygiene and handwashing', 'Independence skills'], develops: 'Self-care habits and responsibility.' },
+        { time: '1:30 - 1:50', title: 'Snack time & social skills', items: ['Healthy eating habits', 'Table manners', 'Independent feeding', 'Cleaning up after snack'], develops: 'Hygiene habits, independence, and social skills.' },
+        { time: '1:50 - 2:15', title: 'Discovery, STEM & sensory exploration', items: ['Science discovery', 'Sorting activities', 'Sensory play', 'Nature exploration', 'Cause-and-effect activities', 'Building challenges'], develops: 'Curiosity, critical thinking, and problem-solving skills.' },
+        { time: '2:15 - 2:35', title: 'Storytelling & quiet time', items: ['Books and soft music', 'Guided relaxation', 'Listening activities'], develops: 'Attention span, imagination, and listening skills.' },
+        { time: '2:35 - 2:55', title: 'Music & movement', items: ['Action songs', 'Dance routines', 'Rhythm activities', 'Movement games'], develops: 'Coordination, rhythm, and self-expression.' },
+        { time: '2:55 - 3:20', title: 'Gross motor & movement time', items: ['Obstacle course', 'Action songs', 'Dance & movement', 'Ball games', 'Outdoor play'], develops: 'Balance, coordination, strength, and teamwork.' },
+        { time: '3:20 - 3:35', title: 'Learning centers & guided play', items: ['Reading corner', 'Building center', 'Sensory station', 'Pretend play area'], develops: 'Creativity, independence, and social interaction.' },
+        { time: '3:35 - 3:50', title: 'Toilet & diaper check', items: ['Potty breaks', 'Diaper checks', 'Handwashing'], develops: 'Hygiene, comfort, and independence.' },
+        { time: '3:50 - 4:00', title: 'Reflection & goodbye circle', items: ['What did we learn today?', 'Sharing time', 'Goodbye song', 'Dismissal routine'], develops: 'Memory recall, communication, confidence, and positive classroom closure.' },
+      ],
     },
   ],
 };
@@ -725,9 +855,10 @@ export const handbookSections = [
     accent: 'sun',
     title: 'Attendance & absences',
     points: [
-      'Effective June 8, 2026: please report absences at least 2 hours before class. Late notice means the absence is recorded as unexcused.',
+      'Please report absences at least 2 hours before class. Late notice means the absence is recorded as unexcused.',
       'Three or more consecutive days of absence due to illness require a medical certificate, submitted on or before your child\'s return. For travel, please inform us at least 48 hours in advance; travel does not qualify for a pause, extension, or refund.',
-      'We operate on a reserved-slot system: your child\'s classroom space, teacher allocation, and materials are reserved regardless of attendance. All absences count as consumed sessions, and there are no make-up classes, refunds, credits, extensions, or transfers to another day, month, program, or child.',
+      'Effective June 8, 2026, we operate on a reserved-slot system: your child\'s classroom space, teacher allocation, and materials are reserved regardless of attendance. Missed classes count as consumed sessions, and there are no make-up classes, refunds, credits, extensions, or transfers to another child, month, program, or level. This covers illness and medical appointments, vacation or travel, family events, personal reasons, and any other parent-initiated absence.',
+      'Three things are never counted against you. Classes that we suspend or cancel, for severe weather or natural disasters, a national or local government suspension, an official city or municipal announcement, or any emergency affecting the safety of children and staff, are not consumed sessions, and we will tell you the rescheduled class or the appropriate adjustment. Officially declared public holidays are not held and are not consumed sessions; they follow our academic calendar or announced schedule. And if your child\'s class falls on our monthly outdoor activity, it is an unconsumed session whether you attend or not.',
       'Crying, clinginess, or difficulty adjusting are normal and are not grounds for pausing enrollment. Consistent attendance is the best way to help your child settle in.',
     ],
   },
@@ -748,11 +879,13 @@ export const handbookSections = [
     icon: 'bag',
     accent: 'berry',
     title: 'Uniforms & belongings',
+    image: '/images/illustrations/uniform-pair.webp',
+    imageAlt: "Illustration of a girl and a boy in the Brixton's Little Haven uniform: cream shirt with the school crest, brown pleated skirt or shorts, white socks and black shoes",
     points: [
       'Program students wear the official uniform: regular school uniform Monday to Wednesday, PE uniform Thursday to Saturday.',
       'Label all personal belongings (bags, bottles, jackets, shoes, lunch containers) with your child\'s name, and pack an extra set of clothes for spills, water play, or messy activities.',
-      'Please leave valuable toys, gadgets, and jewelry at home. Comfort items are welcome during the adjustment period with teacher approval. Items that disrupt learning are stored safely and returned at dismissal.',
-      'Each child receives a school ID with a QR code used for check-in and check-out, worn at all times. IDs are provided at the parent\'s expense unless included free in your enrollment promo, like the Pre-K founding batch package.',
+      'Please leave valuable toys, gadgets, and jewelry at home. Comfort items are welcome during the adjustment period with teacher approval. Items that disrupt learning are stored safely and returned at dismissal. Brixton\'s Little Haven is not responsible for lost, misplaced, stolen, or damaged personal belongings.',
+      'Each child receives a school ID with a unique QR code, worn at all times. Parents or authorized guardians scan it at both arrival and dismissal, which is how Kriyo records attendance. IDs are provided at the parent\'s expense unless included free in your enrollment promo, like the Pre-K founding batch package.',
     ],
   },
   {
@@ -772,10 +905,10 @@ export const handbookSections = [
     accent: 'coral',
     title: 'Privacy & child protection',
     points: [
-      'CCTV keeps our little ones safe while respecting everyone\'s privacy. Parents may request a staff-supervised viewing of their own child\'s footage; recording, screenshots, or sharing are not permitted, and other children remain unseen.',
-      'With your consent, photos or short videos may be used for newsletters, classroom documentation, and our official pages. You can opt out during registration, and we respect your choice.',
+      'CCTV keeps our little ones safe while respecting everyone\'s privacy. Parents may request a staff-supervised viewing of their own child\'s footage by specifying the date and time; recording, screenshots, or sharing are not permitted, and other children remain unseen. Official copies are provided only when necessary or in an emergency.',
+      'With your consent, photos or short videos may be used for school newsletters, classroom documentation, marketing materials, our official social media pages, and internal school records. You can opt out during registration, and we respect your choice.',
       'All personal information, records, and family details are kept confidential and never shared with unauthorized parties without consent, unless required by law or to protect a child\'s safety.',
-      'We do not tolerate any form of abuse, neglect, bullying, harassment, or discrimination. Every staff member upholds child protection practices at all times.',
+      'We do not tolerate any form of abuse, neglect, bullying, harassment, discrimination, or unsafe and inappropriate behavior. Every staff member upholds child protection practices and professional standards at all times.',
     ],
   },
   {
@@ -784,10 +917,11 @@ export const handbookSections = [
     accent: 'sun',
     title: 'Fees & payments',
     points: [
-      'Tuition is due on or before the due date. Children with unpaid balances may not attend classes until fees are settled.',
+      'Tuition is due on or before the due date. Children with unpaid balances may not attend classes until fees are settled, and enrollment or a reserved slot is confirmed only on receipt of full payment.',
       'To reserve your child\'s slot for the next cycle, settle tuition on or before their last 2 remaining sessions. With limited slots and an active waiting list, unconfirmed slots may be released.',
-      'We accept GCash, bank transfer (BPI and Security Bank), debit and credit cards at the center, and cash at the school office, Monday to Saturday, 7:00 AM to 7:00 PM. Please send a screenshot of e-payment confirmations for verification.',
-      'Assessment fees, enrollment fees, and advance-paid tuition are non-refundable. Withdrawal requires written notice and does not entitle refunds, credits, or transfers of fees already paid.',
+      'We accept GCash, bank transfer (BPI and Security Bank), debit cards, credit cards, and cash. Credit card payments are processed on site, and the school office takes cash Monday to Saturday, 7:00 AM to 7:00 PM. Please send a screenshot of e-payment confirmations for verification, and message us for the account details.',
+      'Assessment fees, enrollment fees, and advance-paid tuition are non-refundable. Withdrawal requires written notice and does not entitle refunds, credits, or transfers of fees already paid, and any unpaid balance remains due.',
+      'Any bank transfer, card transaction, or digital payment that is declined, reversed, disputed, or unsuccessful is treated as unpaid, and outstanding balances need settling straight away.',
     ],
   },
 ];

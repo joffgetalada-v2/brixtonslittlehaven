@@ -34,7 +34,7 @@ const CONFIG = {
       eyebrow: 'Beside Gaisano Grand Mall, Basak',
       title: 'A little haven for big beginnings.',
       body: 'Safe, structured indoor care and learning for little ones in Lapu-Lapu City.',
-      tags: ['From age 1', 'Mon-Sat 7AM-7PM'],
+      tags: ['From age 1', 'Mon-Sat 8AM-6PM'],
     },
     {
       id: 'sw-playgroup', label: 'Playgroup',

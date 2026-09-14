@@ -7,7 +7,7 @@ import Icon from '@/components/Icon';
 export const metadata = {
   title: 'Contact & Book a Free Trial',
   description:
-    "Book your child's assessment and free trial session. Call 0999 807 4755 or message us on Facebook. Open Mon to Sat, 7:00 AM to 7:00 PM, in Basak.",
+    "Book your child's assessment and free trial session. Call 0999 807 4755 or message us on Facebook. Open Mon to Sat, 8:00 AM to 6:00 PM, in Basak.",
   alternates: { canonical: '/contact' },
   openGraph: {
     title: "Contact Us | Brixton's Little Haven",
@@ -25,7 +25,8 @@ const contactInfo = [
     ? [{ icon: 'tiktok', label: 'TikTok', value: "Brixton's Little Haven", href: business.tiktok, external: true }]
     : []),
   { icon: 'pin', label: 'Address', value: business.address },
-  { icon: 'clock', label: 'Hours', value: business.hours },
+  { icon: 'clock', label: 'Hours', value: `${business.hours}. ${business.hoursNote}.` },
+  { icon: 'chat', label: 'Office & enquiries', value: business.officeHours },
 ];
 
 export default function ContactPage() {

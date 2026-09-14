@@ -184,29 +184,102 @@ export default function PreKindergartenPage() {
           </div>
         </section>
 
+        {/* Signature learning formula */}
+        <section>
+          <FadeUp className="mb-8">
+            <h2 className="font-heading text-2xl font-bold text-navy [text-wrap:balance] sm:text-3xl">
+              {prek.formula.title}
+            </h2>
+            <p className="mt-2 text-sm text-navy-soft [text-wrap:pretty]">{prek.formula.note}</p>
+          </FadeUp>
+          <FadeUp>
+            <div className="grid items-center gap-4 sm:grid-cols-[1fr_auto_1fr]">
+              {prek.formula.halves.map((half, i) => {
+                const a = ACCENTS[half.accent] ?? ACCENTS.leaf;
+                return (
+                  <div key={half.title} className="contents">
+                    {i === 1 && (
+                      <span
+                        aria-hidden="true"
+                        className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-sun-tint font-heading text-xl font-bold text-sun-ink"
+                      >
+                        +
+                      </span>
+                    )}
+                    <div className={`h-full rounded-3xl ${a.tint} p-6`}>
+                      <span className={`inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/70 ${a.ink}`}>
+                        <Icon name={half.icon} size={24} />
+                      </span>
+                      <h3 className="mt-3 font-heading text-base font-bold text-navy">{half.title}</h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-navy-soft [text-wrap:pretty]">
+                        {half.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </FadeUp>
+        </section>
+
+        {/* Learning scene */}
+        <FadeUp>
+          <Image
+            src="/images/illustrations/prek-learning.webp"
+            alt="Three pre-kindergarten children at a table: one writing letters, one stacking blocks, one examining a seedling with a magnifying glass"
+            width={1600}
+            height={455}
+            sizes="(min-width: 1152px) 1088px, calc(100vw - 2rem)"
+            className="w-full rounded-3xl [box-shadow:var(--shadow-soft)]"
+          />
+        </FadeUp>
+
         {/* Daily routine */}
         <section>
           <FadeUp className="mb-8">
             <h2 className="font-heading text-2xl font-bold text-navy [text-wrap:balance] sm:text-3xl">
               {prek.routine.title}
             </h2>
-            <p className="mt-2 text-sm text-navy-soft">{prek.routine.note}</p>
+            <p className="mt-2 text-sm text-navy-soft [text-wrap:pretty]">{prek.routine.note}</p>
           </FadeUp>
-          <FadeUp>
-            <ol className="space-y-3">
-              {prek.routine.blocks.map((block, i) => (
-                <li key={block.title} className="flex gap-4 rounded-2xl bg-white p-4 [box-shadow:var(--shadow-soft)] sm:p-5">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sky-tint font-heading text-sm font-bold text-sky-ink">
-                    {i + 1}
-                  </span>
-                  <div>
-                    <h3 className="font-heading text-sm font-bold text-navy">{block.title}</h3>
-                    <p className="mt-1 text-xs leading-relaxed text-navy-soft">{block.description}</p>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {prek.routine.halves.map((half) => {
+              const a = ACCENTS[half.accent] ?? ACCENTS.sky;
+              return (
+                <FadeUp key={half.id}>
+                  <div className="h-full rounded-3xl bg-white p-6 [box-shadow:var(--shadow-soft)] sm:p-7">
+                    <div className="flex items-start gap-3">
+                      <span className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${a.tint} ${a.ink}`}>
+                        <Icon name={half.icon} size={22} />
+                      </span>
+                      <div>
+                        <h3 className="font-heading text-base font-bold text-navy">{half.title}</h3>
+                        <p className="text-xs text-navy-soft">{half.subtitle}</p>
+                      </div>
+                    </div>
+
+                    <ol className="mt-5 space-y-3">
+                      {half.blocks.map((block) => (
+                        <li key={block.time} className="rounded-2xl bg-cream p-4">
+                          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                            <span className="rounded-full bg-navy px-2.5 py-0.5 font-heading text-xs font-bold text-warm-white tabular-nums">
+                              {block.time}
+                            </span>
+                            <h4 className="font-heading text-sm font-bold text-navy">{block.title}</h4>
+                          </div>
+                          <p className="mt-2 text-xs leading-relaxed text-navy-soft">{block.description}</p>
+                          <p className="mt-1.5 text-xs leading-relaxed text-navy-soft">
+                            <span className="font-semibold text-navy">Develops:</span> {block.develops}
+                          </p>
+                        </li>
+                      ))}
+                    </ol>
                   </div>
-                </li>
-              ))}
-            </ol>
-          </FadeUp>
+                </FadeUp>
+              );
+            })}
+          </div>
         </section>
 
         {/* Tuition & founding batch promo */}

@@ -30,7 +30,7 @@ export default function ContactForm({ enabled = false }) {
       <div className="flex flex-col gap-4">
         <p className="text-sm leading-relaxed text-navy-soft">
           The quickest way to reach us is a message or a call. We reply fast during open hours,
-          Monday to Saturday, 7:00 AM to 7:00 PM.
+          Monday to Saturday, 8:00 AM to 6:00 PM.
         </p>
         <a
           href={business.messengerUrl}
@@ -195,7 +195,7 @@ export default function ContactForm({ enabled = false }) {
           <option value="">Select a program (optional)</option>
           <option>Playgroup (Ages 1-5)</option>
           <option>Pre-Kindergarten (Ages 3-5)</option>
-          <option>Integrated Care + Play (12 hrs)</option>
+          <option>Integrated Care + Play (Ages 1-13)</option>
           <option>Drop-In Care (hourly)</option>
           <option>Academic Tutorials (Ages 3+)</option>
           <option>After-School Care</option>

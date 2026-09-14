@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { programs, business, packageGroups, flexiblePass, rateNote } from '@/content/site';
+import Image from 'next/image';
+import { programs, business, packageGroups, flexiblePass, rateNote, playgroupRoutines } from '@/content/site';
 import { FadeUp, StaggerGrid, StaggerItem, HoverButton } from '@/components/motion';
 import ProgramCard from '@/components/ProgramCard';
 import PackageCard from '@/components/PackageCard';
@@ -9,11 +10,11 @@ import Icon from '@/components/Icon';
 export const metadata = {
   title: 'Programs, Packages & Rates',
   description:
-    'Seven programs with clear monthly rates: Playgroup from ₱2,500, Pre-K from ₱5,500, tutorials, ESL, full-day care, and ₱250/hr drop-in. Lapu-Lapu City.',
+    'Clear monthly rates: Playgroup from ₱2,500, Pre-K from ₱5,500, full-day care for ages 1-13 from ₱4,999, and ₱250/hr drop-in. Lapu-Lapu City.',
   alternates: { canonical: '/programs' },
   openGraph: {
     title: "Programs & Rates | Brixton's Little Haven",
-    description: "Playgroup, Pre-K, tutorials, ESL, and full-day care with transparent monthly rates. Ages 1-5, tutorials from age 3 and up.",
+    description: "Playgroup, Pre-K, tutorials, and full-day care with transparent monthly rates. Playgroup ages 1-5, full-day care to age 13.",
   },
 };
 
@@ -132,10 +133,32 @@ export default function ProgramsPage() {
                   )}
                 </div>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {group.image && (
+                    <div className="relative overflow-hidden rounded-3xl bg-berry-tint [box-shadow:var(--shadow-soft)]">
+                      <Image
+                        src={group.image}
+                        alt={group.imageAlt ?? ''}
+                        width={700}
+                        height={775}
+                        sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
+                        className="h-full min-h-56 w-full object-cover object-center"
+                      />
+                    </div>
+                  )}
                   {group.packages.map((pkg) => (
                     <PackageCard key={pkg.id} pkg={pkg} accent={group.accent} />
                   ))}
                 </div>
+                {group.notes?.length > 0 && (
+                  <ul className="mt-4 grid gap-x-6 gap-y-1.5 text-xs text-navy-soft sm:grid-cols-2">
+                    {group.notes.map((note) => (
+                      <li key={note} className="flex gap-2">
+                        <span aria-hidden="true" className="text-coral-ink">&bull;</span>
+                        <span>{note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </FadeUp>
             ))}
 
@@ -151,7 +174,7 @@ export default function ProgramsPage() {
                     <p className="text-xs text-navy-soft">{flexiblePass.note}</p>
                   </div>
                 </div>
-                <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                <ul className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
                   {flexiblePass.options.map((opt) => (
                     <li key={opt.label} className="rounded-2xl bg-white/70 p-4">
                       <p className="text-xs font-semibold text-navy-soft">{opt.label}</p>
@@ -166,6 +189,48 @@ export default function ProgramsPage() {
                 </ul>
               </div>
             </FadeUp>
+          </div>
+        </section>
+
+        {/* A day in playgroup */}
+        <section id="playgroup-routine" className="scroll-mt-24">
+          <FadeUp className="mb-8">
+            <h2 className="font-heading text-2xl font-bold text-navy [text-wrap:balance]">
+              A day in playgroup
+            </h2>
+            <p className="mt-2 max-w-3xl text-sm text-navy-soft [text-wrap:pretty]">
+              {playgroupRoutines.intro}
+            </p>
+          </FadeUp>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {playgroupRoutines.sessions.map((session) => (
+              <FadeUp key={session.id}>
+                <div className="h-full rounded-3xl bg-white p-6 [box-shadow:var(--shadow-soft)] sm:p-7">
+                  <h3 className="font-heading text-lg font-bold text-navy">{session.title}</h3>
+                  <p className="mt-1 text-xs text-navy-soft">{session.note}</p>
+
+                  <ol className="mt-5 space-y-3">
+                    {session.blocks.map((block) => (
+                      <li key={block.time} className="rounded-2xl bg-cream p-4">
+                        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+                          <span className="rounded-full bg-navy px-2.5 py-0.5 font-heading text-xs font-bold text-warm-white tabular-nums">
+                            {block.time}
+                          </span>
+                          <h4 className="font-heading text-sm font-bold text-navy">{block.title}</h4>
+                        </div>
+                        <p className="mt-2 text-xs leading-relaxed text-navy-soft">
+                          {block.items.join(' \u00b7 ')}
+                        </p>
+                        <p className="mt-1.5 text-xs leading-relaxed text-navy-soft">
+                          <span className="font-semibold text-navy">Develops:</span> {block.develops}
+                        </p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </FadeUp>
+            ))}
           </div>
         </section>
 

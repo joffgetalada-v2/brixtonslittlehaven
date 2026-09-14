@@ -77,16 +77,28 @@ export default function ParentHandbookPage() {
                       {section.title}
                     </h2>
                   </div>
-                  <ul className="mt-5 space-y-3">
-                    {section.points.map((point) => (
-                      <li key={point} className="flex items-start gap-2.5 text-sm leading-relaxed text-navy-soft">
-                        <span className={`mt-1 shrink-0 ${a.ink}`}>
-                          <Icon name="check" size={15} weight="bold" />
-                        </span>
-                        <span className="[text-wrap:pretty]">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className={section.image ? 'sm:flex sm:items-start sm:gap-7' : undefined}>
+                    <ul className="mt-5 flex-1 space-y-3">
+                      {section.points.map((point) => (
+                        <li key={point} className="flex items-start gap-2.5 text-sm leading-relaxed text-navy-soft">
+                          <span className={`mt-1 shrink-0 ${a.ink}`}>
+                            <Icon name="check" size={15} weight="bold" />
+                          </span>
+                          <span className="[text-wrap:pretty]">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {section.image && (
+                      <Image
+                        src={section.image}
+                        alt={section.imageAlt ?? ''}
+                        width={560}
+                        height={842}
+                        sizes="(min-width: 640px) 200px, 60vw"
+                        className={`mx-auto mt-5 w-40 shrink-0 rounded-2xl ${a.tint} p-2 sm:mx-0 sm:w-48`}
+                      />
+                    )}
+                  </div>
                 </section>
               </FadeUp>
             );

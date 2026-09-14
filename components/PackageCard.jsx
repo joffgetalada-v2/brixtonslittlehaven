@@ -38,12 +38,32 @@ export default function PackageCard({ pkg, accent = 'coral' }) {
       <ul className="mt-5 flex-1 divide-y divide-navy/10">
         {pkg.rates.map((r) => (
           <li key={r.schedule} className="flex items-baseline justify-between gap-3 py-2.5">
-            <span className="text-sm font-semibold text-navy">{r.schedule}</span>
+            <span className="text-sm font-semibold text-navy">
+              {r.schedule}
+              {r.badge && (
+                <span className={`ml-2 inline-block rounded-full ${a.chip} px-2 py-0.5 align-middle text-[10px] font-bold uppercase tracking-wide ${a.ink}`}>
+                  {r.badge}
+                </span>
+              )}
+            </span>
             <span className="flex-1 text-right text-xs text-navy-soft">{r.sessions}</span>
             <span className="w-24 text-right font-heading text-base font-bold text-navy">{r.price}</span>
           </li>
         ))}
       </ul>
+
+      {pkg.times?.length > 0 && (
+        <div className="mt-4 border-t border-navy/10 pt-3">
+          <p className="text-xs font-semibold text-navy-soft">Available times</p>
+          <ul className="mt-1.5 flex flex-wrap gap-1.5">
+            {pkg.times.map((t) => (
+              <li key={t} className={`rounded-full ${a.chip} px-2.5 py-1 text-xs font-semibold ${a.ink}`}>
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

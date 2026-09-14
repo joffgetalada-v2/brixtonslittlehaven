@@ -9,7 +9,7 @@ import Icon from '@/components/Icon';
 export const metadata = {
   title: "Brixton's Little Haven | Indoor Playgroup & Childcare in Lapu-Lapu City",
   description:
-    'Safe indoor playgroup and childcare for ages 1-5, plus pre-K and tutorials from age 3, beside Gaisano Grand Mall in Basak. Book a free trial today.',
+    'Safe indoor playgroup for ages 1-5, full-day care to age 13, plus pre-K and tutorials from age 3, beside Gaisano Grand Mall. Book a free trial today.',
   alternates: { canonical: '/' },
   openGraph: {
     title: "Brixton's Little Haven | Learn • Play • Grow • Shine",
@@ -75,7 +75,7 @@ export default function HomePage() {
           <FadeUp delay={0.4}>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-4 text-sm text-navy-soft">
               <span className="flex items-center gap-1.5"><Icon name="pin" size={16} /> Beside Gaisano Grand, Basak</span>
-              <span className="flex items-center gap-1.5"><Icon name="clock" size={16} /> Mon-Sat, 7 AM-7 PM</span>
+              <span className="flex items-center gap-1.5"><Icon name="clock" size={16} /> Mon-Sat, 8 AM-6 PM</span>
               <span className="flex items-center gap-1.5"><Icon name="phone" size={16} /> {business.phone}</span>
             </div>
           </FadeUp>
@@ -144,7 +144,7 @@ export default function HomePage() {
               Something for every child
             </h2>
             <p className="mt-3 max-w-2xl text-navy-soft">
-              From playgroup for ages 1 to 5 to academic coaching from age 3 and up.
+              From playgroup for ages 1 to 5 to full-day care up to age 13 and academic coaching from age 3 and up.
             </p>
           </FadeUp>
 
@@ -227,7 +227,7 @@ export default function HomePage() {
                 </div>
                 <div className="absolute bottom-4 right-4 rounded-2xl bg-navy px-4 py-3 shadow-lg">
                   <p className="text-xs text-navy-muted">Ages served</p>
-                  <p className="font-heading text-2xl font-bold text-warm-white">12 mo - 15 yrs</p>
+                  <p className="font-heading text-2xl font-bold text-warm-white">1 - 13 yrs</p>
                 </div>
               </div>
             </FadeUp>
@@ -286,7 +286,7 @@ export default function HomePage() {
               <div className="space-y-4">
                 {[
                   { icon: 'pin', title: 'Address', body: business.address },
-                  { icon: 'clock', title: 'Hours', body: business.hours },
+                  { icon: 'clock', title: 'Hours', body: `${business.hours}. ${business.hoursNote}.` },
                   { icon: 'phone', title: 'Phone', body: business.phone, href: business.phoneTel },
                   { icon: 'mail', title: 'Email', body: business.email, href: `mailto:${business.email}` },
                 ].map((item) => (

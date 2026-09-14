@@ -91,7 +91,7 @@ export const posts = [
       "**7. Can we visit before we commit?**\nA short trial tells you more than any tour. You see how your child responds to the room, the noise and the staff, and how the staff respond to your child. Any center confident in its environment will welcome this.",
       "**8. What does it actually cost, all in?**\nAsk the monthly rate, then ask what else you will pay for: assessment fees, materials, uniforms, late pickup charges. Surprises here sour an otherwise good relationship, so get the full picture in writing.",
       "**How we handle it**\nAt Brixton's Little Haven, enrollment starts with a ₱1,000 assessment, a 30-minute play-based session where we get to know your child's readiness and needs. After that your child gets a free 2-hour trial before you commit to anything. We built it this way because a decision this important should come after your child has actually spent time in the room, not after a tour.",
-      "We are in the AGC Building beside Gaisano Grand Mall in Basak, open Monday to Saturday, 7:00 AM to 7:00 PM. Whether you choose us or somewhere else, ask all eight. The right center will be glad you did.",
+      "We are in the AGC Building beside Gaisano Grand Mall in Basak, open Monday to Saturday, 8:00 AM to 6:00 PM. Whether you choose us or somewhere else, ask all eight. The right center will be glad you did.",
     ],
   },
   {
@@ -116,7 +116,7 @@ export const posts = [
       "**Make an indoor fort**\nBlankets, chairs, clips. Building it is the activity. Once it exists they will often play inside it quietly for another half hour, which is the closest thing to a rest a rainy afternoon offers.",
       "**Water play in the bathroom**\nA basin of water, some cups and a few plastic toys, on a towel or in the tub. Endlessly absorbing, easy to clear up, and it does not matter that it is pouring outside.",
       "**Read the same book four times**\nToddlers ask for repetition because that is how they learn. On the fourth reading, pause before a familiar word and let them fill it in. That small moment is early literacy happening in real time.",
-      "**When you need a real break**\nSome days there is no substitute for another adult taking over for a few hours. Our Flexible Care Pass exists for that: ₱250 per hour, ₱899 for a half day, or ₱1,299 for a full day of up to 10 hours. We are indoors, air-conditioned and open Monday to Saturday, 7:00 AM to 7:00 PM, whatever the weather is doing outside.",
+      "**When you need a real break**\nSome days there is no substitute for another adult taking over for a few hours. Our Flexible Care Pass exists for that: ₱250 per hour, ₱999 for a 4-hour pass, ₱1,399 for 6 hours, or ₱1,599 for 8 hours. We are indoors, air-conditioned and open Monday to Saturday, 8:00 AM to 6:00 PM, whatever the weather is doing outside.",
     ],
   },
   {
@@ -159,7 +159,7 @@ export const posts = [
       "Plenty of parents in Lapu-Lapu do not need childcare five days a week. They need it when a shift changes, when a yaya resigns without notice, during a school break, or for the three hours a month a hospital appointment eats.",
       "Traditional daycare does not fit that shape well. You pay monthly whether you use it or not, and enrolling for occasional needs feels excessive. Flexible or drop-in care is built for the gap.",
       "**How it works in practice**\nYou book the hours you need, when you need them. No monthly commitment, no minimum number of days. Your child joins the same activities as everyone else for the time they are there.",
-      "At Brixton's Little Haven the Flexible Care Pass is 250 pesos per hour, 899 for a half day of 4 hours, or 1,299 for a full day of up to 10 hours. Beyond 10 hours it returns to ₱250 per hour. We are open Monday to Saturday, 7:00 AM to 7:00 PM, which covers most shift patterns on the island.",
+      "At Brixton's Little Haven the Flexible Care Pass is 250 pesos per hour, 999 for a 4-hour pass, 1,399 for 6 hours, or 1,599 for a full 8-hour day, with any additional hour at 250 pesos. We are open Monday to Saturday, 8:00 AM to 6:00 PM, and full-day Integrated Care + Play now covers ages 1 to 13, so the school-age kids are sorted too.",
       "**When flexible beats monthly**\nIf your schedule genuinely rotates, paying per use is usually cheaper than a monthly rate you only half consume. The same goes for parents working from home who need focused blocks rather than whole days, and for families bridging a gap between helpers.",
       "**When monthly is the better deal**\nIf you find yourself booking three or more full days most weeks, run the numbers. At that point a monthly package is almost always cheaper per hour, and your child gains from the consistency of a fixed routine and the same faces each time. We will tell you this ourselves if we notice it. There is no sense in a family paying more for less structure.",
       "**Does dropping in unsettle a child?**\nSome children slot straight in. Others need a few visits before the room feels familiar. What helps most is a little regularity, even loosely held: the same morning each week settles a child far faster than scattered visits.",
