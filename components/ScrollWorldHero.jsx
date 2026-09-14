@@ -74,7 +74,7 @@ const CONFIG = {
       eyebrow: 'Academic Tutorials',
       title: 'Ready for big school.',
       body: "Reading, writing, and numbers at your child's own pace, from age 3 and up.",
-      tags: ['School readiness', 'ESL classes'],
+      tags: ['School readiness', 'Homework coaching'],
     },
     {
       id: 'sw-finale', label: 'Visit Us',

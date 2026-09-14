@@ -46,25 +46,31 @@ separation · 16 IMPORTANT POLICY UPDATE · 17 fees & payment · 18 enroll now �
 - Playgroup (Foundation Program): ages 1-5, enroll anytime, open year-round
 - Pre-Kindergarten School Readiness Program: ages 3-5, classes started July 6, 2026
 - Academic Excellence Program (personalized learning): ages 3+, enroll anytime
-  (~~"Academic Enrichment & ESL"~~ — p3 renames this; ESL is not named anywhere in
-  the new set, but p1 still lists "Enrichment Programs", so the ESL card stays)
-- After-School Care: enroll anytime, year-round (p1 and p18 both still list it)
+  (~~"Academic Enrichment & ESL"~~ — p3 renames this)
+- ~~ESL Classes~~ **DISCONTINUED** (client confirmed 2026-09-14). Removed from the
+  site. p1's "Enrichment Programs" line is now stale.
+- ~~After-School Care~~ **DISCONTINUED** (client confirmed 2026-09-14). Removed from
+  the site; school-age children are served by Integrated Care + Play (ages 1-13),
+  which includes homework support. **p1 and p18 of this very handbook still
+  advertise After-School Care — the client's own printed material needs correcting.**
 - Babysitting Services: available anytime
 - **Integrated Care + Play: ages 1-13** ~~ages 1-5~~ — full-day childcare with
   play-based learning, enrichment, rest and nurturing care. p4 also prints internal
   age bands "AGES 1-3 YEARS" and "PRESCHOOL AGES 3-5"; the 1-13 ribbon is the
   eligibility headline and is corroborated by the "Homework Support" feature.
 - p1 (welcome letter) lists: Playgroup, Pre-Kindergarten, Academic Tutorials,
-  After-School Care, Babysitting Services, and Enrichment Programs.
+  After-School Care, Babysitting Services, and Enrichment Programs — the last three
+  are stale. **Live programs are exactly five:** Playgroup, Integrated Care + Play,
+  Drop-In Care, Academic Tutorials, Pre-Kindergarten.
 
 ## Rates (monthly unless stated) — p3 and p4
 ### Playgroup (ages 1-5)
 - Curious Fox (PREMIUM / Core Package, 4 hrs/session): Mon-Sat 24 sess ₱9,000 ·
   MWF 12 ₱4,800 · TTHS 12 ₱4,800 · 2 days a week 8 ₱3,800
-  - Available times: 8am-12nn, 1pm-5pm  ~~(3pm-7pm removed)~~
+  - Available times: 8am-12nn, 1pm-5pm  ~~(3pm-7pm DISCONTINUED, client confirmed)~~
 - Bumblebee Buddies (MOST POPULAR / Playgroup Package, 2 hrs/session): Mon-Sat 24
   ₱6,000 · MWF 12 ₱3,500 · TTHS 12 ₱3,500 · 2 x a week 8 ₱2,500
-  - Available times: 8-10am, 10am-12nn, 1-3pm, 3-5pm  ~~(5-7pm removed)~~
+  - Available times: 8-10am, 10am-12nn, 1-3pm, 3-5pm  ~~(5-7pm DISCONTINUED, confirmed)~~
 - Busy Butterflies (FLEXIBLE / Drop-in Care): "*One-time is ₱250 per hr", 8am-6pm
   ~~7am-7pm~~
 ### Pre-Kindergarten (ages 3-5), BEST VALUE / Core Plus "School Readiness Track"
@@ -77,7 +83,7 @@ separation · 16 IMPORTANT POLICY UPDATE · 17 fees & payment · 18 enroll now �
   thinking & kindergarten readiness skills"
 ### Academic Excellence Program (ages 3+), FOCUSED LEARNING, Clever Squirrels, 2 hrs
 - Mon-Sat 24 sess ₱9,000 · MWF 12 ₱4,800 · TTHS 12 ₱4,800 (no twice-a-week row)
-- Available times: 8-10am, 10am-12nn, 1-3pm, 3-5pm  ~~(5-7pm removed)~~
+- Available times: 8-10am, 10am-12nn, 1-3pm, 3-5pm  ~~(5-7pm DISCONTINUED, confirmed)~~
 - Learning outcomes: reading fluency & comprehension · writing confidence & grammar ·
   mathematics mastery & problem solving · study skills, focus & homework coaching ·
   individual learning goals & progress tracking
@@ -158,8 +164,9 @@ Now explicitly two halves rather than ~~10 flat blocks~~:
 - 3:20-3:40 Music, gross motor & outdoor play
 - 3:40-4:00 Reflection, toilet check & goodbye circle
 - ~~DROPPED vs the old flyer: flag ceremony, days/months of the week, "wiggle time",
-  and the standalone "independence & responsibility skills" block. Confirm the flag
-  ceremony specifically before treating it as gone.~~
+  and the standalone "independence & responsibility skills" block.~~ **Confirmed
+  removed by the client 2026-09-14** — the flag ceremony is no longer part of the
+  Pre-K day and must not be re-added from the old flyer.
 - p12 says "Kindergarten and beyond" while p7 says "Kindergarten, Grade 1, and
   Beyond". Site keeps the fuller p7 wording.
 - All p12 times are ELAPSED offsets, so "Morning Circle Time" also runs in an
@@ -217,10 +224,13 @@ play · 3:35-3:50 toilet / diaper check · 3:50-4:00 reflection & goodbye circle
      not."
 - Also on p16: "This policy does not apply to official class suspensions or school
   closures announced by Brixton's Little Haven or government authorities."
-- NOTE: p17 section 6 still prints the older blanket line "These policies apply
-  regardless of illness, travel, inclement weather, holidays, service disruptions, or
-  personal circumstances", which contradicts carve-outs 1 and 2. p16 is the
-  self-declared UPDATE and is dated, so it governs. FLAGGED TO THE CLIENT.
+- **RESOLVED 2026-09-14 — the client's decision is that PAGE 16 GOVERNS.** p17
+  section 6 still prints the older blanket line "These policies apply regardless of
+  illness, travel, inclement weather, holidays, service disruptions, or personal
+  circumstances". That line is SUPERSEDED and must never be reproduced on the site:
+  weather closures, government suspensions, public holidays and the monthly outdoor
+  activity do NOT consume a session. The client's printed p17 should be corrected at
+  the next reprint.
 - Sick leave (p4): "Medical certificate required for more than 3 consecutive
   absences." The previous handbook said 3 or more. The site's general health section
   still says three or more; p4's line is carried verbatim in the Integrated Care

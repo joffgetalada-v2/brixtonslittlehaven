@@ -36,7 +36,7 @@ export const metadata = {
     'daycare Basak Lapu-Lapu',
     'indoor playground Mactan',
     'academic tutorial kids Cebu',
-    'ESL classes children',
+    'full day childcare Mactan',
     'babysitting Lapu-Lapu',
     "Brixton's Little Haven",
   ],

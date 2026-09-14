@@ -198,8 +198,6 @@ export default function ContactForm({ enabled = false }) {
           <option>Integrated Care + Play (Ages 1-13)</option>
           <option>Drop-In Care (hourly)</option>
           <option>Academic Tutorials (Ages 3+)</option>
-          <option>After-School Care</option>
-          <option>ESL Classes</option>
           <option>Not sure yet</option>
         </select>
       </div>

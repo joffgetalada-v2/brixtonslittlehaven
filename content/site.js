@@ -92,6 +92,9 @@ export const pillars = [
 ];
 
 // ── Programs ─────────────────────────────────────────────
+// ESL Classes and After-School Care were DISCONTINUED (client confirmed
+// 2026-09-14): both are absent from the June 2026 rate card. School-age
+// children are now served by Integrated Care + Play, ages 1-13.
 // Each program has an accent color used for its card surface and icon.
 // accent: one of 'coral' | 'orange' | 'amber' | 'green' | 'sky' | 'purple' | 'pink'
 export const programs = [
@@ -191,37 +194,6 @@ export const programs = [
     badge: 'Now Enrolling',
     href: '/pre-kindergarten',
   },
-  {
-    id: 'after-school',
-    category: 'Care',
-    accent: 'purple',
-    icon: 'graduation',
-    title: 'After-School Care',
-    ageRange: 'School-age, up to 13',
-    duration: 'Open year-round',
-    summary:
-      'A safe, supervised place for your child after school hours. Enroll anytime, and message us to build a schedule that fits your family.',
-    includes: [],
-    featured: false,
-  },
-  {
-    id: 'esl',
-    category: 'Learning & Enrichment',
-    accent: 'pink',
-    icon: 'chat',
-    title: 'ESL Classes',
-    ageRange: '3 years and up',
-    duration: 'Flexible sessions',
-    summary:
-      'English language learning through storytelling, vocabulary games, speaking activities, and environment-based outdoor practice.',
-    includes: [
-      'English Storytelling',
-      'Vocabulary Games',
-      'Speaking & Listening Activities',
-      'Outdoor Language Practice',
-    ],
-    featured: false,
-  },
 ];
 
 // ── FAQ ──────────────────────────────────────────────────
@@ -230,7 +202,7 @@ export const faqs = [
   {
     question: 'What ages do you accept?',
     answer:
-      'Playgroup and drop-in care welcome ages 1 to 5. Integrated Care + Play now covers ages 1 to 13, so school-age children are welcome too. Pre-Kindergarten serves ages 3 to 5, and academic tutorials and ESL classes are open from age 3 and up.',
+      'Playgroup and drop-in care welcome ages 1 to 5. Integrated Care + Play now covers ages 1 to 13, so school-age children are welcome too. Pre-Kindergarten serves ages 3 to 5, and academic tutorials are open from age 3 and up.',
   },
   {
     question: 'What are your hours?',
@@ -295,7 +267,7 @@ export const faqs = [
   {
     question: 'Do you look after school-age children?',
     answer:
-      'Yes. Integrated Care + Play is open to ages 1 to 13, with 6-hour and 8-hour care days that include rest time, engaging activities, and homework support. After-School Care is available year-round too. Message us and we will build a schedule around your school run.',
+      'Yes. Integrated Care + Play is open to ages 1 to 13, with 6-hour and 8-hour care days that include rest time, engaging activities, and homework support, so it covers the after-school hours too. Academic Tutorials run from age 3 and up. Message us and we will build a schedule around your school run.',
   },
   {
     question: 'How do you keep parents updated?',
@@ -858,7 +830,7 @@ export const handbookSections = [
       'Please report absences at least 2 hours before class. Late notice means the absence is recorded as unexcused.',
       'Three or more consecutive days of absence due to illness require a medical certificate, submitted on or before your child\'s return. For travel, please inform us at least 48 hours in advance; travel does not qualify for a pause, extension, or refund.',
       'Effective June 8, 2026, we operate on a reserved-slot system: your child\'s classroom space, teacher allocation, and materials are reserved regardless of attendance. Missed classes count as consumed sessions, and there are no make-up classes, refunds, credits, extensions, or transfers to another child, month, program, or level. This covers illness and medical appointments, vacation or travel, family events, personal reasons, and any other parent-initiated absence.',
-      'Three things are never counted against you. Classes that we suspend or cancel, for severe weather or natural disasters, a national or local government suspension, an official city or municipal announcement, or any emergency affecting the safety of children and staff, are not consumed sessions, and we will tell you the rescheduled class or the appropriate adjustment. Officially declared public holidays are not held and are not consumed sessions; they follow our academic calendar or announced schedule. And if your child\'s class falls on our monthly outdoor activity, it is an unconsumed session whether you attend or not.',
+      'Three things are never counted against you, and they override anything you may read on older printed material. Classes that we suspend or cancel, for severe weather or natural disasters, a national or local government suspension, an official city or municipal announcement, or any emergency affecting the safety of children and staff, are not consumed sessions, and we will tell you the rescheduled class or the appropriate adjustment. Officially declared public holidays are not held and are not consumed sessions; they follow our academic calendar or announced schedule. And if your child\'s class falls on our monthly outdoor activity, it is an unconsumed session whether you attend or not.',
       'Crying, clinginess, or difficulty adjusting are normal and are not grounds for pausing enrollment. Consistent attendance is the best way to help your child settle in.',
     ],
   },
